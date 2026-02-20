@@ -1,42 +1,83 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* General */
+.text-light {
+  font-weight: 300;
+}
+.text-bold {
+  font-weight: 700;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Station Board */
+.station-board {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+header h1 {
+  margin: 0;
 }
 
-.card {
-  padding: 2em;
+.arrivals-panel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-.read-the-docs {
-  color: #888;
+/* Arrival Panel */
+.arrival-panel-outer {
+  padding: 24px;
+  background-color: #424242;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.arrival-panel-train-logo {
+  height: 90px;
+}
+
+.arrival-panel-destination {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.arrival-panel-destination h2 {
+  margin: 0;
+}
+
+.arrival-panel-destination p {
+  margin: 0;
+  margin-top: -0.5em;
+  font-size: 1.8em;
+}
+
+.arrival-panel-arrival-time {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.arrival-panel-arrival-time h1 {
+  margin: 0;
+}
+
+.arrival-panel-arrival-time p {
+  margin: 0;
+  margin-top: -1em;
+  font-size: 1.25em;
+}
+
+/* Clock */
+.clock {
+  font-size: 2.2em;
 }

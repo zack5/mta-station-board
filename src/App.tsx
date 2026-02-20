@@ -1,5 +1,9 @@
+import './app.css'
+
 import { useEffect, useState } from "react";
 import { decodeGtfs } from "./services/gtfs";
+
+import StationBoard from "./pages/StationBoard";
 
 function App() {
   const [trainCount, setTrainCount] = useState<number | null>(null);
@@ -11,25 +15,34 @@ function App() {
 
       const feed = await decodeGtfs(buffer);
 
-      const tripUpdates = feed.entity.filter(
-        (e: any) => e.tripUpdate
-      );
+      const now = Number(feed.header.timestamp);
+      const arrivals = feed.entity
+        .filter(entity => entity.tripUpdate)
+        .flatMap(entity => {
+          const trip = entity.tripUpdate!;
 
-      setTrainCount(tripUpdates.length);
+          // G29: Metropolitain Ave-Lorimer St
+          const stop = trip.stopTimeUpdate?.find(s => s.stopId?.startsWith('G29'));
+          
+          if (!stop || !stop.arrival?.time) return [];
+
+          return [{
+            direction: stop.stopId?.endsWith('N') ? 'Northbound' : 'Southbound',
+            arrivalTime: Number(stop.arrival.time),
+            minutesAway: Math.round((Number(stop.arrival.time) - now) / 60),
+            isLive: (trip.trip as any)['.nyctTripDescriptor']?.isAssigned || false
+          }];
+        })
+        .filter(a => a.minutesAway >= 0) // Hide trains that already passed
+        .sort((a, b) => a.arrivalTime - b.arrivalTime);
+      console.log(arrivals);
     }
 
     loadFeed();
   }, []);
 
   return (
-    <div style={{ padding: "2rem", fontFamily: "system-ui" }}>
-      <h1>G Train Tracker</h1>
-      <p>
-        {trainCount !== null
-          ? `Active trips: ${trainCount}`
-          : "Loading..."}
-      </p>
-    </div>
+    <StationBoard/>
   );
 }
 
