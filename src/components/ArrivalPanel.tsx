@@ -1,18 +1,22 @@
+import type { CSSProperties } from 'react';
+
 interface ArrivalPanelProps {
     line: string;        // e.g., "G"
     terminus: string;    // e.g., "Court Sq"
     borough: string;     // e.g., "Queens"
-    arrivalTime: string; // e.g., "5"
+    arrivalTime: number; // e.g., "5"
+    style: CSSProperties;
   }
   
   export default function ArrivalPanel({ 
     line, 
     terminus, 
     borough, 
-    arrivalTime 
+    arrivalTime,
+    style
   }: ArrivalPanelProps) {
     return (
-      <div className="arrival-panel-outer">
+      <div className="arrival-panel-outer" style={style}>
         <img 
           src={`/src/assets/${line.toLowerCase()}.svg`} 
           className="arrival-panel-train-logo" 

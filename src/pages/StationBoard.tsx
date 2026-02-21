@@ -1,5 +1,5 @@
 import Clock from "../components/Clock";
-import ArrivalPanel from "../components/ArrivalPanel";
+import ArrivalPanelStack from "../components/ArrivalPanelStack";
 
 export default function StationBoard() {
   return (
@@ -10,17 +10,17 @@ export default function StationBoard() {
       </header>
       <main>
         <div className="arrivals-panel-list">
-          <ArrivalPanel 
+          <ArrivalPanelStack
             line="G" 
             terminus="Court Sq" 
             borough="Queens" 
-            arrivalTime="5" 
+            arrivalTimes={{ "id1": 2, "id2": 8, "id3": 23 }}
           />
-          <ArrivalPanel 
+          <ArrivalPanelStack 
             line="L" 
             terminus="8th Av" 
             borough="Manhattan" 
-            arrivalTime="12" 
+            arrivalTimes={{ "id1": 1, "id2": 3 }}
           />
         </div>
       </main>
