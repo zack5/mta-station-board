@@ -7,10 +7,12 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "preprocess": "ts-node scripts/preprocess.ts"
   },
   "dependencies": {
     "@netlify/functions": "^5.1.2",
+    "csv-parse": "^6.1.0",
     "gtfs-realtime-bindings": "^1.1.1",
     "motion": "^12.34.3",
     "node-fetch": "^3.3.2",
