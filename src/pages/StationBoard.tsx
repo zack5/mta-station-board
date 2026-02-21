@@ -12,6 +12,7 @@ import NotFound from "../pages/NotFound";
 import { decodeGtfs } from "../services/gtfs";
 
 import type { StationInfoData, StopInfoData, TrainInfo } from '../types/types';
+import { StationSelector } from "../components/StationSelector";
 
 const FULL_BOROUGH_NAMES: Record<string, string> = {
   "Bk": "Brooklyn",
@@ -99,7 +100,7 @@ interface StationBoardProps {
 
 export default function StationBoard({ stationId: propStationId }: StationBoardProps) {
   const { stationId: paramStationId } = useParams<{ stationId: string }>();
-  const activeStationId = propStationId ?? paramStationId ?? '';
+  const [ activeStationId, setActiveStationId ] = useState(propStationId ?? paramStationId ?? '');
 
   const stations = stationsData as StationInfoData;
   const stops = stopsData as StopInfoData;
@@ -160,12 +161,12 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
 
   if (!station) {
     return <NotFound/>
-  }
+  }  
 
   return (
     <div className="station-board"> 
       <header className="station-board-header">
-        <h1 className="truncate">{stationName}</h1>
+        <StationSelector stationId={activeStationId} onStationChange={setActiveStationId}/>
         <Clock />
       </header>
       <main>
