@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import ArrivalPanel from './ArrivalPanel';
 
-const PANEL_HEIGHT = 150;
+const PANEL_HEIGHT = 146;
+const PANEL_PADDING = 22;
 const PEEK_WIDTH = 140
 const MAX_STACK_DEPTH = 3;
 const GAP_BEFORE_FADE = 10;
@@ -60,9 +61,22 @@ export default function ArrivalPanelStack({
             layout
             style={{ 
               position: 'absolute',
-              left: `${index * PEEK_WIDTH}px`,
-              zIndex: (sortedArrivals.length - index),
               width: `${arrivalPanelWidth}px`,
+            }}
+            initial={{
+              left: `${(index + 1) * PEEK_WIDTH}px`,
+              zIndex: 0,
+              opacity: 0,
+            }}
+            animate={{
+              left: `${(index + 0) * PEEK_WIDTH}px`,
+              zIndex: (sortedArrivals.length - index),
+              opacity: 1,
+            }}
+            exit={{
+              left: `${(index - 1) * PEEK_WIDTH}px`,
+              opacity: 0,
+              zIndex: index <= 0 ? MAX_STACK_DEPTH + 1 : 0,
             }}
           >
             <div className="arrival-panel-backing"
@@ -93,7 +107,10 @@ export default function ArrivalPanelStack({
               }}
             />
             <ArrivalPanel
-              style={{ width: `${arrivalPanelWidth - 48}px` }} // 40 = 2 * padding
+              style={{
+                width: `${arrivalPanelWidth - 2 * PANEL_PADDING}px`,
+                padding: `${PANEL_PADDING}px`
+              }}
               line={line}
               terminus={terminus}
               borough={borough}
