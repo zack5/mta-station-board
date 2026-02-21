@@ -144,7 +144,7 @@ export default function StationBoard({ complexId }: StationBoardProps) {
   return (
     <div className="station-board"> 
       <header className="station-board-header">
-        <h1>{stationName}</h1>
+        <h1 className="truncate">{stationName}</h1>
         <Clock />
       </header>
       <main>

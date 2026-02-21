@@ -17,9 +17,9 @@ interface ArrivalPanelProps {
           className="arrival-panel-train-logo" 
           alt={`${train.line} train`}
         />
-        <div className="arrival-panel-destination">
-          <h2>{train.destinationName}</h2>
-          <p>{train.destinationBorough}</p>
+        <div className="arrival-panel-destination truncate">
+          <h2 className="truncate">{train.destinationName}</h2>
+          <p className="truncate">{train.destinationBorough}</p>
         </div>
         <div className="arrival-panel-arrival-time">
           <h1>{`${train.arrivalTime}`}</h1>

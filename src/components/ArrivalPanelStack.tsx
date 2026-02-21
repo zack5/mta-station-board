@@ -5,13 +5,6 @@ import ArrivalPanel from './ArrivalPanel';
 
 import type { TrainInfo } from '../types/types';
 
-const PANEL_HEIGHT = 146;
-const PANEL_PADDING = 22;
-const PEEK_WIDTH = 140
-const MAX_STACK_DEPTH = 3;
-const GAP_BEFORE_FADE = 10;
-const FADE_WIDTH = 50;
-
 interface ArrivalPanelStackProps {
   trains: TrainInfo[]
 }
@@ -19,33 +12,48 @@ interface ArrivalPanelStackProps {
 export default function ArrivalPanelStack({
   trains
 }: ArrivalPanelStackProps) {
-  const [width, setWidth] = useState<number>(1220);
+  const [clientWidth, setClientWidth] = useState<number>(0);
+  const [surfaceWidth, setSurfaceWidth] = useState<number>(0);
+
+  const isDesktop = clientWidth > 800; // Keep in sync with css media query
+  const PANEL_HEIGHT = isDesktop ? 126 : 60;
+  const PANEL_PADDING = isDesktop ? 18 : 8;
+  const PEEK_WIDTH = isDesktop ? 140 : 50;
+  const FADE_WIDTH = isDesktop ? 50 : 20;
+  const GAP_BEFORE_FADE = isDesktop ? 10 : 5;
+  const MAX_STACK_DEPTH = isDesktop ? 3 : 3;
 
   useEffect(() => {
-    const rootElement = document.querySelector('header');
+    const root = document.documentElement;
+    const header = document.querySelector('header');
     
     const handleResize = () => {
-      if (rootElement) {
-        // offsetWidth includes padding and borders
-        setWidth(rootElement.offsetWidth);
+      if (root) {
+        setClientWidth(root.offsetWidth);
+      }
+      if (header) {
+        setSurfaceWidth(header.offsetWidth);
       }
     };
 
-    // Initial set
     handleResize();
 
-    // Listen for window resize to keep width updated
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const arrivalPanelWidth = width - (MAX_STACK_DEPTH - 1) * PEEK_WIDTH
+  const arrivalPanelWidth = surfaceWidth - (MAX_STACK_DEPTH - 1) * PEEK_WIDTH
   const displayedTrains = trains.slice(0, MAX_STACK_DEPTH);
+
+  if (clientWidth <= 0)
+  {
+    return <></>
+  }
 
   return (
     <div className="arrival-panel-stack" style={{ 
       position: 'relative', // Locks coordinate system in for child elements
-      width: `${width}px`, 
+      width: `${surfaceWidth}px`, 
       height: `${PANEL_HEIGHT}px`,
     }}>
       <AnimatePresence>
@@ -96,7 +104,7 @@ export default function ArrivalPanelStack({
               style={{ 
                 position: 'absolute',
                 top: `-${GAP_BEFORE_FADE}px`,
-                width: `${width}px`,
+                width: `${surfaceWidth}px`,
                 height: `${PANEL_HEIGHT + GAP_BEFORE_FADE * 2}px`,
               }}
             />
