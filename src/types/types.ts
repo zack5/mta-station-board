@@ -19,5 +19,5 @@ export interface TrainInfo {
   line: string;
   destinationName: string;
   destinationBorough: string;
-  arrivalTime: Number;
+  arrivalTime: number;
 }

@@ -10,26 +10,6 @@ import { decodeGtfs } from "../services/gtfs";
 
 import type { StationInfoData, StopInfoData, TrainInfo } from '../types/types';
 
-// Define your snapshots
-const SNAPSHOTS = [
-  {
-    G: { "G1": 1, "G2": 2, "G3": 3 },
-    L: { "L0": 0, "L1": 2, "L2": 6 }
-  },
-  {
-    G: { "G2": 2, "G3": 3, "G4": 4 },
-    L: { "L0": 0, "L1": 2, "L2": 6 }
-  },
-  {
-    G: { "G3": 3, "G4": 4, "G5": 5 },
-    L: { "L0": 0, "L1": 2, "L2": 6 }
-  },
-  {
-    G: { "G4": 4, "G5": 5, "G6": 6 },
-    L: { "L0": 0, "L1": 2, "L2": 6 }
-  }
-];
-
 const FULL_BOROUGH_NAMES: Record<string, string> = {
   "Bk": "Brooklyn",
   "Bx": "Bronx",
@@ -64,7 +44,7 @@ function processMtaData(
   const clientNow = Math.floor(Date.now() / 1000);
 
   mtaData.forEach(feed => {
-    const now = feed.header.timestamp; // TODO: fallback to clientNow
+    const now = feed.header?.timestamp || clientNow
 
     feed.entity?.forEach((entity: any) => {
       const tripUpdate = entity.tripUpdate;
