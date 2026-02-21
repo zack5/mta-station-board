@@ -51,10 +51,10 @@ const routeFeedMap: Record<string, string> = {
   J: "-jz",
   Z: "-jz",
 
-  N: "-nrqw",
-  Q: "-nrqw",
-  R: "-nrqw",
-  W: "-nrqw",
+  N: "-nqrw",
+  Q: "-nqrw",
+  R: "-nqrw",
+  W: "-nqrw",
 
   L: "-l",
 

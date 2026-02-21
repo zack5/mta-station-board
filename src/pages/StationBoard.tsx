@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import Clock from "../components/Clock";
 import ArrivalPanelStack from "../components/ArrivalPanelStack";
 
 import stationsData from '../generated/stations.json';
 import stopsData from '../generated/stops.json';
+
+import NotFound from "../pages/NotFound";
 
 import { decodeGtfs } from "../services/gtfs";
 
@@ -91,13 +94,16 @@ function processMtaData(
 }
 
 interface StationBoardProps {
-  complexId: string;
+  stationId?: string;
 }
 
-export default function StationBoard({ complexId }: StationBoardProps) {
+export default function StationBoard({ stationId: propStationId }: StationBoardProps) {
+  const { stationId: paramStationId } = useParams<{ stationId: string }>();
+  const activeStationId = propStationId ?? paramStationId ?? '';
+
   const stations = stationsData as StationInfoData;
   const stops = stopsData as StopInfoData;
-  const station = stations[complexId];
+  const station = stations[activeStationId];
   const stationName = station?.name;
   const feedSuffixes = station?.feeds || [];
   const stopIDs = station?.stopIds || [];
@@ -114,6 +120,17 @@ export default function StationBoard({ complexId }: StationBoardProps) {
             `https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs${id}`,
             { signal: controller.signal }
           );
+
+          if (!res.ok) {
+            throw new Error(`MTA API returned ${res.status}: ${res.statusText}`);
+          }
+    
+          const contentType = res.headers.get("content-type");
+          if (contentType?.includes("application/xml") || contentType?.includes("text/html")) {
+            const errorText = await res.text();
+            throw new Error(`MTA Error (ID: ${id}): ${errorText}`);
+          }
+
           const buffer = await res.arrayBuffer();
           return await decodeGtfs(buffer);
         });
@@ -135,11 +152,15 @@ export default function StationBoard({ complexId }: StationBoardProps) {
       clearInterval(intervalId);
       controller.abort();
     };
-  }, [feedSuffixes]);
+  }, [activeStationId]);
 
   const trains = processMtaData(mtaData, stopIDs, stops);
 
   const sortedStopKeys = Object.keys(trains).sort();
+
+  if (!station) {
+    return <NotFound/>
+  }
 
   return (
     <div className="station-board"> 
