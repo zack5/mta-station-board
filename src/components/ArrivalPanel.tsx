@@ -1,33 +1,28 @@
 import type { CSSProperties } from 'react';
+import type { TrainInfo } from '../types/types';
 
 interface ArrivalPanelProps {
-    line: string;        // e.g., "G"
-    terminus: string;    // e.g., "Court Sq"
-    borough: string;     // e.g., "Queens"
-    arrivalTime: number; // e.g., "5"
+    train: TrainInfo
     style: CSSProperties;
   }
   
   export default function ArrivalPanel({ 
-    line, 
-    terminus, 
-    borough, 
-    arrivalTime,
+    train,
     style
   }: ArrivalPanelProps) {
     return (
       <div className="arrival-panel-outer" style={style}>
         <img 
-          src={`/src/assets/${line.toLowerCase()}.svg`} 
+          src={`/src/assets/${train.line.toLowerCase()}.svg`} 
           className="arrival-panel-train-logo" 
-          alt={`${line} train`}
+          alt={`${train.line} train`}
         />
         <div className="arrival-panel-destination">
-          <h2>{terminus}</h2>
-          <p>{borough}</p>
+          <h2>{train.destinationName}</h2>
+          <p>{train.destinationBorough}</p>
         </div>
         <div className="arrival-panel-arrival-time">
-          <h1>{arrivalTime}</h1>
+          <h1>{`${train.arrivalTime}`}</h1>
           <p>MIN</p>
         </div>
       </div>

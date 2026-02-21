@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import ArrivalPanel from './ArrivalPanel';
 
+import type { TrainInfo } from '../types/types';
+
 const PANEL_HEIGHT = 146;
 const PANEL_PADDING = 22;
 const PEEK_WIDTH = 140
@@ -11,17 +13,11 @@ const GAP_BEFORE_FADE = 10;
 const FADE_WIDTH = 50;
 
 interface ArrivalPanelStackProps {
-  line: string;
-  terminus: string;
-  borough: string;
-  arrivalTimes: Record<string, number>; // Maps ID strings to minute numbers
+  trains: TrainInfo[]
 }
 
 export default function ArrivalPanelStack({
-  line,
-  terminus,
-  borough,
-  arrivalTimes
+  trains
 }: ArrivalPanelStackProps) {
   const [width, setWidth] = useState<number>(1220);
 
@@ -43,10 +39,8 @@ export default function ArrivalPanelStack({
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Convert arrivalTimes to: [[id, mins], [id, mins]]
-  const sortedArrivals = Object.entries(arrivalTimes).sort((a, b) => a[1] - b[1]);
-
-  const arrivalPanelWidth = width - (MAX_STACK_DEPTH - 1) * PEEK_WIDTH 
+  const arrivalPanelWidth = width - (MAX_STACK_DEPTH - 1) * PEEK_WIDTH
+  const displayedTrains = trains.slice(0, MAX_STACK_DEPTH);
 
   return (
     <div className="arrival-panel-stack" style={{ 
@@ -55,9 +49,9 @@ export default function ArrivalPanelStack({
       height: `${PANEL_HEIGHT}px`,
     }}>
       <AnimatePresence>
-        {sortedArrivals.map(([id, minutes], index) => (
+        {displayedTrains.map((train, index) => (
           <motion.div
-            key={id}
+            key={train.id}
             layout
             style={{ 
               position: 'absolute',
@@ -70,7 +64,7 @@ export default function ArrivalPanelStack({
             }}
             animate={{
               left: `${(index + 0) * PEEK_WIDTH}px`,
-              zIndex: (sortedArrivals.length - index),
+              zIndex: (displayedTrains.length - index),
               opacity: 1,
             }}
             exit={{
@@ -111,10 +105,7 @@ export default function ArrivalPanelStack({
                 width: `${arrivalPanelWidth - 2 * PANEL_PADDING}px`,
                 padding: `${PANEL_PADDING}px`
               }}
-              line={line}
-              terminus={terminus}
-              borough={borough}
-              arrivalTime={minutes}
+              train={train}
             />
           </motion.div>
         ))}

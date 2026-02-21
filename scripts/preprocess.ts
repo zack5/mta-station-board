@@ -7,7 +7,7 @@ import { parse } from "csv-parse/sync";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-type ComplexRow = {
+type StationRow = {
   "Complex ID": string;
   "Display Name": string;
   "Station IDs": string;
@@ -24,15 +24,15 @@ type StopRow = {
 
 const ROOT = path.resolve(__dirname, "..");
 
-const complexesPath = path.join(
+const stationsPath = path.join(
   ROOT,
   "data/raw/MTA_Subway_Stations_and_Complexes.csv"
 );
 
 const stopsPath = path.join(ROOT, "data/raw/stops.txt");
 
-const complexesOutputPath = path.join(ROOT, "src/generated/complexes.json");
 const stationsOutputPath = path.join(ROOT, "src/generated/stations.json");
+const stopsOutputPath = path.join(ROOT, "src/generated/stops.json");
 
 /* ---------------- Route → Feed Mapping ---------------- */
 
@@ -101,15 +101,15 @@ function routesToFeeds(routeString: string): string[] {
 
 function main() {
   console.log("Preprocess script starting...");
-  const complexRows = parseCSV(complexesPath) as ComplexRow[];
+  const stationRows = parseCSV(stationsPath) as StationRow[];
   const stopRows = parseCSV(stopsPath) as StopRow[];
 
-  const complexes: Record<
+  const stations: Record<
     string,
-    { name: string; stationIds: string[]; feeds: string[] }
+    { name: string; stopIds: string[]; feeds: string[] }
   > = {};
 
-  const stations: Record<
+  const stops: Record<
     string,
     { name: string; borough: string }
   > = {};
@@ -122,44 +122,44 @@ function main() {
     }
   }
 
-  for (const row of complexRows) {
-    const complexId = row["Complex ID"];
-    const complexName = row["Stop Name"];
-    const stationIdsRaw = row["GTFS Stop IDs"];
+  for (const row of stationRows) {
+    const stationId = row["Complex ID"];
+    const stationName = row["Stop Name"];
+    const stopIdsRaw = row["GTFS Stop IDs"];
     const borough = row["Borough"];
     const routes = row["Daytime Routes"];
 
-    if (!complexId || !stationIdsRaw) continue;
+    if (!stationId || !stopIdsRaw) continue;
 
-    const stationIds = stationIdsRaw
+    const stopIds = stopIdsRaw
       .split(";")
       .map((s) => s.trim())
       .filter(Boolean);
 
-    complexes[complexId] = {
-      name: complexName,
-      stationIds,
+    stations[stationId] = {
+      name: stationName,
+      stopIds,
       feeds: routesToFeeds(routes),
     };
 
-    for (const stationId of stationIds) {
-      const stop = stopLookup[stationId];
+    for (const stopId of stopIds) {
+      const stop = stopLookup[stopId];
 
-      stations[stationId] = {
-        name: stop?.stop_name ?? complexName,
+      stops[stopId] = {
+        name: stop?.stop_name ?? stationName,
         borough,
       };
     }
   }
 
   fs.writeFileSync(
-    complexesOutputPath,
-    JSON.stringify(complexes, null, 2)
+    stationsOutputPath,
+    JSON.stringify(stations, null, 2)
   );
 
   fs.writeFileSync(
-    stationsOutputPath,
-    JSON.stringify(stations, null, 2)
+    stopsOutputPath,
+    JSON.stringify(stops, null, 2)
   );
 
   console.log("Preprocessing complete.");
