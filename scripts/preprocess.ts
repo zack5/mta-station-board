@@ -70,6 +70,14 @@ const routeFeedMap: Record<string, string> = {
   S: "",
 };
 
+const fullBoroughNames: Record<string, string> = {
+  "Bk": "Brooklyn",
+  "Bx": "Bronx",
+  "M": "Manhattan",
+  "Q": "Queens",
+  "SI": "Staten Island"
+}
+
 /* ---------------- Helpers ---------------- */
 
 function parseCSV(filePath: string) {
@@ -106,7 +114,7 @@ function main() {
 
   const stations: Record<
     string,
-    { stopName: string; displayName: string; stopIds: string[]; feeds: string[] }
+    { stopName: string; displayName: string; borough: string, stopIds: string[]; feeds: string[] }
   > = {};
 
   const stops: Record<
@@ -127,7 +135,7 @@ function main() {
     const stationStopName = row["Stop Name"];
     const stationDisplayName = row["Display Name"];
     const stopIdsRaw = row["GTFS Stop IDs"];
-    const borough = row["Borough"];
+    const borough = fullBoroughNames[row["Borough"]] || "";
     const routes = row["Daytime Routes"];
 
     if (!stationId || !stopIdsRaw) continue;
@@ -140,6 +148,7 @@ function main() {
     stations[stationId] = {
       stopName: stationStopName,
       displayName: stationDisplayName,
+      borough,
       stopIds,
       feeds: routesToFeeds(routes),
     };

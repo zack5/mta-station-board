@@ -3,13 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import ArrivalPanel from './ArrivalPanel';
 
-import type { TrainInfo } from '../types/types';
+import type { StationInfo, TrainInfo } from '../types/types';
 
 interface ArrivalPanelStackProps {
-  trains: TrainInfo[]
+  station: StationInfo;
+  trains: TrainInfo[];
 }
 
 export default function ArrivalPanelStack({
+  station,
   trains
 }: ArrivalPanelStackProps) {
   const [clientWidth, setClientWidth] = useState<number>(0);
@@ -135,6 +137,7 @@ export default function ArrivalPanelStack({
                 height: `${PANEL_HEIGHT - 2 * PANEL_PADDING}px`,
                 padding: `${PANEL_PADDING}px`
               }}
+              station={station}
               train={train}
               isCompact={index > 0}
             />

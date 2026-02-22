@@ -12,14 +12,6 @@ import { decodeGtfs } from "../services/gtfs";
 import type { StationInfoData, StopInfoData, TrainInfo } from '../types/types';
 import { StationSelector } from "../components/StationSelector";
 
-const FULL_BOROUGH_NAMES: Record<string, string> = {
-  "Bk": "Brooklyn",
-  "Bx": "Bronx",
-  "M": "Manhattan",
-  "Q": "Queens",
-  "SI": "Staten Island"
-}
-
 /**
  * Removes the 'N' or 'S' directional suffix from an MTA stop ID.
  * Example: "G29N" -> "G29", "127S" -> "127", "725" -> "725"
@@ -75,8 +67,8 @@ function processMtaData(
           trains[stopId].push({
             id: tripId,
             line,
-            destinationName: destination.name,
-            destinationBorough: FULL_BOROUGH_NAMES[destination.borough] ?? destination.borough,
+            destinationStopName: destination.name,
+            destinationBorough: destination.borough,
             arrivalTime: minutesArrival
           });
         }
@@ -160,6 +152,8 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
 
   const sortedStopKeys = Object.keys(trains).sort();
 
+  const noAvailableTrains = activeStationId && sortedStopKeys.length === 0
+
   return (
     <div className="station-board"> 
       <header className="station-board-header">
@@ -170,10 +164,14 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
         <div className="arrivals-panel-list">
           {sortedStopKeys.map((stopKey) => (
             <ArrivalPanelStack 
-              key={stopKey} 
+              key={stopKey}
+              station={station}
               trains={trains[stopKey]} 
             />
           ))}
+          {noAvailableTrains && <p>
+            No available trains.
+          </p>}
         </div>
       </main>
     </div>

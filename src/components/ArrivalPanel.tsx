@@ -1,13 +1,15 @@
 import type { CSSProperties } from 'react';
-import type { TrainInfo } from '../types/types';
+import type { StationInfo, TrainInfo } from '../types/types';
 
 interface ArrivalPanelProps {
-    train: TrainInfo
-    style: CSSProperties;
-    isCompact: boolean;
-  }
-  
+  station: StationInfo;
+  train: TrainInfo;
+  style: CSSProperties;
+  isCompact: boolean;
+}
+
 export default function ArrivalPanel({ 
+  station,
   train,
   style,
   isCompact
@@ -31,6 +33,21 @@ export default function ArrivalPanel({
   }
 
   const extraClassname = isCompact ? " arrival-panel-compact" : ""
+  const isCrosstown = ["7", "L"].includes(train.line);
+  const showUptownDowntown = station.borough === "Manhattan" && !isCrosstown;
+  const destinationInOtherBorough = station.borough != train.destinationBorough;
+
+  const titleShowsDirection = showUptownDowntown || destinationInOtherBorough;
+
+  const title = titleShowsDirection
+    ? [showUptownDowntown ? station.borough : null, destinationInOtherBorough ? train.destinationBorough : null]
+        .filter(Boolean)
+        .join(" & ")
+    : train.destinationStopName;
+  
+  const subtitle = titleShowsDirection 
+    ? train.destinationStopName 
+    : train.destinationBorough;
 
   return (
     <div className="arrival-panel-outer" style={style}>
@@ -40,8 +57,8 @@ export default function ArrivalPanel({
         alt={`${getTrainLineImage(train.line)}`}
       />}
       {!isCompact && <div className="arrival-panel-destination truncate">
-        <h2 className="truncate">{train.destinationName}</h2>
-        <p className="truncate">{train.destinationBorough}</p>
+        <h2 className="truncate">{title}</h2>
+        <p className="truncate">{subtitle}</p>
       </div>}
       <div className="arrival-panel-arrival-time">
         <h1 className={extraClassname} >{`${train.arrivalTime}`}</h1>

@@ -1,5 +1,5 @@
 # MTA Station Board
-Replicates the charm of an MTA subway arrival board in the comfort of your own home.
+Replicates the charm of an MTA subway arrival board from the comfort of your own home. Demo at https://mta-station-board.netlify.app/.
 
 ## Data Sources
 - data/raw/MTA_Subway_Stations_and_Complexes.csv - https://catalog.data.gov/dataset/mta-subway-stations-and-complexes

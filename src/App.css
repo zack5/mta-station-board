@@ -143,7 +143,7 @@ h1.arrival-panel-compact {
   }
 
   h1 {
-    font-size: 1.0em;
+    font-size: 1.5em;
   }
 
   h2 {
@@ -168,7 +168,7 @@ h1.arrival-panel-compact {
 
   .arrival-panel-arrival-time {
     margin-right: 2px;
-    gap: 2px;
+    gap: 4px;
     min-width: 18px;
   }
   
@@ -191,7 +191,7 @@ h1.arrival-panel-compact {
   }
 
   .clock {
-    font-size: 0.7em;
+    display: none;
   }
 
   .station-selector-label-container {

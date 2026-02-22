@@ -2,6 +2,7 @@
   "1": {
     "stopName": "Astoria-Ditmars Blvd",
     "displayName": "Astoria-Ditmars Blvd (N,W)",
+    "borough": "Queens",
     "stopIds": [
       "R01"
     ],
@@ -12,6 +13,7 @@
   "2": {
     "stopName": "Astoria Blvd",
     "displayName": "Astoria Blvd (N,W)",
+    "borough": "Queens",
     "stopIds": [
       "R03"
     ],
@@ -22,6 +24,7 @@
   "3": {
     "stopName": "30 Av",
     "displayName": "30 Av (N,W)",
+    "borough": "Queens",
     "stopIds": [
       "R04"
     ],
@@ -32,6 +35,7 @@
   "4": {
     "stopName": "Broadway",
     "displayName": "Broadway (N,W)",
+    "borough": "Queens",
     "stopIds": [
       "R05"
     ],
@@ -42,6 +46,7 @@
   "5": {
     "stopName": "36 Av",
     "displayName": "36 Av (N,W)",
+    "borough": "Queens",
     "stopIds": [
       "R06"
     ],
@@ -52,6 +57,7 @@
   "6": {
     "stopName": "39 Av-Dutch Kills",
     "displayName": "39 Av-Dutch Kills (N,W)",
+    "borough": "Queens",
     "stopIds": [
       "R08"
     ],
@@ -62,6 +68,7 @@
   "8": {
     "stopName": "5 Av/59 St",
     "displayName": "5 Av/59 St (N,R,W)",
+    "borough": "Manhattan",
     "stopIds": [
       "R13"
     ],
@@ -72,6 +79,7 @@
   "9": {
     "stopName": "57 St-7 Av",
     "displayName": "57 St-7 Av (N,Q,R,W)",
+    "borough": "Manhattan",
     "stopIds": [
       "R14"
     ],
@@ -82,6 +90,7 @@
   "10": {
     "stopName": "49 St",
     "displayName": "49 St (N,R,W)",
+    "borough": "Manhattan",
     "stopIds": [
       "R15"
     ],
@@ -92,6 +101,7 @@
   "13": {
     "stopName": "28 St",
     "displayName": "28 St (R,W)",
+    "borough": "Manhattan",
     "stopIds": [
       "R18"
     ],
@@ -102,6 +112,7 @@
   "14": {
     "stopName": "23 St",
     "displayName": "23 St (R,W)",
+    "borough": "Manhattan",
     "stopIds": [
       "R19"
     ],
@@ -112,6 +123,7 @@
   "16": {
     "stopName": "8 St-NYU",
     "displayName": "8 St-NYU (R,W)",
+    "borough": "Manhattan",
     "stopIds": [
       "R21"
     ],
@@ -122,6 +134,7 @@
   "17": {
     "stopName": "Prince St",
     "displayName": "Prince St (R,W)",
+    "borough": "Manhattan",
     "stopIds": [
       "R22"
     ],
@@ -132,6 +145,7 @@
   "20": {
     "stopName": "City Hall",
     "displayName": "City Hall (R,W)",
+    "borough": "Manhattan",
     "stopIds": [
       "R24"
     ],
@@ -142,6 +156,7 @@
   "22": {
     "stopName": "Rector St",
     "displayName": "Rector St (R,W)",
+    "borough": "Manhattan",
     "stopIds": [
       "R26"
     ],
@@ -152,6 +167,7 @@
   "26": {
     "stopName": "DeKalb Av",
     "displayName": "DeKalb Av (B,Q,R)",
+    "borough": "Brooklyn",
     "stopIds": [
       "R30"
     ],
@@ -163,6 +179,7 @@
   "28": {
     "stopName": "Union St",
     "displayName": "Union St (R)",
+    "borough": "Brooklyn",
     "stopIds": [
       "R32"
     ],
@@ -173,6 +190,7 @@
   "30": {
     "stopName": "Prospect Av",
     "displayName": "Prospect Av (R)",
+    "borough": "Brooklyn",
     "stopIds": [
       "R34"
     ],
@@ -183,6 +201,7 @@
   "31": {
     "stopName": "25 St",
     "displayName": "25 St (R)",
+    "borough": "Brooklyn",
     "stopIds": [
       "R35"
     ],
@@ -193,6 +212,7 @@
   "32": {
     "stopName": "36 St",
     "displayName": "36 St (D,N,R)",
+    "borough": "Brooklyn",
     "stopIds": [
       "R36"
     ],
@@ -204,6 +224,7 @@
   "33": {
     "stopName": "45 St",
     "displayName": "45 St (R)",
+    "borough": "Brooklyn",
     "stopIds": [
       "R39"
     ],
@@ -214,6 +235,7 @@
   "34": {
     "stopName": "53 St",
     "displayName": "53 St (R)",
+    "borough": "Brooklyn",
     "stopIds": [
       "R40"
     ],
@@ -224,6 +246,7 @@
   "35": {
     "stopName": "59 St",
     "displayName": "59 St (N,R)",
+    "borough": "Brooklyn",
     "stopIds": [
       "R41"
     ],
@@ -234,6 +257,7 @@
   "36": {
     "stopName": "Bay Ridge Av",
     "displayName": "Bay Ridge Av (R)",
+    "borough": "Brooklyn",
     "stopIds": [
       "R42"
     ],
@@ -244,6 +268,7 @@
   "37": {
     "stopName": "77 St",
     "displayName": "77 St (R)",
+    "borough": "Brooklyn",
     "stopIds": [
       "R43"
     ],
@@ -254,6 +279,7 @@
   "38": {
     "stopName": "86 St",
     "displayName": "86 St (R)",
+    "borough": "Brooklyn",
     "stopIds": [
       "R44"
     ],
@@ -264,6 +290,7 @@
   "39": {
     "stopName": "Bay Ridge-95 St",
     "displayName": "Bay Ridge-95 St (R)",
+    "borough": "Brooklyn",
     "stopIds": [
       "R45"
     ],
@@ -274,6 +301,7 @@
   "41": {
     "stopName": "7 Av",
     "displayName": "7 Av (B,Q)",
+    "borough": "Brooklyn",
     "stopIds": [
       "D25"
     ],
@@ -285,6 +313,7 @@
   "42": {
     "stopName": "Prospect Park",
     "displayName": "Prospect Park (B,Q,S)",
+    "borough": "Brooklyn",
     "stopIds": [
       "D26"
     ],
@@ -297,6 +326,7 @@
   "43": {
     "stopName": "Parkside Av",
     "displayName": "Parkside Av (Q)",
+    "borough": "Brooklyn",
     "stopIds": [
       "D27"
     ],
@@ -307,6 +337,7 @@
   "44": {
     "stopName": "Church Av",
     "displayName": "Church Av (B,Q)",
+    "borough": "Brooklyn",
     "stopIds": [
       "D28"
     ],
@@ -318,6 +349,7 @@
   "45": {
     "stopName": "Beverley Rd",
     "displayName": "Beverley Rd (Q)",
+    "borough": "Brooklyn",
     "stopIds": [
       "D29"
     ],
@@ -328,6 +360,7 @@
   "46": {
     "stopName": "Cortelyou Rd",
     "displayName": "Cortelyou Rd (Q)",
+    "borough": "Brooklyn",
     "stopIds": [
       "D30"
     ],
@@ -338,6 +371,7 @@
   "47": {
     "stopName": "Newkirk Plaza",
     "displayName": "Newkirk Plaza (B,Q)",
+    "borough": "Brooklyn",
     "stopIds": [
       "D31"
     ],
@@ -349,6 +383,7 @@
   "48": {
     "stopName": "Avenue H",
     "displayName": "Avenue H (Q)",
+    "borough": "Brooklyn",
     "stopIds": [
       "D32"
     ],
@@ -359,6 +394,7 @@
   "49": {
     "stopName": "Avenue J",
     "displayName": "Avenue J (Q)",
+    "borough": "Brooklyn",
     "stopIds": [
       "D33"
     ],
@@ -369,6 +405,7 @@
   "50": {
     "stopName": "Avenue M",
     "displayName": "Avenue M (Q)",
+    "borough": "Brooklyn",
     "stopIds": [
       "D34"
     ],
@@ -379,6 +416,7 @@
   "51": {
     "stopName": "Kings Hwy",
     "displayName": "Kings Hwy (B,Q)",
+    "borough": "Brooklyn",
     "stopIds": [
       "D35"
     ],
@@ -390,6 +428,7 @@
   "52": {
     "stopName": "Avenue U",
     "displayName": "Avenue U (Q)",
+    "borough": "Brooklyn",
     "stopIds": [
       "D37"
     ],
@@ -400,6 +439,7 @@
   "53": {
     "stopName": "Neck Rd",
     "displayName": "Neck Rd (Q)",
+    "borough": "Brooklyn",
     "stopIds": [
       "D38"
     ],
@@ -410,6 +450,7 @@
   "54": {
     "stopName": "Sheepshead Bay",
     "displayName": "Sheepshead Bay (B,Q)",
+    "borough": "Brooklyn",
     "stopIds": [
       "D39"
     ],
@@ -421,6 +462,7 @@
   "55": {
     "stopName": "Brighton Beach",
     "displayName": "Brighton Beach (B,Q)",
+    "borough": "Brooklyn",
     "stopIds": [
       "D40"
     ],
@@ -432,6 +474,7 @@
   "56": {
     "stopName": "Ocean Pkwy",
     "displayName": "Ocean Pkwy (Q)",
+    "borough": "Brooklyn",
     "stopIds": [
       "D41"
     ],
@@ -442,6 +485,7 @@
   "57": {
     "stopName": "W 8 St-NY Aquarium",
     "displayName": "W 8 St-NY Aquarium (F,Q)",
+    "borough": "Brooklyn",
     "stopIds": [
       "D42"
     ],
@@ -453,6 +497,7 @@
   "58": {
     "stopName": "Coney Island-Stillwell Av",
     "displayName": "Coney Island-Stillwell Av (D,F,N,Q)",
+    "borough": "Brooklyn",
     "stopIds": [
       "D43"
     ],
@@ -464,6 +509,7 @@
   "59": {
     "stopName": "9 Av",
     "displayName": "9 Av (D)",
+    "borough": "Brooklyn",
     "stopIds": [
       "B12"
     ],
@@ -474,6 +520,7 @@
   "60": {
     "stopName": "Fort Hamilton Pkwy",
     "displayName": "Fort Hamilton Pkwy (D)",
+    "borough": "Brooklyn",
     "stopIds": [
       "B13"
     ],
@@ -484,6 +531,7 @@
   "61": {
     "stopName": "50 St",
     "displayName": "50 St (D)",
+    "borough": "Brooklyn",
     "stopIds": [
       "B14"
     ],
@@ -494,6 +542,7 @@
   "62": {
     "stopName": "55 St",
     "displayName": "55 St (D)",
+    "borough": "Brooklyn",
     "stopIds": [
       "B15"
     ],
@@ -504,6 +553,7 @@
   "64": {
     "stopName": "71 St",
     "displayName": "71 St (D)",
+    "borough": "Brooklyn",
     "stopIds": [
       "B17"
     ],
@@ -514,6 +564,7 @@
   "65": {
     "stopName": "79 St",
     "displayName": "79 St (D)",
+    "borough": "Brooklyn",
     "stopIds": [
       "B18"
     ],
@@ -524,6 +575,7 @@
   "66": {
     "stopName": "18 Av",
     "displayName": "18 Av (D)",
+    "borough": "Brooklyn",
     "stopIds": [
       "B19"
     ],
@@ -534,6 +586,7 @@
   "67": {
     "stopName": "20 Av",
     "displayName": "20 Av (D)",
+    "borough": "Brooklyn",
     "stopIds": [
       "B20"
     ],
@@ -544,6 +597,7 @@
   "68": {
     "stopName": "Bay Pkwy",
     "displayName": "Bay Pkwy (D)",
+    "borough": "Brooklyn",
     "stopIds": [
       "B21"
     ],
@@ -554,6 +608,7 @@
   "69": {
     "stopName": "25 Av",
     "displayName": "25 Av (D)",
+    "borough": "Brooklyn",
     "stopIds": [
       "B22"
     ],
@@ -564,6 +619,7 @@
   "70": {
     "stopName": "Bay 50 St",
     "displayName": "Bay 50 St (D)",
+    "borough": "Brooklyn",
     "stopIds": [
       "B23"
     ],
@@ -574,6 +630,7 @@
   "71": {
     "stopName": "8 Av",
     "displayName": "8 Av (N)",
+    "borough": "Brooklyn",
     "stopIds": [
       "N02"
     ],
@@ -584,6 +641,7 @@
   "72": {
     "stopName": "Fort Hamilton Pkwy",
     "displayName": "Fort Hamilton Pkwy (N)",
+    "borough": "Brooklyn",
     "stopIds": [
       "N03"
     ],
@@ -594,6 +652,7 @@
   "74": {
     "stopName": "18 Av",
     "displayName": "18 Av (N)",
+    "borough": "Brooklyn",
     "stopIds": [
       "N05"
     ],
@@ -604,6 +663,7 @@
   "75": {
     "stopName": "20 Av",
     "displayName": "20 Av (N)",
+    "borough": "Brooklyn",
     "stopIds": [
       "N06"
     ],
@@ -614,6 +674,7 @@
   "76": {
     "stopName": "Bay Pkwy",
     "displayName": "Bay Pkwy (N)",
+    "borough": "Brooklyn",
     "stopIds": [
       "N07"
     ],
@@ -624,6 +685,7 @@
   "77": {
     "stopName": "Kings Hwy",
     "displayName": "Kings Hwy (N)",
+    "borough": "Brooklyn",
     "stopIds": [
       "N08"
     ],
@@ -634,6 +696,7 @@
   "78": {
     "stopName": "Avenue U",
     "displayName": "Avenue U (N)",
+    "borough": "Brooklyn",
     "stopIds": [
       "N09"
     ],
@@ -644,6 +707,7 @@
   "79": {
     "stopName": "86 St",
     "displayName": "86 St (N)",
+    "borough": "Brooklyn",
     "stopIds": [
       "N10"
     ],
@@ -654,6 +718,7 @@
   "80": {
     "stopName": "121 St",
     "displayName": "121 St (J,Z)",
+    "borough": "Queens",
     "stopIds": [
       "J12"
     ],
@@ -664,6 +729,7 @@
   "81": {
     "stopName": "111 St",
     "displayName": "111 St (J)",
+    "borough": "Queens",
     "stopIds": [
       "J13"
     ],
@@ -674,6 +740,7 @@
   "82": {
     "stopName": "104 St",
     "displayName": "104 St (J,Z)",
+    "borough": "Queens",
     "stopIds": [
       "J14"
     ],
@@ -684,6 +751,7 @@
   "83": {
     "stopName": "Woodhaven Blvd",
     "displayName": "Woodhaven Blvd (J,Z)",
+    "borough": "Queens",
     "stopIds": [
       "J15"
     ],
@@ -694,6 +762,7 @@
   "84": {
     "stopName": "85 St-Forest Pkwy",
     "displayName": "85 St-Forest Pkwy (J)",
+    "borough": "Queens",
     "stopIds": [
       "J16"
     ],
@@ -704,6 +773,7 @@
   "85": {
     "stopName": "75 St-Elderts Ln",
     "displayName": "75 St-Elderts Ln (J,Z)",
+    "borough": "Queens",
     "stopIds": [
       "J17"
     ],
@@ -714,6 +784,7 @@
   "86": {
     "stopName": "Cypress Hills",
     "displayName": "Cypress Hills (J)",
+    "borough": "Brooklyn",
     "stopIds": [
       "J19"
     ],
@@ -724,6 +795,7 @@
   "87": {
     "stopName": "Crescent St",
     "displayName": "Crescent St (J,Z)",
+    "borough": "Brooklyn",
     "stopIds": [
       "J20"
     ],
@@ -734,6 +806,7 @@
   "88": {
     "stopName": "Norwood Av",
     "displayName": "Norwood Av (J,Z)",
+    "borough": "Brooklyn",
     "stopIds": [
       "J21"
     ],
@@ -744,6 +817,7 @@
   "89": {
     "stopName": "Cleveland St",
     "displayName": "Cleveland St (J)",
+    "borough": "Brooklyn",
     "stopIds": [
       "J22"
     ],
@@ -754,6 +828,7 @@
   "90": {
     "stopName": "Van Siclen Av",
     "displayName": "Van Siclen Av (J,Z)",
+    "borough": "Brooklyn",
     "stopIds": [
       "J23"
     ],
@@ -764,6 +839,7 @@
   "91": {
     "stopName": "Alabama Av",
     "displayName": "Alabama Av (J,Z)",
+    "borough": "Brooklyn",
     "stopIds": [
       "J24"
     ],
@@ -774,6 +850,7 @@
   "93": {
     "stopName": "Chauncey St",
     "displayName": "Chauncey St (J,Z)",
+    "borough": "Brooklyn",
     "stopIds": [
       "J28"
     ],
@@ -784,6 +861,7 @@
   "94": {
     "stopName": "Halsey St",
     "displayName": "Halsey St (J)",
+    "borough": "Brooklyn",
     "stopIds": [
       "J29"
     ],
@@ -794,6 +872,7 @@
   "95": {
     "stopName": "Gates Av",
     "displayName": "Gates Av (J,Z)",
+    "borough": "Brooklyn",
     "stopIds": [
       "J30"
     ],
@@ -804,6 +883,7 @@
   "96": {
     "stopName": "Kosciuszko St",
     "displayName": "Kosciuszko St (J)",
+    "borough": "Brooklyn",
     "stopIds": [
       "J31"
     ],
@@ -814,6 +894,7 @@
   "97": {
     "stopName": "Myrtle Av",
     "displayName": "Myrtle Av (M,J,Z)",
+    "borough": "Brooklyn",
     "stopIds": [
       "M11"
     ],
@@ -825,6 +906,7 @@
   "98": {
     "stopName": "Flushing Av",
     "displayName": "Flushing Av (M,J)",
+    "borough": "Brooklyn",
     "stopIds": [
       "M12"
     ],
@@ -836,6 +918,7 @@
   "99": {
     "stopName": "Lorimer St",
     "displayName": "Lorimer St (M,J)",
+    "borough": "Brooklyn",
     "stopIds": [
       "M13"
     ],
@@ -847,6 +930,7 @@
   "100": {
     "stopName": "Hewes St",
     "displayName": "Hewes St (M,J)",
+    "borough": "Brooklyn",
     "stopIds": [
       "M14"
     ],
@@ -858,6 +942,7 @@
   "101": {
     "stopName": "Marcy Av",
     "displayName": "Marcy Av (M,J,Z)",
+    "borough": "Brooklyn",
     "stopIds": [
       "M16"
     ],
@@ -869,6 +954,7 @@
   "103": {
     "stopName": "Bowery",
     "displayName": "Bowery (J,Z)",
+    "borough": "Manhattan",
     "stopIds": [
       "M19"
     ],
@@ -879,6 +965,7 @@
   "107": {
     "stopName": "Broad St",
     "displayName": "Broad St (J,Z)",
+    "borough": "Manhattan",
     "stopIds": [
       "M23"
     ],
@@ -889,6 +976,7 @@
   "108": {
     "stopName": "Middle Village-Metropolitan Av",
     "displayName": "Middle Village-Metropolitan Av (M)",
+    "borough": "Queens",
     "stopIds": [
       "M01"
     ],
@@ -899,6 +987,7 @@
   "109": {
     "stopName": "Fresh Pond Rd",
     "displayName": "Fresh Pond Rd (M)",
+    "borough": "Queens",
     "stopIds": [
       "M04"
     ],
@@ -909,6 +998,7 @@
   "110": {
     "stopName": "Forest Av",
     "displayName": "Forest Av (M)",
+    "borough": "Queens",
     "stopIds": [
       "M05"
     ],
@@ -919,6 +1009,7 @@
   "111": {
     "stopName": "Seneca Av",
     "displayName": "Seneca Av (M)",
+    "borough": "Queens",
     "stopIds": [
       "M06"
     ],
@@ -929,6 +1020,7 @@
   "113": {
     "stopName": "Knickerbocker Av",
     "displayName": "Knickerbocker Av (M)",
+    "borough": "Brooklyn",
     "stopIds": [
       "M09"
     ],
@@ -939,6 +1031,7 @@
   "114": {
     "stopName": "Central Av",
     "displayName": "Central Av (M)",
+    "borough": "Brooklyn",
     "stopIds": [
       "M10"
     ],
@@ -949,6 +1042,7 @@
   "118": {
     "stopName": "3 Av",
     "displayName": "3 Av (L)",
+    "borough": "Manhattan",
     "stopIds": [
       "L05"
     ],
@@ -959,6 +1053,7 @@
   "119": {
     "stopName": "1 Av",
     "displayName": "1 Av (L)",
+    "borough": "Manhattan",
     "stopIds": [
       "L06"
     ],
@@ -969,6 +1064,7 @@
   "120": {
     "stopName": "Bedford Av",
     "displayName": "Bedford Av (L)",
+    "borough": "Brooklyn",
     "stopIds": [
       "L08"
     ],
@@ -979,6 +1075,7 @@
   "122": {
     "stopName": "Graham Av",
     "displayName": "Graham Av (L)",
+    "borough": "Brooklyn",
     "stopIds": [
       "L11"
     ],
@@ -989,6 +1086,7 @@
   "123": {
     "stopName": "Grand St",
     "displayName": "Grand St (L)",
+    "borough": "Brooklyn",
     "stopIds": [
       "L12"
     ],
@@ -999,6 +1097,7 @@
   "124": {
     "stopName": "Montrose Av",
     "displayName": "Montrose Av (L)",
+    "borough": "Brooklyn",
     "stopIds": [
       "L13"
     ],
@@ -1009,6 +1108,7 @@
   "125": {
     "stopName": "Morgan Av",
     "displayName": "Morgan Av (L)",
+    "borough": "Brooklyn",
     "stopIds": [
       "L14"
     ],
@@ -1019,6 +1119,7 @@
   "126": {
     "stopName": "Jefferson St",
     "displayName": "Jefferson St (L)",
+    "borough": "Brooklyn",
     "stopIds": [
       "L15"
     ],
@@ -1029,6 +1130,7 @@
   "127": {
     "stopName": "DeKalb Av",
     "displayName": "DeKalb Av (L)",
+    "borough": "Brooklyn",
     "stopIds": [
       "L16"
     ],
@@ -1039,6 +1141,7 @@
   "129": {
     "stopName": "Halsey St",
     "displayName": "Halsey St (L)",
+    "borough": "Queens",
     "stopIds": [
       "L19"
     ],
@@ -1049,6 +1152,7 @@
   "130": {
     "stopName": "Wilson Av",
     "displayName": "Wilson Av (L)",
+    "borough": "Brooklyn",
     "stopIds": [
       "L20"
     ],
@@ -1059,6 +1163,7 @@
   "131": {
     "stopName": "Bushwick Av-Aberdeen St",
     "displayName": "Bushwick Av-Aberdeen St (L)",
+    "borough": "Brooklyn",
     "stopIds": [
       "L21"
     ],
@@ -1069,6 +1174,7 @@
   "133": {
     "stopName": "Atlantic Av",
     "displayName": "Atlantic Av (L)",
+    "borough": "Brooklyn",
     "stopIds": [
       "L24"
     ],
@@ -1079,6 +1185,7 @@
   "134": {
     "stopName": "Sutter Av",
     "displayName": "Sutter Av (L)",
+    "borough": "Brooklyn",
     "stopIds": [
       "L25"
     ],
@@ -1089,6 +1196,7 @@
   "135": {
     "stopName": "Livonia Av",
     "displayName": "Livonia Av (L)",
+    "borough": "Brooklyn",
     "stopIds": [
       "L26"
     ],
@@ -1099,6 +1207,7 @@
   "136": {
     "stopName": "New Lots Av",
     "displayName": "New Lots Av (L)",
+    "borough": "Brooklyn",
     "stopIds": [
       "L27"
     ],
@@ -1109,6 +1218,7 @@
   "137": {
     "stopName": "East 105 St",
     "displayName": "East 105 St (L)",
+    "borough": "Brooklyn",
     "stopIds": [
       "L28"
     ],
@@ -1119,6 +1229,7 @@
   "138": {
     "stopName": "Canarsie-Rockaway Pkwy",
     "displayName": "Canarsie-Rockaway Pkwy (L)",
+    "borough": "Brooklyn",
     "stopIds": [
       "L29"
     ],
@@ -1129,6 +1240,7 @@
   "141": {
     "stopName": "Park Pl",
     "displayName": "Park Pl (S)",
+    "borough": "Brooklyn",
     "stopIds": [
       "S03"
     ],
@@ -1139,6 +1251,7 @@
   "143": {
     "stopName": "Inwood-207 St",
     "displayName": "Inwood-207 St (A)",
+    "borough": "Manhattan",
     "stopIds": [
       "A02"
     ],
@@ -1149,6 +1262,7 @@
   "144": {
     "stopName": "Dyckman St",
     "displayName": "Dyckman St (A)",
+    "borough": "Manhattan",
     "stopIds": [
       "A03"
     ],
@@ -1159,6 +1273,7 @@
   "145": {
     "stopName": "190 St",
     "displayName": "190 St (A)",
+    "borough": "Manhattan",
     "stopIds": [
       "A05"
     ],
@@ -1169,6 +1284,7 @@
   "146": {
     "stopName": "181 St",
     "displayName": "181 St (A)",
+    "borough": "Manhattan",
     "stopIds": [
       "A06"
     ],
@@ -1179,6 +1295,7 @@
   "147": {
     "stopName": "175 St",
     "displayName": "175 St (A)",
+    "borough": "Manhattan",
     "stopIds": [
       "A07"
     ],
@@ -1189,6 +1306,7 @@
   "149": {
     "stopName": "163 St-Amsterdam Av",
     "displayName": "163 St-Amsterdam Av (C)",
+    "borough": "Manhattan",
     "stopIds": [
       "A10"
     ],
@@ -1199,6 +1317,7 @@
   "150": {
     "stopName": "155 St",
     "displayName": "155 St (C)",
+    "borough": "Manhattan",
     "stopIds": [
       "A11"
     ],
@@ -1209,6 +1328,7 @@
   "151": {
     "stopName": "145 St",
     "displayName": "145 St (A,C,B,D)",
+    "borough": "Manhattan",
     "stopIds": [
       "A12",
       "D13"
@@ -1221,6 +1341,7 @@
   "152": {
     "stopName": "135 St",
     "displayName": "135 St (C,B)",
+    "borough": "Manhattan",
     "stopIds": [
       "A14"
     ],
@@ -1232,6 +1353,7 @@
   "153": {
     "stopName": "125 St",
     "displayName": "125 St (A,C,B,D)",
+    "borough": "Manhattan",
     "stopIds": [
       "A15"
     ],
@@ -1243,6 +1365,7 @@
   "154": {
     "stopName": "116 St",
     "displayName": "116 St (C,B)",
+    "borough": "Manhattan",
     "stopIds": [
       "A16"
     ],
@@ -1254,6 +1377,7 @@
   "155": {
     "stopName": "Cathedral Pkwy (110 St)",
     "displayName": "Cathedral Pkwy (110 St) (C,B)",
+    "borough": "Manhattan",
     "stopIds": [
       "A17"
     ],
@@ -1265,6 +1389,7 @@
   "156": {
     "stopName": "103 St",
     "displayName": "103 St (C,B)",
+    "borough": "Manhattan",
     "stopIds": [
       "A18"
     ],
@@ -1276,6 +1401,7 @@
   "157": {
     "stopName": "96 St",
     "displayName": "96 St (C,B)",
+    "borough": "Manhattan",
     "stopIds": [
       "A19"
     ],
@@ -1287,6 +1413,7 @@
   "158": {
     "stopName": "86 St",
     "displayName": "86 St (C,B)",
+    "borough": "Manhattan",
     "stopIds": [
       "A20"
     ],
@@ -1298,6 +1425,7 @@
   "159": {
     "stopName": "81 St-Museum of Natural History",
     "displayName": "81 St-Museum of Natural History (C,B)",
+    "borough": "Manhattan",
     "stopIds": [
       "A21"
     ],
@@ -1309,6 +1437,7 @@
   "160": {
     "stopName": "72 St",
     "displayName": "72 St (C,B)",
+    "borough": "Manhattan",
     "stopIds": [
       "A22"
     ],
@@ -1320,6 +1449,7 @@
   "162": {
     "stopName": "50 St",
     "displayName": "50 St (C,E)",
+    "borough": "Manhattan",
     "stopIds": [
       "A25"
     ],
@@ -1330,6 +1460,7 @@
   "164": {
     "stopName": "34 St-Penn Station",
     "displayName": "34 St-Penn Station (A,C,E)",
+    "borough": "Manhattan",
     "stopIds": [
       "A28"
     ],
@@ -1340,6 +1471,7 @@
   "165": {
     "stopName": "23 St",
     "displayName": "23 St (C,E)",
+    "borough": "Manhattan",
     "stopIds": [
       "A30"
     ],
@@ -1350,6 +1482,7 @@
   "167": {
     "stopName": "W 4 St-Wash Sq",
     "displayName": "W 4 St-Wash Sq (A,C,E,B,D,F,M)",
+    "borough": "Manhattan",
     "stopIds": [
       "A32",
       "D20"
@@ -1362,6 +1495,7 @@
   "168": {
     "stopName": "Spring St",
     "displayName": "Spring St (C,E)",
+    "borough": "Manhattan",
     "stopIds": [
       "A33"
     ],
@@ -1372,6 +1506,7 @@
   "169": {
     "stopName": "Canal St",
     "displayName": "Canal St (A,C,E)",
+    "borough": "Manhattan",
     "stopIds": [
       "A34"
     ],
@@ -1382,6 +1517,7 @@
   "173": {
     "stopName": "High St",
     "displayName": "High St (A,C)",
+    "borough": "Brooklyn",
     "stopIds": [
       "A40"
     ],
@@ -1392,6 +1528,7 @@
   "175": {
     "stopName": "Hoyt-Schermerhorn Sts",
     "displayName": "Hoyt-Schermerhorn Sts (A,C,G)",
+    "borough": "Brooklyn",
     "stopIds": [
       "A42"
     ],
@@ -1403,6 +1540,7 @@
   "176": {
     "stopName": "Lafayette Av",
     "displayName": "Lafayette Av (C)",
+    "borough": "Brooklyn",
     "stopIds": [
       "A43"
     ],
@@ -1413,6 +1551,7 @@
   "177": {
     "stopName": "Clinton-Washington Avs",
     "displayName": "Clinton-Washington Avs (C)",
+    "borough": "Brooklyn",
     "stopIds": [
       "A44"
     ],
@@ -1423,6 +1562,7 @@
   "179": {
     "stopName": "Nostrand Av",
     "displayName": "Nostrand Av (A,C)",
+    "borough": "Brooklyn",
     "stopIds": [
       "A46"
     ],
@@ -1433,6 +1573,7 @@
   "180": {
     "stopName": "Kingston-Throop Avs",
     "displayName": "Kingston-Throop Avs (C)",
+    "borough": "Brooklyn",
     "stopIds": [
       "A47"
     ],
@@ -1443,6 +1584,7 @@
   "181": {
     "stopName": "Utica Av",
     "displayName": "Utica Av (A,C)",
+    "borough": "Brooklyn",
     "stopIds": [
       "A48"
     ],
@@ -1453,6 +1595,7 @@
   "182": {
     "stopName": "Ralph Av",
     "displayName": "Ralph Av (C)",
+    "borough": "Brooklyn",
     "stopIds": [
       "A49"
     ],
@@ -1463,6 +1606,7 @@
   "183": {
     "stopName": "Rockaway Av",
     "displayName": "Rockaway Av (C)",
+    "borough": "Brooklyn",
     "stopIds": [
       "A50"
     ],
@@ -1473,6 +1617,7 @@
   "185": {
     "stopName": "Liberty Av",
     "displayName": "Liberty Av (C)",
+    "borough": "Brooklyn",
     "stopIds": [
       "A52"
     ],
@@ -1483,6 +1628,7 @@
   "186": {
     "stopName": "Van Siclen Av",
     "displayName": "Van Siclen Av (C)",
+    "borough": "Brooklyn",
     "stopIds": [
       "A53"
     ],
@@ -1493,6 +1639,7 @@
   "187": {
     "stopName": "Shepherd Av",
     "displayName": "Shepherd Av (C)",
+    "borough": "Brooklyn",
     "stopIds": [
       "A54"
     ],
@@ -1503,6 +1650,7 @@
   "188": {
     "stopName": "Euclid Av",
     "displayName": "Euclid Av (A,C)",
+    "borough": "Brooklyn",
     "stopIds": [
       "A55"
     ],
@@ -1513,6 +1661,7 @@
   "189": {
     "stopName": "Grant Av",
     "displayName": "Grant Av (A)",
+    "borough": "Brooklyn",
     "stopIds": [
       "A57"
     ],
@@ -1523,6 +1672,7 @@
   "190": {
     "stopName": "80 St",
     "displayName": "80 St (A)",
+    "borough": "Queens",
     "stopIds": [
       "A59"
     ],
@@ -1533,6 +1683,7 @@
   "191": {
     "stopName": "88 St",
     "displayName": "88 St (A)",
+    "borough": "Queens",
     "stopIds": [
       "A60"
     ],
@@ -1543,6 +1694,7 @@
   "192": {
     "stopName": "Rockaway Blvd",
     "displayName": "Rockaway Blvd (A)",
+    "borough": "Queens",
     "stopIds": [
       "A61"
     ],
@@ -1553,6 +1705,7 @@
   "193": {
     "stopName": "104 St",
     "displayName": "104 St (A)",
+    "borough": "Queens",
     "stopIds": [
       "A63"
     ],
@@ -1563,6 +1716,7 @@
   "194": {
     "stopName": "111 St",
     "displayName": "111 St (A)",
+    "borough": "Queens",
     "stopIds": [
       "A64"
     ],
@@ -1573,6 +1727,7 @@
   "195": {
     "stopName": "Ozone Park-Lefferts Blvd",
     "displayName": "Ozone Park-Lefferts Blvd (A)",
+    "borough": "Queens",
     "stopIds": [
       "A65"
     ],
@@ -1583,6 +1738,7 @@
   "196": {
     "stopName": "Aqueduct Racetrack",
     "displayName": "Aqueduct Racetrack (A)",
+    "borough": "Queens",
     "stopIds": [
       "H01"
     ],
@@ -1593,6 +1749,7 @@
   "197": {
     "stopName": "Aqueduct-N Conduit Av",
     "displayName": "Aqueduct-N Conduit Av (A)",
+    "borough": "Queens",
     "stopIds": [
       "H02"
     ],
@@ -1603,6 +1760,7 @@
   "198": {
     "stopName": "Howard Beach-JFK Airport",
     "displayName": "Howard Beach-JFK Airport (A)",
+    "borough": "Queens",
     "stopIds": [
       "H03"
     ],
@@ -1613,6 +1771,7 @@
   "199": {
     "stopName": "Broad Channel",
     "displayName": "Broad Channel (A,S)",
+    "borough": "Queens",
     "stopIds": [
       "H04"
     ],
@@ -1624,6 +1783,7 @@
   "200": {
     "stopName": "Beach 90 St",
     "displayName": "Beach 90 St (A,S)",
+    "borough": "Queens",
     "stopIds": [
       "H12"
     ],
@@ -1635,6 +1795,7 @@
   "201": {
     "stopName": "Beach 98 St",
     "displayName": "Beach 98 St (A,S)",
+    "borough": "Queens",
     "stopIds": [
       "H13"
     ],
@@ -1646,6 +1807,7 @@
   "202": {
     "stopName": "Beach 105 St",
     "displayName": "Beach 105 St (A,S)",
+    "borough": "Queens",
     "stopIds": [
       "H14"
     ],
@@ -1657,6 +1819,7 @@
   "203": {
     "stopName": "Rockaway Park-Beach 116 St",
     "displayName": "Rockaway Park-Beach 116 St (A,S)",
+    "borough": "Queens",
     "stopIds": [
       "H15"
     ],
@@ -1668,6 +1831,7 @@
   "204": {
     "stopName": "Beach 67 St",
     "displayName": "Beach 67 St (A)",
+    "borough": "Queens",
     "stopIds": [
       "H06"
     ],
@@ -1678,6 +1842,7 @@
   "205": {
     "stopName": "Beach 60 St",
     "displayName": "Beach 60 St (A)",
+    "borough": "Queens",
     "stopIds": [
       "H07"
     ],
@@ -1688,6 +1853,7 @@
   "206": {
     "stopName": "Beach 44 St",
     "displayName": "Beach 44 St (A)",
+    "borough": "Queens",
     "stopIds": [
       "H08"
     ],
@@ -1698,6 +1864,7 @@
   "207": {
     "stopName": "Beach 36 St",
     "displayName": "Beach 36 St (A)",
+    "borough": "Queens",
     "stopIds": [
       "H09"
     ],
@@ -1708,6 +1875,7 @@
   "208": {
     "stopName": "Beach 25 St",
     "displayName": "Beach 25 St (A)",
+    "borough": "Queens",
     "stopIds": [
       "H10"
     ],
@@ -1718,6 +1886,7 @@
   "209": {
     "stopName": "Far Rockaway-Mott Av",
     "displayName": "Far Rockaway-Mott Av (A)",
+    "borough": "Queens",
     "stopIds": [
       "H11"
     ],
@@ -1728,6 +1897,7 @@
   "210": {
     "stopName": "Norwood-205 St",
     "displayName": "Norwood-205 St (D)",
+    "borough": "Bronx",
     "stopIds": [
       "D01"
     ],
@@ -1738,6 +1908,7 @@
   "211": {
     "stopName": "Bedford Park Blvd",
     "displayName": "Bedford Park Blvd (B,D)",
+    "borough": "Bronx",
     "stopIds": [
       "D03"
     ],
@@ -1748,6 +1919,7 @@
   "212": {
     "stopName": "Kingsbridge Rd",
     "displayName": "Kingsbridge Rd (B,D)",
+    "borough": "Bronx",
     "stopIds": [
       "D04"
     ],
@@ -1758,6 +1930,7 @@
   "213": {
     "stopName": "Fordham Rd",
     "displayName": "Fordham Rd (B,D)",
+    "borough": "Bronx",
     "stopIds": [
       "D05"
     ],
@@ -1768,6 +1941,7 @@
   "214": {
     "stopName": "182-183 Sts",
     "displayName": "182-183 Sts (B,D)",
+    "borough": "Bronx",
     "stopIds": [
       "D06"
     ],
@@ -1778,6 +1952,7 @@
   "215": {
     "stopName": "Tremont Av",
     "displayName": "Tremont Av (B,D)",
+    "borough": "Bronx",
     "stopIds": [
       "D07"
     ],
@@ -1788,6 +1963,7 @@
   "216": {
     "stopName": "174-175 Sts",
     "displayName": "174-175 Sts (B,D)",
+    "borough": "Bronx",
     "stopIds": [
       "D08"
     ],
@@ -1798,6 +1974,7 @@
   "217": {
     "stopName": "170 St",
     "displayName": "170 St (B,D)",
+    "borough": "Bronx",
     "stopIds": [
       "D09"
     ],
@@ -1808,6 +1985,7 @@
   "218": {
     "stopName": "167 St",
     "displayName": "167 St (B,D)",
+    "borough": "Bronx",
     "stopIds": [
       "D10"
     ],
@@ -1818,6 +1996,7 @@
   "220": {
     "stopName": "155 St",
     "displayName": "155 St (B,D)",
+    "borough": "Manhattan",
     "stopIds": [
       "D12"
     ],
@@ -1828,6 +2007,7 @@
   "221": {
     "stopName": "21 St-Queensbridge",
     "displayName": "21 St-Queensbridge (M)",
+    "borough": "Queens",
     "stopIds": [
       "B04"
     ],
@@ -1838,6 +2018,7 @@
   "222": {
     "stopName": "Roosevelt Island",
     "displayName": "Roosevelt Island (M)",
+    "borough": "Manhattan",
     "stopIds": [
       "B06"
     ],
@@ -1848,6 +2029,7 @@
   "223": {
     "stopName": "Lexington Av/63 St",
     "displayName": "Lexington Av/63 St (M,Q)",
+    "borough": "Manhattan",
     "stopIds": [
       "B08"
     ],
@@ -1859,6 +2041,7 @@
   "224": {
     "stopName": "57 St",
     "displayName": "57 St (M)",
+    "borough": "Manhattan",
     "stopIds": [
       "B10"
     ],
@@ -1869,6 +2052,7 @@
   "225": {
     "stopName": "47-50 Sts-Rockefeller Ctr",
     "displayName": "47-50 Sts-Rockefeller Ctr (B,D,F,M)",
+    "borough": "Manhattan",
     "stopIds": [
       "D15"
     ],
@@ -1879,6 +2063,7 @@
   "228": {
     "stopName": "23 St",
     "displayName": "23 St (F,M)",
+    "borough": "Manhattan",
     "stopIds": [
       "D18"
     ],
@@ -1889,6 +2074,7 @@
   "231": {
     "stopName": "Grand St",
     "displayName": "Grand St (B,D)",
+    "borough": "Manhattan",
     "stopIds": [
       "D22"
     ],
@@ -1899,6 +2085,7 @@
   "232": {
     "stopName": "2 Av",
     "displayName": "2 Av (F)",
+    "borough": "Manhattan",
     "stopIds": [
       "F14"
     ],
@@ -1909,6 +2096,7 @@
   "234": {
     "stopName": "East Broadway",
     "displayName": "East Broadway (F)",
+    "borough": "Manhattan",
     "stopIds": [
       "F16"
     ],
@@ -1919,6 +2107,7 @@
   "235": {
     "stopName": "York St",
     "displayName": "York St (F)",
+    "borough": "Brooklyn",
     "stopIds": [
       "F18"
     ],
@@ -1929,6 +2118,7 @@
   "236": {
     "stopName": "Bergen St",
     "displayName": "Bergen St (F,G)",
+    "borough": "Brooklyn",
     "stopIds": [
       "F20"
     ],
@@ -1940,6 +2130,7 @@
   "237": {
     "stopName": "Carroll St",
     "displayName": "Carroll St (F,G)",
+    "borough": "Brooklyn",
     "stopIds": [
       "F21"
     ],
@@ -1951,6 +2142,7 @@
   "238": {
     "stopName": "Smith-9 Sts",
     "displayName": "Smith-9 Sts (F,G)",
+    "borough": "Brooklyn",
     "stopIds": [
       "F22"
     ],
@@ -1962,6 +2154,7 @@
   "240": {
     "stopName": "7 Av",
     "displayName": "7 Av (F,G)",
+    "borough": "Brooklyn",
     "stopIds": [
       "F24"
     ],
@@ -1973,6 +2166,7 @@
   "241": {
     "stopName": "15 St-Prospect Park",
     "displayName": "15 St-Prospect Park (F,G)",
+    "borough": "Brooklyn",
     "stopIds": [
       "F25"
     ],
@@ -1984,6 +2178,7 @@
   "242": {
     "stopName": "Fort Hamilton Pkwy",
     "displayName": "Fort Hamilton Pkwy (F,G)",
+    "borough": "Brooklyn",
     "stopIds": [
       "F26"
     ],
@@ -1995,6 +2190,7 @@
   "243": {
     "stopName": "Church Av",
     "displayName": "Church Av (F,G)",
+    "borough": "Brooklyn",
     "stopIds": [
       "F27"
     ],
@@ -2006,6 +2202,7 @@
   "244": {
     "stopName": "Ditmas Av",
     "displayName": "Ditmas Av (F)",
+    "borough": "Brooklyn",
     "stopIds": [
       "F29"
     ],
@@ -2016,6 +2213,7 @@
   "245": {
     "stopName": "18 Av",
     "displayName": "18 Av (F)",
+    "borough": "Brooklyn",
     "stopIds": [
       "F30"
     ],
@@ -2026,6 +2224,7 @@
   "246": {
     "stopName": "Avenue I",
     "displayName": "Avenue I (F)",
+    "borough": "Brooklyn",
     "stopIds": [
       "F31"
     ],
@@ -2036,6 +2235,7 @@
   "247": {
     "stopName": "Bay Pkwy",
     "displayName": "Bay Pkwy (F)",
+    "borough": "Brooklyn",
     "stopIds": [
       "F32"
     ],
@@ -2046,6 +2246,7 @@
   "248": {
     "stopName": "Avenue N",
     "displayName": "Avenue N (F)",
+    "borough": "Brooklyn",
     "stopIds": [
       "F33"
     ],
@@ -2056,6 +2257,7 @@
   "249": {
     "stopName": "Avenue P",
     "displayName": "Avenue P (F)",
+    "borough": "Brooklyn",
     "stopIds": [
       "F34"
     ],
@@ -2066,6 +2268,7 @@
   "250": {
     "stopName": "Kings Hwy",
     "displayName": "Kings Hwy (F)",
+    "borough": "Brooklyn",
     "stopIds": [
       "F35"
     ],
@@ -2076,6 +2279,7 @@
   "251": {
     "stopName": "Avenue U",
     "displayName": "Avenue U (F)",
+    "borough": "Brooklyn",
     "stopIds": [
       "F36"
     ],
@@ -2086,6 +2290,7 @@
   "252": {
     "stopName": "Avenue X",
     "displayName": "Avenue X (F)",
+    "borough": "Brooklyn",
     "stopIds": [
       "F38"
     ],
@@ -2096,6 +2301,7 @@
   "253": {
     "stopName": "Neptune Av",
     "displayName": "Neptune Av (F)",
+    "borough": "Brooklyn",
     "stopIds": [
       "F39"
     ],
@@ -2106,6 +2312,7 @@
   "254": {
     "stopName": "Jamaica-179 St",
     "displayName": "Jamaica-179 St (F)",
+    "borough": "Queens",
     "stopIds": [
       "F01"
     ],
@@ -2116,6 +2323,7 @@
   "255": {
     "stopName": "169 St",
     "displayName": "169 St (F)",
+    "borough": "Queens",
     "stopIds": [
       "F02"
     ],
@@ -2126,6 +2334,7 @@
   "256": {
     "stopName": "Parsons Blvd",
     "displayName": "Parsons Blvd (F)",
+    "borough": "Queens",
     "stopIds": [
       "F03"
     ],
@@ -2136,6 +2345,7 @@
   "257": {
     "stopName": "Sutphin Blvd",
     "displayName": "Sutphin Blvd (F)",
+    "borough": "Queens",
     "stopIds": [
       "F04"
     ],
@@ -2146,6 +2356,7 @@
   "258": {
     "stopName": "Briarwood",
     "displayName": "Briarwood (E,F)",
+    "borough": "Queens",
     "stopIds": [
       "F05"
     ],
@@ -2157,6 +2368,7 @@
   "259": {
     "stopName": "Kew Gardens-Union Tpke",
     "displayName": "Kew Gardens-Union Tpke (E,F)",
+    "borough": "Queens",
     "stopIds": [
       "F06"
     ],
@@ -2168,6 +2380,7 @@
   "260": {
     "stopName": "75 Av",
     "displayName": "75 Av (E,F)",
+    "borough": "Queens",
     "stopIds": [
       "F07"
     ],
@@ -2179,6 +2392,7 @@
   "261": {
     "stopName": "Forest Hills-71 Av",
     "displayName": "Forest Hills-71 Av (E,F,M,R)",
+    "borough": "Queens",
     "stopIds": [
       "G08"
     ],
@@ -2191,6 +2405,7 @@
   "262": {
     "stopName": "67 Av",
     "displayName": "67 Av (M,R)",
+    "borough": "Queens",
     "stopIds": [
       "G09"
     ],
@@ -2202,6 +2417,7 @@
   "263": {
     "stopName": "63 Dr-Rego Park",
     "displayName": "63 Dr-Rego Park (M,R)",
+    "borough": "Queens",
     "stopIds": [
       "G10"
     ],
@@ -2213,6 +2429,7 @@
   "264": {
     "stopName": "Woodhaven Blvd",
     "displayName": "Woodhaven Blvd (M,R)",
+    "borough": "Queens",
     "stopIds": [
       "G11"
     ],
@@ -2224,6 +2441,7 @@
   "265": {
     "stopName": "Grand Av-Newtown",
     "displayName": "Grand Av-Newtown (M,R)",
+    "borough": "Queens",
     "stopIds": [
       "G12"
     ],
@@ -2235,6 +2453,7 @@
   "266": {
     "stopName": "Elmhurst Av",
     "displayName": "Elmhurst Av (M,R)",
+    "borough": "Queens",
     "stopIds": [
       "G13"
     ],
@@ -2246,6 +2465,7 @@
   "268": {
     "stopName": "65 St",
     "displayName": "65 St (M,R)",
+    "borough": "Queens",
     "stopIds": [
       "G15"
     ],
@@ -2257,6 +2477,7 @@
   "269": {
     "stopName": "Northern Blvd",
     "displayName": "Northern Blvd (M,R)",
+    "borough": "Queens",
     "stopIds": [
       "G16"
     ],
@@ -2268,6 +2489,7 @@
   "270": {
     "stopName": "46 St",
     "displayName": "46 St (M,R)",
+    "borough": "Queens",
     "stopIds": [
       "G18"
     ],
@@ -2279,6 +2501,7 @@
   "271": {
     "stopName": "Steinway St",
     "displayName": "Steinway St (M,R)",
+    "borough": "Queens",
     "stopIds": [
       "G19"
     ],
@@ -2290,6 +2513,7 @@
   "272": {
     "stopName": "36 St",
     "displayName": "36 St (M,R)",
+    "borough": "Queens",
     "stopIds": [
       "G20"
     ],
@@ -2301,6 +2525,7 @@
   "273": {
     "stopName": "Queens Plaza",
     "displayName": "Queens Plaza (E,F,R)",
+    "borough": "Queens",
     "stopIds": [
       "G21"
     ],
@@ -2313,6 +2538,7 @@
   "276": {
     "stopName": "5 Av/53 St",
     "displayName": "5 Av/53 St (E,F)",
+    "borough": "Manhattan",
     "stopIds": [
       "F12"
     ],
@@ -2324,6 +2550,7 @@
   "277": {
     "stopName": "7 Av",
     "displayName": "7 Av (E,B,D)",
+    "borough": "Manhattan",
     "stopIds": [
       "D14"
     ],
@@ -2335,6 +2562,7 @@
   "278": {
     "stopName": "Jamaica Center-Parsons/Archer",
     "displayName": "Jamaica Center-Parsons/Archer (E,J,Z)",
+    "borough": "Queens",
     "stopIds": [
       "G05"
     ],
@@ -2346,6 +2574,7 @@
   "279": {
     "stopName": "Sutphin Blvd-Archer Av-JFK Airport",
     "displayName": "Sutphin Blvd-Archer Av-JFK Airport (E,J,Z)",
+    "borough": "Queens",
     "stopIds": [
       "G06"
     ],
@@ -2357,6 +2586,7 @@
   "280": {
     "stopName": "Jamaica-Van Wyck",
     "displayName": "Jamaica-Van Wyck (E)",
+    "borough": "Queens",
     "stopIds": [
       "G07"
     ],
@@ -2367,6 +2597,7 @@
   "282": {
     "stopName": "21 St",
     "displayName": "21 St (G)",
+    "borough": "Queens",
     "stopIds": [
       "G24"
     ],
@@ -2377,6 +2608,7 @@
   "283": {
     "stopName": "Greenpoint Av",
     "displayName": "Greenpoint Av (G)",
+    "borough": "Brooklyn",
     "stopIds": [
       "G26"
     ],
@@ -2387,6 +2619,7 @@
   "284": {
     "stopName": "Nassau Av",
     "displayName": "Nassau Av (G)",
+    "borough": "Brooklyn",
     "stopIds": [
       "G28"
     ],
@@ -2397,6 +2630,7 @@
   "286": {
     "stopName": "Broadway",
     "displayName": "Broadway (G)",
+    "borough": "Brooklyn",
     "stopIds": [
       "G30"
     ],
@@ -2407,6 +2641,7 @@
   "287": {
     "stopName": "Flushing Av",
     "displayName": "Flushing Av (G)",
+    "borough": "Brooklyn",
     "stopIds": [
       "G31"
     ],
@@ -2417,6 +2652,7 @@
   "288": {
     "stopName": "Myrtle-Willoughby Avs",
     "displayName": "Myrtle-Willoughby Avs (G)",
+    "borough": "Brooklyn",
     "stopIds": [
       "G32"
     ],
@@ -2427,6 +2663,7 @@
   "289": {
     "stopName": "Bedford-Nostrand Avs",
     "displayName": "Bedford-Nostrand Avs (G)",
+    "borough": "Brooklyn",
     "stopIds": [
       "G33"
     ],
@@ -2437,6 +2674,7 @@
   "290": {
     "stopName": "Classon Av",
     "displayName": "Classon Av (G)",
+    "borough": "Brooklyn",
     "stopIds": [
       "G34"
     ],
@@ -2447,6 +2685,7 @@
   "291": {
     "stopName": "Clinton-Washington Avs",
     "displayName": "Clinton-Washington Avs (G)",
+    "borough": "Brooklyn",
     "stopIds": [
       "G35"
     ],
@@ -2457,6 +2696,7 @@
   "292": {
     "stopName": "Fulton St",
     "displayName": "Fulton St (G)",
+    "borough": "Brooklyn",
     "stopIds": [
       "G36"
     ],
@@ -2467,6 +2707,7 @@
   "293": {
     "stopName": "Van Cortlandt Park-242 St",
     "displayName": "Van Cortlandt Park-242 St (1)",
+    "borough": "Bronx",
     "stopIds": [
       "101"
     ],
@@ -2477,6 +2718,7 @@
   "294": {
     "stopName": "238 St",
     "displayName": "238 St (1)",
+    "borough": "Bronx",
     "stopIds": [
       "103"
     ],
@@ -2487,6 +2729,7 @@
   "295": {
     "stopName": "231 St",
     "displayName": "231 St (1)",
+    "borough": "Bronx",
     "stopIds": [
       "104"
     ],
@@ -2497,6 +2740,7 @@
   "296": {
     "stopName": "Marble Hill-225 St",
     "displayName": "Marble Hill-225 St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "106"
     ],
@@ -2507,6 +2751,7 @@
   "297": {
     "stopName": "215 St",
     "displayName": "215 St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "107"
     ],
@@ -2517,6 +2762,7 @@
   "298": {
     "stopName": "207 St",
     "displayName": "207 St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "108"
     ],
@@ -2527,6 +2773,7 @@
   "299": {
     "stopName": "Dyckman St",
     "displayName": "Dyckman St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "109"
     ],
@@ -2537,6 +2784,7 @@
   "300": {
     "stopName": "191 St",
     "displayName": "191 St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "110"
     ],
@@ -2547,6 +2795,7 @@
   "301": {
     "stopName": "181 St",
     "displayName": "181 St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "111"
     ],
@@ -2557,6 +2806,7 @@
   "303": {
     "stopName": "157 St",
     "displayName": "157 St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "113"
     ],
@@ -2567,6 +2817,7 @@
   "304": {
     "stopName": "145 St",
     "displayName": "145 St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "114"
     ],
@@ -2577,6 +2828,7 @@
   "305": {
     "stopName": "137 St-City College",
     "displayName": "137 St-City College (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "115"
     ],
@@ -2587,6 +2839,7 @@
   "306": {
     "stopName": "125 St",
     "displayName": "125 St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "116"
     ],
@@ -2597,6 +2850,7 @@
   "307": {
     "stopName": "116 St-Columbia University",
     "displayName": "116 St-Columbia University (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "117"
     ],
@@ -2607,6 +2861,7 @@
   "308": {
     "stopName": "Cathedral Pkwy (110 St)",
     "displayName": "Cathedral Pkwy (110 St) (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "118"
     ],
@@ -2617,6 +2872,7 @@
   "309": {
     "stopName": "103 St",
     "displayName": "103 St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "119"
     ],
@@ -2627,6 +2883,7 @@
   "310": {
     "stopName": "96 St",
     "displayName": "96 St (1,2,3)",
+    "borough": "Manhattan",
     "stopIds": [
       "120"
     ],
@@ -2637,6 +2894,7 @@
   "311": {
     "stopName": "86 St",
     "displayName": "86 St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "121"
     ],
@@ -2647,6 +2905,7 @@
   "312": {
     "stopName": "79 St",
     "displayName": "79 St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "122"
     ],
@@ -2657,6 +2916,7 @@
   "313": {
     "stopName": "72 St",
     "displayName": "72 St (1,2,3)",
+    "borough": "Manhattan",
     "stopIds": [
       "123"
     ],
@@ -2667,6 +2927,7 @@
   "314": {
     "stopName": "66 St-Lincoln Center",
     "displayName": "66 St-Lincoln Center (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "124"
     ],
@@ -2677,6 +2938,7 @@
   "316": {
     "stopName": "50 St",
     "displayName": "50 St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "126"
     ],
@@ -2687,6 +2949,7 @@
   "318": {
     "stopName": "34 St-Penn Station",
     "displayName": "34 St-Penn Station (1,2,3)",
+    "borough": "Manhattan",
     "stopIds": [
       "128"
     ],
@@ -2697,6 +2960,7 @@
   "319": {
     "stopName": "28 St",
     "displayName": "28 St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "129"
     ],
@@ -2707,6 +2971,7 @@
   "320": {
     "stopName": "23 St",
     "displayName": "23 St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "130"
     ],
@@ -2717,6 +2982,7 @@
   "321": {
     "stopName": "18 St",
     "displayName": "18 St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "131"
     ],
@@ -2727,6 +2993,7 @@
   "323": {
     "stopName": "Christopher St-Stonewall",
     "displayName": "Christopher St-Stonewall (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "133"
     ],
@@ -2737,6 +3004,7 @@
   "324": {
     "stopName": "Houston St",
     "displayName": "Houston St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "134"
     ],
@@ -2747,6 +3015,7 @@
   "325": {
     "stopName": "Canal St",
     "displayName": "Canal St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "135"
     ],
@@ -2757,6 +3026,7 @@
   "326": {
     "stopName": "Franklin St",
     "displayName": "Franklin St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "136"
     ],
@@ -2767,6 +3037,7 @@
   "327": {
     "stopName": "Chambers St",
     "displayName": "Chambers St (1,2,3)",
+    "borough": "Manhattan",
     "stopIds": [
       "137"
     ],
@@ -2777,6 +3048,7 @@
   "328": {
     "stopName": "WTC Cortlandt",
     "displayName": "WTC Cortlandt (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "138"
     ],
@@ -2787,6 +3059,7 @@
   "329": {
     "stopName": "Rector St",
     "displayName": "Rector St (1)",
+    "borough": "Manhattan",
     "stopIds": [
       "139"
     ],
@@ -2797,6 +3070,7 @@
   "333": {
     "stopName": "Wall St",
     "displayName": "Wall St (2,3)",
+    "borough": "Manhattan",
     "stopIds": [
       "230"
     ],
@@ -2807,6 +3081,7 @@
   "334": {
     "stopName": "Clark St",
     "displayName": "Clark St (2,3)",
+    "borough": "Brooklyn",
     "stopIds": [
       "231"
     ],
@@ -2817,6 +3092,7 @@
   "336": {
     "stopName": "Hoyt St",
     "displayName": "Hoyt St (2,3)",
+    "borough": "Brooklyn",
     "stopIds": [
       "233"
     ],
@@ -2827,6 +3103,7 @@
   "337": {
     "stopName": "Nevins St",
     "displayName": "Nevins St (2,3,4,5)",
+    "borough": "Brooklyn",
     "stopIds": [
       "234"
     ],
@@ -2837,6 +3114,7 @@
   "339": {
     "stopName": "Bergen St",
     "displayName": "Bergen St (2,3)",
+    "borough": "Brooklyn",
     "stopIds": [
       "236"
     ],
@@ -2847,6 +3125,7 @@
   "340": {
     "stopName": "Grand Army Plaza",
     "displayName": "Grand Army Plaza (2,3)",
+    "borough": "Brooklyn",
     "stopIds": [
       "237"
     ],
@@ -2857,6 +3136,7 @@
   "341": {
     "stopName": "Eastern Pkwy-Brooklyn Museum",
     "displayName": "Eastern Pkwy-Brooklyn Museum (2,3)",
+    "borough": "Brooklyn",
     "stopIds": [
       "238"
     ],
@@ -2867,6 +3147,7 @@
   "343": {
     "stopName": "Nostrand Av",
     "displayName": "Nostrand Av (3)",
+    "borough": "Brooklyn",
     "stopIds": [
       "248"
     ],
@@ -2877,6 +3158,7 @@
   "344": {
     "stopName": "Kingston Av",
     "displayName": "Kingston Av (3)",
+    "borough": "Brooklyn",
     "stopIds": [
       "249"
     ],
@@ -2887,6 +3169,7 @@
   "345": {
     "stopName": "Crown Hts-Utica Av",
     "displayName": "Crown Hts-Utica Av (3,4)",
+    "borough": "Brooklyn",
     "stopIds": [
       "250"
     ],
@@ -2897,6 +3180,7 @@
   "346": {
     "stopName": "Sutter Av-Rutland Rd",
     "displayName": "Sutter Av-Rutland Rd (3)",
+    "borough": "Brooklyn",
     "stopIds": [
       "251"
     ],
@@ -2907,6 +3191,7 @@
   "347": {
     "stopName": "Saratoga Av",
     "displayName": "Saratoga Av (3)",
+    "borough": "Brooklyn",
     "stopIds": [
       "252"
     ],
@@ -2917,6 +3202,7 @@
   "348": {
     "stopName": "Rockaway Av",
     "displayName": "Rockaway Av (3)",
+    "borough": "Brooklyn",
     "stopIds": [
       "253"
     ],
@@ -2927,6 +3213,7 @@
   "349": {
     "stopName": "Junius St",
     "displayName": "Junius St (3)",
+    "borough": "Brooklyn",
     "stopIds": [
       "254"
     ],
@@ -2937,6 +3224,7 @@
   "350": {
     "stopName": "Pennsylvania Av",
     "displayName": "Pennsylvania Av (3)",
+    "borough": "Brooklyn",
     "stopIds": [
       "255"
     ],
@@ -2947,6 +3235,7 @@
   "351": {
     "stopName": "Van Siclen Av",
     "displayName": "Van Siclen Av (3)",
+    "borough": "Brooklyn",
     "stopIds": [
       "256"
     ],
@@ -2957,6 +3246,7 @@
   "352": {
     "stopName": "New Lots Av",
     "displayName": "New Lots Av (3)",
+    "borough": "Brooklyn",
     "stopIds": [
       "257"
     ],
@@ -2967,6 +3257,7 @@
   "353": {
     "stopName": "President St-Medgar Evers College",
     "displayName": "President St-Medgar Evers College (2,5)",
+    "borough": "Brooklyn",
     "stopIds": [
       "241"
     ],
@@ -2977,6 +3268,7 @@
   "354": {
     "stopName": "Sterling St",
     "displayName": "Sterling St (2,5)",
+    "borough": "Brooklyn",
     "stopIds": [
       "242"
     ],
@@ -2987,6 +3279,7 @@
   "355": {
     "stopName": "Winthrop St",
     "displayName": "Winthrop St (2,5)",
+    "borough": "Brooklyn",
     "stopIds": [
       "243"
     ],
@@ -2997,6 +3290,7 @@
   "356": {
     "stopName": "Church Av",
     "displayName": "Church Av (2,5)",
+    "borough": "Brooklyn",
     "stopIds": [
       "244"
     ],
@@ -3007,6 +3301,7 @@
   "357": {
     "stopName": "Beverly Rd",
     "displayName": "Beverly Rd (2,5)",
+    "borough": "Brooklyn",
     "stopIds": [
       "245"
     ],
@@ -3017,6 +3312,7 @@
   "358": {
     "stopName": "Newkirk Av-Little Haiti",
     "displayName": "Newkirk Av-Little Haiti (2,5)",
+    "borough": "Brooklyn",
     "stopIds": [
       "246"
     ],
@@ -3027,6 +3323,7 @@
   "359": {
     "stopName": "Flatbush Av-Brooklyn College",
     "displayName": "Flatbush Av-Brooklyn College (2,5)",
+    "borough": "Brooklyn",
     "stopIds": [
       "247"
     ],
@@ -3037,6 +3334,7 @@
   "360": {
     "stopName": "Pelham Bay Park",
     "displayName": "Pelham Bay Park (6)",
+    "borough": "Bronx",
     "stopIds": [
       "601"
     ],
@@ -3047,6 +3345,7 @@
   "361": {
     "stopName": "Buhre Av",
     "displayName": "Buhre Av (6)",
+    "borough": "Bronx",
     "stopIds": [
       "602"
     ],
@@ -3057,6 +3356,7 @@
   "362": {
     "stopName": "Middletown Rd",
     "displayName": "Middletown Rd (6)",
+    "borough": "Bronx",
     "stopIds": [
       "603"
     ],
@@ -3067,6 +3367,7 @@
   "363": {
     "stopName": "Westchester Sq-E Tremont Av",
     "displayName": "Westchester Sq-E Tremont Av (6)",
+    "borough": "Bronx",
     "stopIds": [
       "604"
     ],
@@ -3077,6 +3378,7 @@
   "364": {
     "stopName": "Zerega Av",
     "displayName": "Zerega Av (6)",
+    "borough": "Bronx",
     "stopIds": [
       "606"
     ],
@@ -3087,6 +3389,7 @@
   "365": {
     "stopName": "Castle Hill Av",
     "displayName": "Castle Hill Av (6)",
+    "borough": "Bronx",
     "stopIds": [
       "607"
     ],
@@ -3097,6 +3400,7 @@
   "366": {
     "stopName": "Parkchester",
     "displayName": "Parkchester (6)",
+    "borough": "Bronx",
     "stopIds": [
       "608"
     ],
@@ -3107,6 +3411,7 @@
   "367": {
     "stopName": "St Lawrence Av",
     "displayName": "St Lawrence Av (6)",
+    "borough": "Bronx",
     "stopIds": [
       "609"
     ],
@@ -3117,6 +3422,7 @@
   "368": {
     "stopName": "Morrison Av-Soundview",
     "displayName": "Morrison Av-Soundview (6)",
+    "borough": "Bronx",
     "stopIds": [
       "610"
     ],
@@ -3127,6 +3433,7 @@
   "369": {
     "stopName": "Elder Av",
     "displayName": "Elder Av (6)",
+    "borough": "Bronx",
     "stopIds": [
       "611"
     ],
@@ -3137,6 +3444,7 @@
   "370": {
     "stopName": "Whitlock Av",
     "displayName": "Whitlock Av (6)",
+    "borough": "Bronx",
     "stopIds": [
       "612"
     ],
@@ -3147,6 +3455,7 @@
   "371": {
     "stopName": "Hunts Point Av",
     "displayName": "Hunts Point Av (6)",
+    "borough": "Bronx",
     "stopIds": [
       "613"
     ],
@@ -3157,6 +3466,7 @@
   "372": {
     "stopName": "Longwood Av",
     "displayName": "Longwood Av (6)",
+    "borough": "Bronx",
     "stopIds": [
       "614"
     ],
@@ -3167,6 +3477,7 @@
   "373": {
     "stopName": "E 149 St",
     "displayName": "E 149 St (6)",
+    "borough": "Bronx",
     "stopIds": [
       "615"
     ],
@@ -3177,6 +3488,7 @@
   "374": {
     "stopName": "E 143 St-St Mary's St",
     "displayName": "E 143 St-St Mary's St (6)",
+    "borough": "Bronx",
     "stopIds": [
       "616"
     ],
@@ -3187,6 +3499,7 @@
   "375": {
     "stopName": "Cypress Av",
     "displayName": "Cypress Av (6)",
+    "borough": "Bronx",
     "stopIds": [
       "617"
     ],
@@ -3197,6 +3510,7 @@
   "376": {
     "stopName": "Brook Av",
     "displayName": "Brook Av (6)",
+    "borough": "Bronx",
     "stopIds": [
       "618"
     ],
@@ -3207,6 +3521,7 @@
   "377": {
     "stopName": "3 Av-138 St",
     "displayName": "3 Av-138 St (6)",
+    "borough": "Bronx",
     "stopIds": [
       "619"
     ],
@@ -3217,6 +3532,7 @@
   "378": {
     "stopName": "Woodlawn",
     "displayName": "Woodlawn (4)",
+    "borough": "Bronx",
     "stopIds": [
       "401"
     ],
@@ -3227,6 +3543,7 @@
   "379": {
     "stopName": "Mosholu Pkwy",
     "displayName": "Mosholu Pkwy (4)",
+    "borough": "Bronx",
     "stopIds": [
       "402"
     ],
@@ -3237,6 +3554,7 @@
   "380": {
     "stopName": "Bedford Park Blvd-Lehman College",
     "displayName": "Bedford Park Blvd-Lehman College (4)",
+    "borough": "Bronx",
     "stopIds": [
       "405"
     ],
@@ -3247,6 +3565,7 @@
   "381": {
     "stopName": "Kingsbridge Rd",
     "displayName": "Kingsbridge Rd (4)",
+    "borough": "Bronx",
     "stopIds": [
       "406"
     ],
@@ -3257,6 +3576,7 @@
   "382": {
     "stopName": "Fordham Rd",
     "displayName": "Fordham Rd (4)",
+    "borough": "Bronx",
     "stopIds": [
       "407"
     ],
@@ -3267,6 +3587,7 @@
   "383": {
     "stopName": "183 St",
     "displayName": "183 St (4)",
+    "borough": "Bronx",
     "stopIds": [
       "408"
     ],
@@ -3277,6 +3598,7 @@
   "384": {
     "stopName": "Burnside Av",
     "displayName": "Burnside Av (4)",
+    "borough": "Bronx",
     "stopIds": [
       "409"
     ],
@@ -3287,6 +3609,7 @@
   "385": {
     "stopName": "176 St",
     "displayName": "176 St (4)",
+    "borough": "Bronx",
     "stopIds": [
       "410"
     ],
@@ -3297,6 +3620,7 @@
   "386": {
     "stopName": "Mt Eden Av",
     "displayName": "Mt Eden Av (4)",
+    "borough": "Bronx",
     "stopIds": [
       "411"
     ],
@@ -3307,6 +3631,7 @@
   "387": {
     "stopName": "170 St",
     "displayName": "170 St (4)",
+    "borough": "Bronx",
     "stopIds": [
       "412"
     ],
@@ -3317,6 +3642,7 @@
   "388": {
     "stopName": "167 St",
     "displayName": "167 St (4)",
+    "borough": "Bronx",
     "stopIds": [
       "413"
     ],
@@ -3327,6 +3653,7 @@
   "391": {
     "stopName": "138 St-Grand Concourse",
     "displayName": "138 St-Grand Concourse (4,5)",
+    "borough": "Bronx",
     "stopIds": [
       "416"
     ],
@@ -3337,6 +3664,7 @@
   "392": {
     "stopName": "125 St",
     "displayName": "125 St (4,5,6)",
+    "borough": "Manhattan",
     "stopIds": [
       "621"
     ],
@@ -3347,6 +3675,7 @@
   "393": {
     "stopName": "116 St",
     "displayName": "116 St (6)",
+    "borough": "Manhattan",
     "stopIds": [
       "622"
     ],
@@ -3357,6 +3686,7 @@
   "394": {
     "stopName": "110 St",
     "displayName": "110 St (6)",
+    "borough": "Manhattan",
     "stopIds": [
       "623"
     ],
@@ -3367,6 +3697,7 @@
   "395": {
     "stopName": "103 St",
     "displayName": "103 St (6)",
+    "borough": "Manhattan",
     "stopIds": [
       "624"
     ],
@@ -3377,6 +3708,7 @@
   "396": {
     "stopName": "96 St",
     "displayName": "96 St (6)",
+    "borough": "Manhattan",
     "stopIds": [
       "625"
     ],
@@ -3387,6 +3719,7 @@
   "397": {
     "stopName": "86 St",
     "displayName": "86 St (4,5,6)",
+    "borough": "Manhattan",
     "stopIds": [
       "626"
     ],
@@ -3397,6 +3730,7 @@
   "398": {
     "stopName": "77 St",
     "displayName": "77 St (6)",
+    "borough": "Manhattan",
     "stopIds": [
       "627"
     ],
@@ -3407,6 +3741,7 @@
   "399": {
     "stopName": "68 St-Hunter College",
     "displayName": "68 St-Hunter College (6)",
+    "borough": "Manhattan",
     "stopIds": [
       "628"
     ],
@@ -3417,6 +3752,7 @@
   "403": {
     "stopName": "33 St",
     "displayName": "33 St (6)",
+    "borough": "Manhattan",
     "stopIds": [
       "632"
     ],
@@ -3427,6 +3763,7 @@
   "404": {
     "stopName": "28 St",
     "displayName": "28 St (6)",
+    "borough": "Manhattan",
     "stopIds": [
       "633"
     ],
@@ -3437,6 +3774,7 @@
   "405": {
     "stopName": "23 St-Baruch College",
     "displayName": "23 St-Baruch College (6)",
+    "borough": "Manhattan",
     "stopIds": [
       "634"
     ],
@@ -3447,6 +3785,7 @@
   "407": {
     "stopName": "Astor Pl",
     "displayName": "Astor Pl (6)",
+    "borough": "Manhattan",
     "stopIds": [
       "636"
     ],
@@ -3457,6 +3796,7 @@
   "409": {
     "stopName": "Spring St",
     "displayName": "Spring St (6)",
+    "borough": "Manhattan",
     "stopIds": [
       "638"
     ],
@@ -3467,6 +3807,7 @@
   "413": {
     "stopName": "Wall St",
     "displayName": "Wall St (4,5)",
+    "borough": "Manhattan",
     "stopIds": [
       "419"
     ],
@@ -3477,6 +3818,7 @@
   "414": {
     "stopName": "Bowling Green",
     "displayName": "Bowling Green (4,5)",
+    "borough": "Manhattan",
     "stopIds": [
       "420"
     ],
@@ -3487,6 +3829,7 @@
   "416": {
     "stopName": "Wakefield-241 St",
     "displayName": "Wakefield-241 St (2)",
+    "borough": "Bronx",
     "stopIds": [
       "201"
     ],
@@ -3497,6 +3840,7 @@
   "417": {
     "stopName": "Nereid Av",
     "displayName": "Nereid Av (2,5)",
+    "borough": "Bronx",
     "stopIds": [
       "204"
     ],
@@ -3507,6 +3851,7 @@
   "418": {
     "stopName": "233 St",
     "displayName": "233 St (2,5)",
+    "borough": "Bronx",
     "stopIds": [
       "205"
     ],
@@ -3517,6 +3862,7 @@
   "419": {
     "stopName": "225 St",
     "displayName": "225 St (2,5)",
+    "borough": "Bronx",
     "stopIds": [
       "206"
     ],
@@ -3527,6 +3873,7 @@
   "420": {
     "stopName": "219 St",
     "displayName": "219 St (2,5)",
+    "borough": "Bronx",
     "stopIds": [
       "207"
     ],
@@ -3537,6 +3884,7 @@
   "421": {
     "stopName": "Gun Hill Rd",
     "displayName": "Gun Hill Rd (2,5)",
+    "borough": "Bronx",
     "stopIds": [
       "208"
     ],
@@ -3547,6 +3895,7 @@
   "422": {
     "stopName": "Burke Av",
     "displayName": "Burke Av (2,5)",
+    "borough": "Bronx",
     "stopIds": [
       "209"
     ],
@@ -3557,6 +3906,7 @@
   "423": {
     "stopName": "Allerton Av",
     "displayName": "Allerton Av (2,5)",
+    "borough": "Bronx",
     "stopIds": [
       "210"
     ],
@@ -3567,6 +3917,7 @@
   "424": {
     "stopName": "Pelham Pkwy",
     "displayName": "Pelham Pkwy (2,5)",
+    "borough": "Bronx",
     "stopIds": [
       "211"
     ],
@@ -3577,6 +3928,7 @@
   "425": {
     "stopName": "Bronx Park East",
     "displayName": "Bronx Park East (2,5)",
+    "borough": "Bronx",
     "stopIds": [
       "212"
     ],
@@ -3587,6 +3939,7 @@
   "426": {
     "stopName": "E 180 St",
     "displayName": "E 180 St (2,5)",
+    "borough": "Bronx",
     "stopIds": [
       "213"
     ],
@@ -3597,6 +3950,7 @@
   "427": {
     "stopName": "West Farms Sq-E Tremont Av",
     "displayName": "West Farms Sq-E Tremont Av (2,5)",
+    "borough": "Bronx",
     "stopIds": [
       "214"
     ],
@@ -3607,6 +3961,7 @@
   "428": {
     "stopName": "174 St",
     "displayName": "174 St (2,5)",
+    "borough": "Bronx",
     "stopIds": [
       "215"
     ],
@@ -3617,6 +3972,7 @@
   "429": {
     "stopName": "Freeman St",
     "displayName": "Freeman St (2,5)",
+    "borough": "Bronx",
     "stopIds": [
       "216"
     ],
@@ -3627,6 +3983,7 @@
   "430": {
     "stopName": "Simpson St",
     "displayName": "Simpson St (2,5)",
+    "borough": "Bronx",
     "stopIds": [
       "217"
     ],
@@ -3637,6 +3994,7 @@
   "431": {
     "stopName": "Intervale Av",
     "displayName": "Intervale Av (2,5)",
+    "borough": "Bronx",
     "stopIds": [
       "218"
     ],
@@ -3647,6 +4005,7 @@
   "432": {
     "stopName": "Prospect Av",
     "displayName": "Prospect Av (2,5)",
+    "borough": "Bronx",
     "stopIds": [
       "219"
     ],
@@ -3657,6 +4016,7 @@
   "433": {
     "stopName": "Jackson Av",
     "displayName": "Jackson Av (2,5)",
+    "borough": "Bronx",
     "stopIds": [
       "220"
     ],
@@ -3667,6 +4027,7 @@
   "434": {
     "stopName": "3 Av-149 St",
     "displayName": "3 Av-149 St (2,5)",
+    "borough": "Bronx",
     "stopIds": [
       "221"
     ],
@@ -3677,6 +4038,7 @@
   "436": {
     "stopName": "Harlem-148 St",
     "displayName": "Harlem-148 St (3)",
+    "borough": "Manhattan",
     "stopIds": [
       "301"
     ],
@@ -3687,6 +4049,7 @@
   "437": {
     "stopName": "145 St",
     "displayName": "145 St (3)",
+    "borough": "Manhattan",
     "stopIds": [
       "302"
     ],
@@ -3697,6 +4060,7 @@
   "438": {
     "stopName": "135 St",
     "displayName": "135 St (2,3)",
+    "borough": "Manhattan",
     "stopIds": [
       "224"
     ],
@@ -3707,6 +4071,7 @@
   "439": {
     "stopName": "125 St",
     "displayName": "125 St (2,3)",
+    "borough": "Manhattan",
     "stopIds": [
       "225"
     ],
@@ -3717,6 +4082,7 @@
   "440": {
     "stopName": "116 St",
     "displayName": "116 St (2,3)",
+    "borough": "Manhattan",
     "stopIds": [
       "226"
     ],
@@ -3727,6 +4093,7 @@
   "441": {
     "stopName": "110 St-Malcolm X Plaza",
     "displayName": "110 St-Malcolm X Plaza (2,3)",
+    "borough": "Manhattan",
     "stopIds": [
       "227"
     ],
@@ -3737,6 +4104,7 @@
   "442": {
     "stopName": "Eastchester-Dyre Av",
     "displayName": "Eastchester-Dyre Av (5)",
+    "borough": "Bronx",
     "stopIds": [
       "501"
     ],
@@ -3747,6 +4115,7 @@
   "443": {
     "stopName": "Baychester Av",
     "displayName": "Baychester Av (5)",
+    "borough": "Bronx",
     "stopIds": [
       "502"
     ],
@@ -3757,6 +4126,7 @@
   "444": {
     "stopName": "Gun Hill Rd",
     "displayName": "Gun Hill Rd (5)",
+    "borough": "Bronx",
     "stopIds": [
       "503"
     ],
@@ -3767,6 +4137,7 @@
   "445": {
     "stopName": "Pelham Pkwy",
     "displayName": "Pelham Pkwy (5)",
+    "borough": "Bronx",
     "stopIds": [
       "504"
     ],
@@ -3777,6 +4148,7 @@
   "446": {
     "stopName": "Morris Park",
     "displayName": "Morris Park (5)",
+    "borough": "Bronx",
     "stopIds": [
       "505"
     ],
@@ -3787,6 +4159,7 @@
   "447": {
     "stopName": "Flushing-Main St",
     "displayName": "Flushing-Main St (7)",
+    "borough": "Queens",
     "stopIds": [
       "701"
     ],
@@ -3797,6 +4170,7 @@
   "448": {
     "stopName": "Mets-Willets Point",
     "displayName": "Mets-Willets Point (7)",
+    "borough": "Queens",
     "stopIds": [
       "702"
     ],
@@ -3807,6 +4181,7 @@
   "449": {
     "stopName": "111 St",
     "displayName": "111 St (7)",
+    "borough": "Queens",
     "stopIds": [
       "705"
     ],
@@ -3817,6 +4192,7 @@
   "450": {
     "stopName": "103 St-Corona Plaza",
     "displayName": "103 St-Corona Plaza (7)",
+    "borough": "Queens",
     "stopIds": [
       "706"
     ],
@@ -3827,6 +4203,7 @@
   "451": {
     "stopName": "Junction Blvd",
     "displayName": "Junction Blvd (7)",
+    "borough": "Queens",
     "stopIds": [
       "707"
     ],
@@ -3837,6 +4214,7 @@
   "452": {
     "stopName": "90 St-Elmhurst Av",
     "displayName": "90 St-Elmhurst Av (7)",
+    "borough": "Queens",
     "stopIds": [
       "708"
     ],
@@ -3847,6 +4225,7 @@
   "453": {
     "stopName": "82 St-Jackson Hts",
     "displayName": "82 St-Jackson Hts (7)",
+    "borough": "Queens",
     "stopIds": [
       "709"
     ],
@@ -3857,6 +4236,7 @@
   "455": {
     "stopName": "69 St",
     "displayName": "69 St (7)",
+    "borough": "Queens",
     "stopIds": [
       "711"
     ],
@@ -3867,6 +4247,7 @@
   "456": {
     "stopName": "61 St-Woodside",
     "displayName": "61 St-Woodside (7)",
+    "borough": "Queens",
     "stopIds": [
       "712"
     ],
@@ -3877,6 +4258,7 @@
   "457": {
     "stopName": "52 St",
     "displayName": "52 St (7)",
+    "borough": "Queens",
     "stopIds": [
       "713"
     ],
@@ -3887,6 +4269,7 @@
   "458": {
     "stopName": "46 St-Bliss St",
     "displayName": "46 St-Bliss St (7)",
+    "borough": "Queens",
     "stopIds": [
       "714"
     ],
@@ -3897,6 +4280,7 @@
   "459": {
     "stopName": "40 St-Lowery St",
     "displayName": "40 St-Lowery St (7)",
+    "borough": "Queens",
     "stopIds": [
       "715"
     ],
@@ -3907,6 +4291,7 @@
   "460": {
     "stopName": "33 St-Rawson St",
     "displayName": "33 St-Rawson St (7)",
+    "borough": "Queens",
     "stopIds": [
       "716"
     ],
@@ -3917,6 +4302,7 @@
   "461": {
     "stopName": "Queensboro Plaza",
     "displayName": "Queensboro Plaza (7,N,W)",
+    "borough": "Queens",
     "stopIds": [
       "718",
       "R09"
@@ -3929,6 +4315,7 @@
   "463": {
     "stopName": "Hunters Point Av",
     "displayName": "Hunters Point Av (7)",
+    "borough": "Queens",
     "stopIds": [
       "720"
     ],
@@ -3939,6 +4326,7 @@
   "464": {
     "stopName": "Vernon Blvd-Jackson Av",
     "displayName": "Vernon Blvd-Jackson Av (7)",
+    "borough": "Queens",
     "stopIds": [
       "721"
     ],
@@ -3949,6 +4337,7 @@
   "471": {
     "stopName": "34 St-Hudson Yards",
     "displayName": "34 St-Hudson Yards (7)",
+    "borough": "Manhattan",
     "stopIds": [
       "726"
     ],
@@ -3959,6 +4348,7 @@
   "475": {
     "stopName": "96 St",
     "displayName": "96 St (Q)",
+    "borough": "Manhattan",
     "stopIds": [
       "Q05"
     ],
@@ -3969,6 +4359,7 @@
   "476": {
     "stopName": "86 St",
     "displayName": "86 St (Q)",
+    "borough": "Manhattan",
     "stopIds": [
       "Q04"
     ],
@@ -3979,6 +4370,7 @@
   "477": {
     "stopName": "72 St",
     "displayName": "72 St (Q)",
+    "borough": "Manhattan",
     "stopIds": [
       "Q03"
     ],
@@ -3989,6 +4381,7 @@
   "501": {
     "stopName": "St George",
     "displayName": "St George (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S31"
     ],
@@ -3999,6 +4392,7 @@
   "502": {
     "stopName": "Tompkinsville",
     "displayName": "Tompkinsville (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S30"
     ],
@@ -4009,6 +4403,7 @@
   "503": {
     "stopName": "Stapleton",
     "displayName": "Stapleton (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S29"
     ],
@@ -4019,6 +4414,7 @@
   "504": {
     "stopName": "Clifton",
     "displayName": "Clifton (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S28"
     ],
@@ -4029,6 +4425,7 @@
   "505": {
     "stopName": "Grasmere",
     "displayName": "Grasmere (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S27"
     ],
@@ -4039,6 +4436,7 @@
   "506": {
     "stopName": "Old Town",
     "displayName": "Old Town (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S26"
     ],
@@ -4049,6 +4447,7 @@
   "507": {
     "stopName": "Dongan Hills",
     "displayName": "Dongan Hills (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S25"
     ],
@@ -4059,6 +4458,7 @@
   "508": {
     "stopName": "Jefferson Av",
     "displayName": "Jefferson Av (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S24"
     ],
@@ -4069,6 +4469,7 @@
   "509": {
     "stopName": "Grant City",
     "displayName": "Grant City (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S23"
     ],
@@ -4079,6 +4480,7 @@
   "510": {
     "stopName": "New Dorp",
     "displayName": "New Dorp (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S22"
     ],
@@ -4089,6 +4491,7 @@
   "511": {
     "stopName": "Oakwood Heights",
     "displayName": "Oakwood Heights (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S21"
     ],
@@ -4099,6 +4502,7 @@
   "512": {
     "stopName": "Bay Terrace",
     "displayName": "Bay Terrace (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S20"
     ],
@@ -4109,6 +4513,7 @@
   "513": {
     "stopName": "Great Kills",
     "displayName": "Great Kills (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S19"
     ],
@@ -4119,6 +4524,7 @@
   "514": {
     "stopName": "Eltingville",
     "displayName": "Eltingville (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S18"
     ],
@@ -4129,6 +4535,7 @@
   "515": {
     "stopName": "Annadale",
     "displayName": "Annadale (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S17"
     ],
@@ -4139,6 +4546,7 @@
   "516": {
     "stopName": "Huguenot",
     "displayName": "Huguenot (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S16"
     ],
@@ -4149,6 +4557,7 @@
   "517": {
     "stopName": "Prince's Bay",
     "displayName": "Prince's Bay (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S15"
     ],
@@ -4159,6 +4568,7 @@
   "518": {
     "stopName": "Pleasant Plains",
     "displayName": "Pleasant Plains (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S14"
     ],
@@ -4169,6 +4579,7 @@
   "519": {
     "stopName": "Richmond Valley",
     "displayName": "Richmond Valley (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S13"
     ],
@@ -4179,6 +4590,7 @@
   "522": {
     "stopName": "Tottenville",
     "displayName": "Tottenville (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S09"
     ],
@@ -4189,6 +4601,7 @@
   "523": {
     "stopName": "Arthur Kill",
     "displayName": "Arthur Kill (SIR)",
+    "borough": "Staten Island",
     "stopIds": [
       "S11"
     ],
@@ -4199,6 +4612,7 @@
   "601": {
     "stopName": "14 St/6 Av",
     "displayName": "14 St/6 Av (1,2,3,L,F,M)",
+    "borough": "Manhattan",
     "stopIds": [
       "132",
       "D19",
@@ -4213,6 +4627,7 @@
   "602": {
     "stopName": "14 St-Union Sq",
     "displayName": "14 St-Union Sq (4,5,6,L,N,Q,R,W)",
+    "borough": "Manhattan",
     "stopIds": [
       "635",
       "L03",
@@ -4227,6 +4642,7 @@
   "603": {
     "stopName": "149 St-Grand Concourse",
     "displayName": "149 St-Grand Concourse (2,4,5)",
+    "borough": "Bronx",
     "stopIds": [
       "222",
       "415"
@@ -4238,6 +4654,7 @@
   "604": {
     "stopName": "161 St-Yankee Stadium",
     "displayName": "161 St-Yankee Stadium (4,B,D)",
+    "borough": "Bronx",
     "stopIds": [
       "414",
       "D11"
@@ -4250,6 +4667,7 @@
   "605": {
     "stopName": "168 St-Washington Hts",
     "displayName": "168 St-Washington Hts (1,A,C)",
+    "borough": "Manhattan",
     "stopIds": [
       "112",
       "A09"
@@ -4262,6 +4680,7 @@
   "606": {
     "stopName": "Court Sq-23 St",
     "displayName": "Court Sq-23 St (7,E,F,G)",
+    "borough": "Queens",
     "stopIds": [
       "719",
       "F09",
@@ -4277,6 +4696,7 @@
   "607": {
     "stopName": "34 St-Herald Sq",
     "displayName": "34 St-Herald Sq (B,D,F,M,N,Q,R,W)",
+    "borough": "Manhattan",
     "stopIds": [
       "D17",
       "R17"
@@ -4289,6 +4709,7 @@
   "608": {
     "stopName": "4 Av-9 St",
     "displayName": "4 Av-9 St (F,G,R)",
+    "borough": "Brooklyn",
     "stopIds": [
       "F23",
       "R33"
@@ -4302,6 +4723,7 @@
   "609": {
     "stopName": "42 St-Bryant Pk/5 Av",
     "displayName": "42 St-Bryant Pk/5 Av (7,B,D,F,M)",
+    "borough": "Manhattan",
     "stopIds": [
       "724",
       "D16"
@@ -4314,6 +4736,7 @@
   "610": {
     "stopName": "Grand Central-42 St",
     "displayName": "Grand Central-42 St (4,5,6,7,S)",
+    "borough": "Manhattan",
     "stopIds": [
       "631",
       "723",
@@ -4326,6 +4749,7 @@
   "611": {
     "stopName": "Times Sq-42 St/Port Authority Bus Terminal",
     "displayName": "Times Sq-42 St/Port Authority Bus Terminal (1,2,3,7,A,C,E,N,Q,R,W,S)",
+    "borough": "Manhattan",
     "stopIds": [
       "127",
       "725",
@@ -4342,6 +4766,7 @@
   "612": {
     "stopName": "Lexington Av/51-53 Sts",
     "displayName": "Lexington Av/51-53 Sts (6,E,F)",
+    "borough": "Manhattan",
     "stopIds": [
       "630",
       "F11"
@@ -4355,6 +4780,7 @@
   "613": {
     "stopName": "Lexington Av/59 St",
     "displayName": "Lexington Av/59 St (4,5,6,N,R,W)",
+    "borough": "Manhattan",
     "stopIds": [
       "629",
       "R11"
@@ -4367,6 +4793,7 @@
   "614": {
     "stopName": "59 St-Columbus Circle",
     "displayName": "59 St-Columbus Circle (1,A,C,B,D)",
+    "borough": "Manhattan",
     "stopIds": [
       "125",
       "A24"
@@ -4380,6 +4807,7 @@
   "615": {
     "stopName": "62 St/New Utrecht Av",
     "displayName": "62 St/New Utrecht Av (D,N)",
+    "borough": "Brooklyn",
     "stopIds": [
       "B16",
       "N04"
@@ -4392,6 +4820,7 @@
   "616": {
     "stopName": "Jackson Hts-Roosevelt Av/74 St-Broadway",
     "displayName": "Jackson Hts-Roosevelt Av/74 St-Broadway (7,E,F,M,R)",
+    "borough": "Queens",
     "stopIds": [
       "710",
       "G14"
@@ -4406,6 +4835,7 @@
   "617": {
     "stopName": "Atlantic Av-Barclays Ctr",
     "displayName": "Atlantic Av-Barclays Ctr (2,3,4,5,B,D,N,Q,R)",
+    "borough": "Brooklyn",
     "stopIds": [
       "235",
       "D24",
@@ -4420,6 +4850,7 @@
   "618": {
     "stopName": "14 St/8 Av",
     "displayName": "14 St/8 Av (A,C,E,L)",
+    "borough": "Manhattan",
     "stopIds": [
       "A31",
       "L01"
@@ -4432,6 +4863,7 @@
   "619": {
     "stopName": "Broadway-Lafayette St/Bleecker St",
     "displayName": "Broadway-Lafayette St/Bleecker St (6,B,D,F,M)",
+    "borough": "Manhattan",
     "stopIds": [
       "637",
       "D21"
@@ -4444,6 +4876,7 @@
   "620": {
     "stopName": "Borough Hall/Court St",
     "displayName": "Borough Hall/Court St (2,3,4,5,R)",
+    "borough": "Brooklyn",
     "stopIds": [
       "232",
       "423",
@@ -4457,6 +4890,7 @@
   "621": {
     "stopName": "Broadway Junction",
     "displayName": "Broadway Junction (A,C,J,Z,L)",
+    "borough": "Brooklyn",
     "stopIds": [
       "A51",
       "J27",
@@ -4471,6 +4905,7 @@
   "622": {
     "stopName": "Brooklyn Bridge-City Hall/Chambers St",
     "displayName": "Brooklyn Bridge-City Hall/Chambers St (4,5,6,J,Z)",
+    "borough": "Manhattan",
     "stopIds": [
       "640",
       "M21"
@@ -4483,6 +4918,7 @@
   "623": {
     "stopName": "Canal St",
     "displayName": "Canal St (6,J,Z,N,Q,R,W)",
+    "borough": "Manhattan",
     "stopIds": [
       "639",
       "M20",
@@ -4498,6 +4934,7 @@
   "624": {
     "stopName": "Chambers St/WTC/Park Place/Cortlandt St",
     "displayName": "Chambers St/WTC/Park Place/Cortlandt St (2,3,A,C,E,R,W)",
+    "borough": "Manhattan",
     "stopIds": [
       "228",
       "A36",
@@ -4513,6 +4950,7 @@
   "625": {
     "stopName": "Delancey St-Essex St",
     "displayName": "Delancey St-Essex St (F,M,J,Z)",
+    "borough": "Manhattan",
     "stopIds": [
       "F15",
       "M18"
@@ -4525,6 +4963,7 @@
   "626": {
     "stopName": "Franklin Av-Medgar Evers College/Botanic Garden",
     "displayName": "Franklin Av-Medgar Evers College/Botanic Garden (2,3,4,5,S)",
+    "borough": "Brooklyn",
     "stopIds": [
       "239",
       "S04"
@@ -4536,6 +4975,7 @@
   "627": {
     "stopName": "Franklin Av",
     "displayName": "Franklin Av (C,S)",
+    "borough": "Brooklyn",
     "stopIds": [
       "A45",
       "S01"
@@ -4548,6 +4988,7 @@
   "628": {
     "stopName": "Fulton St",
     "displayName": "Fulton St (2,3,4,5,A,C,J,Z)",
+    "borough": "Manhattan",
     "stopIds": [
       "229",
       "418",
@@ -4563,6 +5004,7 @@
   "629": {
     "stopName": "Metropolitan Av/Lorimer St",
     "displayName": "Metropolitan Av/Lorimer St (G,L)",
+    "borough": "Brooklyn",
     "stopIds": [
       "G29",
       "L10"
@@ -4575,6 +5017,7 @@
   "630": {
     "stopName": "Myrtle-Wyckoff Avs",
     "displayName": "Myrtle-Wyckoff Avs (M,L)",
+    "borough": "Brooklyn",
     "stopIds": [
       "L17",
       "M08"
@@ -4587,6 +5030,7 @@
   "635": {
     "stopName": "Whitehall St-South Ferry",
     "displayName": "Whitehall St-South Ferry (1,R,W)",
+    "borough": "Manhattan",
     "stopIds": [
       "142",
       "R27"
@@ -4599,6 +5043,7 @@
   "636": {
     "stopName": "Jay St-MetroTech",
     "displayName": "Jay St-MetroTech (A,C,F,R)",
+    "borough": "Brooklyn",
     "stopIds": [
       "A41",
       "R29"

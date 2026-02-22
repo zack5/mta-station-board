@@ -2,6 +2,7 @@
 export interface StationInfo {
   stopName: string;
   displayName: string;
+  borough: string;
   stopIds: string[];
   feeds: string[];
 }
@@ -18,7 +19,7 @@ export type StopInfoData = Record<string, StopInfo>;
 export interface TrainInfo {
   id: string;
   line: string;
-  destinationName: string;
+  destinationStopName: string;
   destinationBorough: string;
   arrivalTime: number;
 }
