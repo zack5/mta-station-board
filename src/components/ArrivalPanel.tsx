@@ -4,11 +4,13 @@ import type { TrainInfo } from '../types/types';
 interface ArrivalPanelProps {
     train: TrainInfo
     style: CSSProperties;
+    isCompact: boolean;
   }
   
 export default function ArrivalPanel({ 
   train,
-  style
+  style,
+  isCompact
 }: ArrivalPanelProps) {
 
   const getTrainLineImage = (trainLine: string): string => {
@@ -28,19 +30,21 @@ export default function ArrivalPanel({
     return `/lines/${filename}.svg`
   }
 
+  const extraClassname = isCompact ? " arrival-panel-compact" : ""
+
   return (
     <div className="arrival-panel-outer" style={style}>
-      <img 
+      {<img 
         src={getTrainLineImage(train.line)} 
-        className="arrival-panel-train-logo" 
+        className={"arrival-panel-train-logo" + extraClassname}
         alt={`${getTrainLineImage(train.line)}`}
-      />
-      <div className="arrival-panel-destination truncate">
+      />}
+      {!isCompact && <div className="arrival-panel-destination truncate">
         <h2 className="truncate">{train.destinationName}</h2>
         <p className="truncate">{train.destinationBorough}</p>
-      </div>
+      </div>}
       <div className="arrival-panel-arrival-time">
-        <h1>{`${train.arrivalTime}`}</h1>
+        <h1 className={extraClassname} >{`${train.arrivalTime}`}</h1>
         <p>MIN</p>
       </div>
     </div>

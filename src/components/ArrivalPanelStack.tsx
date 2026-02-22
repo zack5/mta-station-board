@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, time } from 'framer-motion';
 
 import ArrivalPanel from './ArrivalPanel';
 
@@ -15,12 +15,32 @@ export default function ArrivalPanelStack({
   const [clientWidth, setClientWidth] = useState<number>(0);
   const [surfaceWidth, setSurfaceWidth] = useState<number>(0);
 
+  let transition = {};
+  /* --- DEBUG ANIMATION SECTION START --- */
+  /* Uncomment this block out to enable auto-rotation */
+  // transition = {duration: 1}
+  // const [debugTime, setDebugTime] = useState(0);
+  // useEffect(() => {
+  //   let frameId: number;
+  //   const update = (t: number) => {
+  //     setDebugTime(t / 1000); // convert to seconds
+  //     frameId = requestAnimationFrame(update);
+  //   };
+  //   frameId = requestAnimationFrame(update);
+  //   return () => cancelAnimationFrame(frameId);
+  // }, []);
+
+  // const shift = Math.floor(debugTime / 2) % (trains.length || 1);
+  // const rotatedTrains = [...trains.slice(shift), ...trains.slice(0, shift)];
+  // trains = rotatedTrains;
+  /* --- DEBUG ANIMATION SECTION END --- */
+
   const isDesktop = clientWidth > 800; // Keep in sync with css media query
   const PANEL_HEIGHT = isDesktop ? 126 : 60;
   const PANEL_PADDING = isDesktop ? 18 : 8;
-  const PEEK_WIDTH = isDesktop ? 140 : 50;
-  const FADE_WIDTH = isDesktop ? 50 : 20;
-  const GAP_BEFORE_FADE = isDesktop ? 10 : 5;
+  const PEEK_WIDTH = isDesktop ? 180 : 75;
+  const FADE_WIDTH = isDesktop ? 50 : 30;
+  const GAP_BEFORE_FADE = isDesktop ? 0 : 0;
   const MAX_STACK_DEPTH = isDesktop ? 3 : 3;
 
   useEffect(() => {
@@ -59,7 +79,7 @@ export default function ArrivalPanelStack({
       <AnimatePresence>
         {displayedTrains.map((train, index) => (
           <motion.div
-            key={train.id}
+            key={`${train.id}`}
             layout
             style={{ 
               position: 'absolute',
@@ -80,6 +100,7 @@ export default function ArrivalPanelStack({
               opacity: 0,
               zIndex: index <= 0 ? MAX_STACK_DEPTH + 1 : 0,
             }}
+            transition={transition}
           >
             <div className="arrival-panel-backing"
               style={{ 
@@ -100,7 +121,7 @@ export default function ArrivalPanelStack({
                 height: `${PANEL_HEIGHT + GAP_BEFORE_FADE * 2}px`,
               }}
             />
-            <div className="arrival-panel-darken-below"
+            <div className={index < 1 ? "arrival-panel-darken-below" : "arrival-panel-extra-darken-below"}
               style={{ 
                 position: 'absolute',
                 top: `-${GAP_BEFORE_FADE}px`,
@@ -111,9 +132,11 @@ export default function ArrivalPanelStack({
             <ArrivalPanel
               style={{
                 width: `${arrivalPanelWidth - 2 * PANEL_PADDING}px`,
+                height: `${PANEL_HEIGHT - 2 * PANEL_PADDING}px`,
                 padding: `${PANEL_PADDING}px`
               }}
               train={train}
+              isCompact={index > 0}
             />
           </motion.div>
         ))}
