@@ -7,8 +7,6 @@ import ArrivalPanelStack from "../components/ArrivalPanelStack";
 import stationsData from '../generated/stations.json';
 import stopsData from '../generated/stops.json';
 
-import NotFound from "../pages/NotFound";
-
 import { decodeGtfs } from "../services/gtfs";
 
 import type { StationInfoData, StopInfoData, TrainInfo } from '../types/types';
