@@ -128,7 +128,7 @@ h1.arrival-panel-compact {
 .station-selector-line-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 5px;
 }
 
 .station-selector-line-container img {
