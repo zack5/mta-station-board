@@ -8,6 +8,7 @@ import type { StationInfoData } from '../types/types';
 interface StationOption {
   value: string;
   label: string;
+  optionLabel: string;
 }
 
 interface StationSelectorProps {
@@ -21,20 +22,30 @@ export function StationSelector({ stationId, onStationChange }: StationSelectorP
   const options = useMemo(() => {
     return Object.entries(stations).map(([id, info]) => ({
       value: id,
-      label: info.name
+      label: info.stopName,
+      optionLabel: info.displayName
     }));
   }, []);
 
   const [clientWidth, setClientWidth] = useState<number>(0);
+  const [surfaceWidth, setSurfaceWidth] = useState<number>(0);
   const isDesktop = clientWidth > 800; // Keep in sync with css media query
+
   useEffect(() => {
     const root = document.documentElement;
+    const header = document.querySelector('header');
+    
     const handleResize = () => {
       if (root) {
         setClientWidth(root.offsetWidth);
       }
+      if (header) {
+        setSurfaceWidth(header.offsetWidth);
+      }
     };
+
     handleResize();
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -69,6 +80,8 @@ export function StationSelector({ stationId, onStationChange }: StationSelectorP
       fontSize: "1rem", 
       fontWeight: "normal",
       backgroundColor: "var(--color-background, #1a1a1a)", 
+      width: "max-content",
+      maxWidth: surfaceWidth
     }),
     option: (base, { isFocused, isSelected }) => ({
       ...base,
@@ -101,12 +114,16 @@ export function StationSelector({ stationId, onStationChange }: StationSelectorP
   return (
     <h1>
       <Select<StationOption, false>
+        placeholder="Select a station"
         value={currentOption}
         styles={customStyles}
         options={options} 
         onChange={(opt) => onStationChange(opt?.value || '')}
         components={{ 
           IndicatorSeparator: null
+        }}
+        formatOptionLabel={(option, { context }) => {
+          return (context === 'menu') ? option.optionLabel : option.label;
         }}
       />
     </h1>

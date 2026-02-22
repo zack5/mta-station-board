@@ -106,7 +106,7 @@ function main() {
 
   const stations: Record<
     string,
-    { name: string; stopIds: string[]; feeds: string[] }
+    { stopName: string; displayName: string; stopIds: string[]; feeds: string[] }
   > = {};
 
   const stops: Record<
@@ -124,7 +124,8 @@ function main() {
 
   for (const row of stationRows) {
     const stationId = row["Complex ID"];
-    const stationName = row["Stop Name"];
+    const stationStopName = row["Stop Name"];
+    const stationDisplayName = row["Display Name"];
     const stopIdsRaw = row["GTFS Stop IDs"];
     const borough = row["Borough"];
     const routes = row["Daytime Routes"];
@@ -137,7 +138,8 @@ function main() {
       .filter(Boolean);
 
     stations[stationId] = {
-      name: stationName,
+      stopName: stationStopName,
+      displayName: stationDisplayName,
       stopIds,
       feeds: routesToFeeds(routes),
     };
@@ -146,7 +148,7 @@ function main() {
       const stop = stopLookup[stopId];
 
       stops[stopId] = {
-        name: stop?.stop_name ?? stationName,
+        name: stop?.stop_name ?? stationStopName,
         borough,
       };
     }

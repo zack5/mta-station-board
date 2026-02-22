@@ -1,6 +1,7 @@
 // Format of complexes.json
 export interface StationInfo {
-  name: string;
+  stopName: string;
+  displayName: string;
   stopIds: string[];
   feeds: string[];
 }

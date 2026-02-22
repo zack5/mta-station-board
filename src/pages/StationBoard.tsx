@@ -88,9 +88,13 @@ function processMtaData(
 
   // Sort each list by arrival time
   Object.keys(trains).forEach(key => {
-    trains[key].sort((a, b) => a.arrivalTime - b.arrivalTime);
+    if (trains[key].length === 0) {
+      delete trains[key];
+    } else {
+      trains[key].sort((a, b) => a.arrivalTime - b.arrivalTime);
+    }
   });
-
+  
   return trains;
 }
 
@@ -105,7 +109,6 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
   const stations = stationsData as StationInfoData;
   const stops = stopsData as StopInfoData;
   const station = stations[activeStationId];
-  const stationName = station?.name;
   const feedSuffixes = station?.feeds || [];
   const stopIDs = station?.stopIds || [];
 
@@ -156,12 +159,8 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
   }, [activeStationId]);
 
   const trains = processMtaData(mtaData, stopIDs, stops);
-
+console.log(trains)
   const sortedStopKeys = Object.keys(trains).sort();
-
-  if (!station) {
-    return <NotFound/>
-  }  
 
   return (
     <div className="station-board"> 
