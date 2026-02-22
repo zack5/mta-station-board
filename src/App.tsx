@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import StationBoard from "./pages/StationBoard";
 
-import './app.css'
+import './App.css'
 
 function App() {
   return (
