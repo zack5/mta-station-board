@@ -124,7 +124,7 @@ export function StationSelector({ stationId, onStationChange }: StationSelectorP
   };
 
   return (
-    <h1 style={{maxWidth: clientWidth - (isDesktop ? 200 : 0)}}>
+    <h1 style={{maxWidth: surfaceWidth - (isDesktop ? 150 : 0)}}>
       <Select<StationOption, false>
         placeholder="Select a station"
         value={currentOption}
