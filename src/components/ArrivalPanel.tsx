@@ -3,6 +3,7 @@ import type { StationInfo, TrainInfo } from '../types/types';
 
 interface ArrivalPanelProps {
   station: StationInfo;
+  stopId: string;
   train: TrainInfo;
   style: CSSProperties;
   isCompact: boolean;
@@ -10,6 +11,7 @@ interface ArrivalPanelProps {
 
 export default function ArrivalPanel({ 
   station,
+  stopId,
   train,
   style,
   isCompact
@@ -33,21 +35,26 @@ export default function ArrivalPanel({
   }
 
   const extraClassname = isCompact ? " arrival-panel-compact" : ""
+
+  const destination = train.destination;
   const isCrosstown = ["7", "L"].includes(train.line);
-  const showUptownDowntown = station.borough === "Manhattan" && !isCrosstown;
-  const destinationInOtherBorough = station.borough != train.destinationBorough;
+  const showUptownDowntown = (!isCrosstown
+    && station.borough === "Manhattan" 
+    && train.nextStop && train.nextStop.borough === "Manhattan"
+    && (stopId.endsWith("N") || stopId.endsWith("S")));
+  const destinationInOtherBorough = station.borough != destination.borough;
 
   const titleShowsDirection = showUptownDowntown || destinationInOtherBorough;
 
   const title = titleShowsDirection
-    ? [showUptownDowntown ? station.borough : null, destinationInOtherBorough ? train.destinationBorough : null]
+    ? [showUptownDowntown ? (stopId.endsWith("N") ? "Uptown" : "Downtown") : null, destinationInOtherBorough ? destination.borough : null]
         .filter(Boolean)
         .join(" & ")
-    : train.destinationStopName;
+    : destination.name;
   
   const subtitle = titleShowsDirection 
-    ? train.destinationStopName 
-    : train.destinationBorough;
+    ? destination.name 
+    : destination.borough;
 
   return (
     <div className="arrival-panel-outer" style={style}>

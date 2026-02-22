@@ -17,9 +17,9 @@ export type StopInfoData = Record<string, StopInfo>;
 
 // Format of parsed MTA data
 export interface TrainInfo {
-  id: string;
+  tripId: string;
   line: string;
-  destinationStopName: string;
-  destinationBorough: string;
+  nextStop: StopInfo | null;
+  destination: StopInfo;
   arrivalTime: number;
 }

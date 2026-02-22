@@ -6,11 +6,13 @@ import ArrivalPanel from './ArrivalPanel';
 import type { StationInfo, TrainInfo } from '../types/types';
 
 interface ArrivalPanelStackProps {
+  stopId: string;
   station: StationInfo;
   trains: TrainInfo[];
 }
 
 export default function ArrivalPanelStack({
+  stopId,
   station,
   trains
 }: ArrivalPanelStackProps) {
@@ -81,29 +83,29 @@ export default function ArrivalPanelStack({
       <AnimatePresence>
         {displayedTrains.map((train, index) => (
           <motion.div
-            key={`${train.id}`}
+            key={`${train.tripId}`}
             layout
-            style={{ 
-              position: 'absolute',
-              width: `${arrivalPanelWidth}px`,
-            }}
-            initial={{
-              left: `${(index + 1) * PEEK_WIDTH}px`,
-              zIndex: 0,
-              opacity: 0,
-            }}
-            animate={{
-              left: `${(index + 0) * PEEK_WIDTH}px`,
-              zIndex: (displayedTrains.length - index),
-              opacity: 1,
-            }}
-            exit={{
-              left: `${(index - 1) * PEEK_WIDTH}px`,
-              opacity: 0,
-              zIndex: index <= 0 ? MAX_STACK_DEPTH + 1 : 0,
-            }}
-            transition={transition}
-          >
+              style={{ 
+                position: 'absolute',
+                width: `${arrivalPanelWidth}px`,
+              }}
+              initial={{
+                left: `${(index + 1) * PEEK_WIDTH}px`,
+                zIndex: 0,
+                opacity: 0,
+              }}
+              animate={{
+                left: `${(index + 0) * PEEK_WIDTH}px`,
+                zIndex: (displayedTrains.length - index),
+                opacity: 1,
+              }}
+              exit={{
+                left: `${(index - 1) * PEEK_WIDTH}px`,
+                opacity: 0,
+                zIndex: index <= 0 ? MAX_STACK_DEPTH + 1 : 0,
+              }}
+              transition={transition}
+            >
             <div className="arrival-panel-backing"
               style={{ 
                 position: 'absolute',
@@ -138,6 +140,7 @@ export default function ArrivalPanelStack({
                 padding: `${PANEL_PADDING}px`
               }}
               station={station}
+              stopId={stopId}
               train={train}
               isCompact={index > 0}
             />

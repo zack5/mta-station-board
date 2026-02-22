@@ -46,9 +46,10 @@ function processMtaData(
 
       const line = tripUpdate.trip.routeId;
       const tripId = tripUpdate.trip.tripId;
+      const stopUpdates = tripUpdate.stopTimeUpdate;
 
       // Find if this trip stops at any of our target stations
-      tripUpdate.stopTimeUpdate?.forEach((update: any) => {
+      stopUpdates?.forEach((update: any) => {
         const stopId = update.stopId;
         const baseStopId = getBaseStopId(stopId);
 
@@ -56,19 +57,26 @@ function processMtaData(
           const arrivalTime = update.arrival?.time || update.departure?.time;
           if (!arrivalTime || arrivalTime < now) return;
 
-          // Minutes until arrival (rounded)
           const minutesArrival = Math.round((arrivalTime - now) / 60);
+          
+          const currentIndex = stopUpdates.findIndex((u: { stopId?: string | null }) => 
+            u.stopId ? getBaseStopId(u.stopId) === baseStopId : false
+          );
+          // Find the next update in the array, if it exists
+          const nextUpdate = stopUpdates[currentIndex + 1];
+          const nextStopId = nextUpdate ? getBaseStopId(nextUpdate.stopId) : null;
+          const nextStop = nextStopId ? (stops[nextStopId] || { name: "Unknown", borough: "Unknown" }) : null;
 
           // The destination is the LAST stopTimeUpdate in the array
-          const lastUpdate = tripUpdate.stopTimeUpdate[tripUpdate.stopTimeUpdate.length - 1];
+          const lastUpdate = stopUpdates[stopUpdates.length - 1];
           const destStopId = getBaseStopId(lastUpdate.stopId);
           const destination = stops[destStopId] || { name: "Unknown", borough: "Unknown" };
 
           trains[stopId].push({
-            id: tripId,
+            tripId,
             line,
-            destinationStopName: destination.name,
-            destinationBorough: destination.borough,
+            nextStop,
+            destination,
             arrivalTime: minutesArrival
           });
         }
@@ -162,11 +170,12 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
       </header>
       <main>
         <div className="arrivals-panel-list">
-          {sortedStopKeys.map((stopKey) => (
-            <ArrivalPanelStack 
-              key={stopKey}
+          {sortedStopKeys.map((stopId) => (
+            <ArrivalPanelStack
+              key={stopId}
+              stopId={stopId}
               station={station}
-              trains={trains[stopKey]} 
+              trains={trains[stopId]} 
             />
           ))}
           {noAvailableTrains && <p>
