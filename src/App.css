@@ -104,6 +104,23 @@ header {
   font-size: 2.2em;
 }
 
+/* Station Selector */
+.station-selector-label-container {
+  display: flex;
+  gap: 10px;
+}
+
+.station-selector-line-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.station-selector-line-container img {
+  height: 28px;
+  margin-top: 2px;
+}
+
 /* Mobile */
 @media (max-width: 800px) {
   #root {
@@ -150,5 +167,18 @@ header {
 
   .clock {
     font-size: 0.7em;
+  }
+
+  .station-selector-label-container {
+    gap: 6px;
+  }
+  
+  .station-selector-line-container {
+    gap: 6px;
+  }
+  
+  .station-selector-line-container img {
+    height: 20px;
+    margin-top: 0px;
   }
 }

@@ -10,12 +10,30 @@ export default function ArrivalPanel({
   train,
   style
 }: ArrivalPanelProps) {
+
+  const getTrainLineImage = (trainLine: string): string => {
+    let filename = trainLine.toLowerCase();
+  
+    const specialCases: Record<string, string> = {
+      'gs': 's',   // Grand Central Shuttle
+      'fs': 's',   // Franklin Ave Shuttle
+      'h':  's',   // Rockaway Shuttle
+      'si': 'sir', // Staten Island Railway
+    };
+  
+    if (specialCases[filename]) {
+      filename = specialCases[filename];
+    }
+
+    return `/lines/${filename}.svg`
+  }
+
   return (
     <div className="arrival-panel-outer" style={style}>
       <img 
-        src={`/src/assets/${train.line.toLowerCase()}.svg`} 
+        src={getTrainLineImage(train.line)} 
         className="arrival-panel-train-logo" 
-        alt={`${train.line} train`}
+        alt={`${getTrainLineImage(train.line)}`}
       />
       <div className="arrival-panel-destination truncate">
         <h2 className="truncate">{train.destinationName}</h2>

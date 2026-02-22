@@ -159,7 +159,7 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
   }, [activeStationId]);
 
   const trains = processMtaData(mtaData, stopIDs, stops);
-console.log(trains)
+
   const sortedStopKeys = Object.keys(trains).sort();
 
   return (

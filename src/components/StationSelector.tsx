@@ -11,6 +11,14 @@ interface StationOption {
   optionLabel: string;
 }
 
+const getLineIcons = (label: string) => {
+  // Regex looks for content inside (...) 
+  // e.g., "145 St (A,B,C,D)" -> "A,B,C,D"
+  const match = label.match(/\(([^)]+)\)$/);
+  if (!match) return [];    
+  return match[1].split(',').map(line => line.trim());
+};
+
 interface StationSelectorProps {
   stationId: string;
   onStationChange: (id: string) => void;
@@ -24,7 +32,7 @@ export function StationSelector({ stationId, onStationChange }: StationSelectorP
       value: id,
       label: info.stopName,
       optionLabel: info.displayName
-    }));
+    })).sort((a, b) => a.optionLabel.localeCompare(b.optionLabel));
   }, []);
 
   const [clientWidth, setClientWidth] = useState<number>(0);
@@ -61,6 +69,8 @@ export function StationSelector({ stationId, onStationChange }: StationSelectorP
       boxShadow: "none",
       minHeight: "0", 
       cursor: "pointer",
+      marginBlock: "-0.15em",
+      width: "100%"
     }),
     // 2. Inherit h1 typography (Size, Weight, Color)
     singleValue: (base) => ({
@@ -73,6 +83,8 @@ export function StationSelector({ stationId, onStationChange }: StationSelectorP
     valueContainer: (base) => ({
       ...base,
       padding: 0,
+      minWidth: 0,
+      flexWrap: 'nowrap'
     }),
     menu: (base) => ({
       ...base,
@@ -112,19 +124,39 @@ export function StationSelector({ stationId, onStationChange }: StationSelectorP
   };
 
   return (
-    <h1>
+    <h1 style={{maxWidth: clientWidth - (isDesktop ? 200 : 0)}}>
       <Select<StationOption, false>
         placeholder="Select a station"
         value={currentOption}
         styles={customStyles}
+        maxMenuHeight={800}
         options={options} 
         onChange={(opt) => onStationChange(opt?.value || '')}
         components={{ 
           IndicatorSeparator: null
         }}
         formatOptionLabel={(option, { context }) => {
-          return (context === 'menu') ? option.optionLabel : option.label;
-        }}
+            if (context === 'value') return option.label; // Shown when selected
+          
+            const lines = getLineIcons(option.optionLabel);
+            // Remove the (A,B,C) part from the text so it's not redundant
+            const cleanLabel = option.optionLabel.split('(')[0].trim();
+          
+            return (
+              <div className='station-selector-label-container'>
+                <span>{cleanLabel}</span>
+                <div className='station-selector-line-container'>
+                  {lines.map((line) => (
+                    <img 
+                      key={line}
+                      src={`/lines/${line.toLowerCase()}.svg`} 
+                      alt={line}
+                    />
+                  ))}
+                </div>
+              </div>
+            );
+          }}
       />
     </h1>
   );
