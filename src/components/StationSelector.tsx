@@ -145,15 +145,13 @@ export function StationSelector({ stationId, onStationChange }: StationSelectorP
             return (
               <div className='station-selector-label-container'>
                 <span>{cleanLabel}</span>
-                <div className='station-selector-line-container'>
-                  {lines.map((line) => (
-                    <img 
-                      key={line}
-                      src={`/lines/${line.toLowerCase()}.svg`} 
-                      alt={line}
-                    />
-                  ))}
-                </div>
+                {lines.map((line) => (
+                  <img 
+                    key={line}
+                    src={`/lines/${line.toLowerCase()}.svg`} 
+                    alt={line}
+                  />
+                ))}
               </div>
             );
           }}
