@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@netlify/functions": "^5.1.2",
+    "@radix-ui/react-dialog": "^1.1.15",
     "csv-parse": "^6.1.0",
     "gtfs-realtime-bindings": "^1.1.1",
     "motion": "^12.34.3",

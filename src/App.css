@@ -58,6 +58,12 @@ header {
   gap: 20px;
 }
 
+.train-logo-container {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+}
+
 .arrival-panel-train-logo {
   height: 90px;
 }
@@ -112,6 +118,29 @@ header {
 
 h1.arrival-panel-compact {
   font-size: 2.8em;
+}
+
+/* Warning */
+.warning-overlay {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+}
+
+.warning-overlay-compact {
+  position: absolute;
+  bottom: -2px;
+  right: -12px;
+}
+
+.warning-overlay svg {
+  width: 2em;
+  height: auto;
+}
+
+.warning-overlay-compact svg {
+  width: 1.5em;
+  height: auto;
 }
 
 /* Clock */

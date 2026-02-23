@@ -1,9 +1,7 @@
-[build]
-  command = "vite build"
-  publish = "dist"
-
-[functions]
-  directory = "netlify/functions"
+[[redirects]]
+  from = "/*"
+  to = "/"
+  status = 200
 
 [dev]
   framework = "vite"
