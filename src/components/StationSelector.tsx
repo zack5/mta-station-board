@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Select, { type StylesConfig } from 'react-select';
 
 import stationsData from '../generated/stations.json';
@@ -21,10 +22,9 @@ const getLineIcons = (label: string) => {
 
 interface StationSelectorProps {
   stationId: string;
-  onStationChange: (id: string) => void;
 }
 
-export function StationSelector({ stationId, onStationChange }: StationSelectorProps) {
+export function StationSelector({ stationId }: StationSelectorProps) {
   const stations = stationsData as StationInfoData;
 
   const options = useMemo(() => {
@@ -38,6 +38,8 @@ export function StationSelector({ stationId, onStationChange }: StationSelectorP
   const [clientWidth, setClientWidth] = useState<number>(0);
   const [surfaceWidth, setSurfaceWidth] = useState<number>(0);
   const isDesktop = clientWidth > 800; // Keep in sync with css media query
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const root = document.documentElement;
@@ -131,7 +133,7 @@ export function StationSelector({ stationId, onStationChange }: StationSelectorP
         styles={customStyles}
         maxMenuHeight={800}
         options={options} 
-        onChange={(opt) => onStationChange(opt?.value || '')}
+        onChange={(opt) => navigate(opt ? `/station/${opt.value}` : '/')}
         components={{ 
           IndicatorSeparator: null
         }}

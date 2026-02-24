@@ -102,7 +102,7 @@ interface StationBoardProps {
 
 export default function StationBoard({ stationId: propStationId }: StationBoardProps) {
   const { stationId: paramStationId } = useParams<{ stationId: string }>();
-  const [ activeStationId, setActiveStationId ] = useState(propStationId ?? paramStationId ?? '');
+  const activeStationId = propStationId ?? paramStationId ?? '';
 
   const stations = stationsData as StationInfoData;
   const stops = stopsData as StopInfoData;
@@ -165,7 +165,7 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
   return (
     <div className="station-board"> 
       <header className="station-board-header">
-        <StationSelector stationId={activeStationId} onStationChange={setActiveStationId}/>
+        <StationSelector stationId={activeStationId}/>
         <Clock />
       </header>
       <main>
