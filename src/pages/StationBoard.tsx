@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 
 import Clock from "../components/Clock";
@@ -110,57 +110,75 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
   const feedSuffixes = station?.feeds || [];
   const stopIDs = station?.stopIds || [];
 
-  const [mtaData, setMtaData] = useState<any[]>([]);
-
+  const [ waitingForData, setWaitingForData ] = useState(true);
+  const [ mtaData, setMtaData ] = useState<any[]>([]);
+  const requestIdRef = useRef(0);
+  
   useEffect(() => {
+    if (!activeStationId || feedSuffixes.length === 0) return;
+  
     const controller = new AbortController();
+    let isMounted = true;
   
     async function loadAllFeeds() {
-      try {
-        const fetchPromises = feedSuffixes.map(async (id) => {
-          const res = await fetch(
-            `https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs${id}`,
-            { signal: controller.signal }
-          );
-
-          if (!res.ok) {
-            throw new Error(`MTA API returned ${res.status}: ${res.statusText}`);
-          }
-    
-          const contentType = res.headers.get("content-type");
-          if (contentType?.includes("application/xml") || contentType?.includes("text/html")) {
-            const errorText = await res.text();
-            throw new Error(`MTA Error (ID: ${id}): ${errorText}`);
-          }
-
-          const buffer = await res.arrayBuffer();
-          return await decodeGtfs(buffer);
-        });
+      const requestId = ++requestIdRef.current;
+      setWaitingForData(true);
   
-        const data = await Promise.all(fetchPromises);
-        setMtaData(data);
+      try {
+        const data = await Promise.all(
+          feedSuffixes.map(async (id) => {
+            const res = await fetch(
+              `https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs${id}`,
+              { signal: controller.signal }
+            );
+  
+            if (!res.ok) {
+              throw new Error(`MTA API returned ${res.status}`);
+            }
+      
+            const contentType = res.headers.get("content-type");
+            if (contentType?.includes("application/xml") || contentType?.includes("text/html")) {
+              const errorText = await res.text();
+              throw new Error(`MTA Error (ID: ${id}): ${errorText}`);
+            }
+  
+            const buffer = await res.arrayBuffer();
+            return decodeGtfs(buffer);
+          })
+        );
+  
+        if (isMounted && requestId === requestIdRef.current) {
+          setMtaData(data);
+          setWaitingForData(false);
+        }
+  
       } catch (err: any) {
-        if (err.name !== 'AbortError') {
-          console.error("Fetch error:", err);
+        if (err.name === "AbortError") return;
+  
+        console.error(err);
+  
+        if (isMounted && requestId === requestIdRef.current) {
+          setWaitingForData(false);
         }
       }
     }
   
     loadAllFeeds();
-  
     const intervalId = setInterval(loadAllFeeds, 30000);
   
     return () => {
-      clearInterval(intervalId);
+      isMounted = false;
       controller.abort();
+      clearInterval(intervalId);
     };
-  }, [activeStationId]);
+  }, [activeStationId, feedSuffixes]);
 
   const trains = processMtaData(mtaData, stopIDs, stops);
 
   const sortedStopKeys = Object.keys(trains).sort();
 
-  const noAvailableTrains = activeStationId && sortedStopKeys.length === 0
+  const showLoading = waitingForData && sortedStopKeys.length === 0;
+  const noAvailableTrains = !showLoading && activeStationId && sortedStopKeys.length === 0
 
   return (
     <div className="station-board"> 
@@ -178,8 +196,11 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
               trains={trains[stopId]} 
             />
           ))}
+          {showLoading && <p>
+            Loading...
+          </p>}
           {noAvailableTrains && <p>
-            No available trains.
+            {`No available trains.${waitingForData}`}
           </p>}
         </div>
       </main>
