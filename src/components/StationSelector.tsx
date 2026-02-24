@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Select, { type StylesConfig } from 'react-select';
+import { matchSorter } from 'match-sorter';
 
 import stationsData from '../generated/stations.json';
 
@@ -10,6 +11,7 @@ interface StationOption {
   value: string;
   label: string;
   optionLabel: string;
+  searchLabel: string;
 }
 
 const getLineIcons = (label: string) => {
@@ -18,6 +20,22 @@ const getLineIcons = (label: string) => {
   const match = label.match(/\(([^)]+)\)$/);
   if (!match) return [];    
   return match[1].split(',').map(line => line.trim());
+};
+
+const customFilterOption = (
+  option: { data: StationOption & { searchLabel: string } }, 
+  rawInput: string
+) => {
+  const cleanedInput = rawInput.replace(/\s+/g, '').toLowerCase();
+  if (!cleanedInput) return true;
+
+  // matchSorter now just looks at the pre-baked string
+  const matches = matchSorter([option.data], cleanedInput, {
+    keys: ['searchLabel'],
+    threshold: matchSorter.rankings.CONTAINS,
+  });
+
+  return matches.length > 0;
 };
 
 interface StationSelectorProps {
@@ -31,7 +49,8 @@ export function StationSelector({ stationId }: StationSelectorProps) {
     return Object.entries(stations).map(([id, info]) => ({
       value: id,
       label: info.stopName,
-      optionLabel: info.displayName
+      optionLabel: info.displayName,
+      searchLabel: info.displayName.replace(/\s+/g, '').toLowerCase()
     })).sort((a, b) => a.optionLabel.localeCompare(b.optionLabel));
   }, []);
 
@@ -137,6 +156,7 @@ export function StationSelector({ stationId }: StationSelectorProps) {
         components={{ 
           IndicatorSeparator: null
         }}
+        filterOption={customFilterOption}
         formatOptionLabel={(option, { context }) => {
             if (context === 'value') return option.label; // Shown when selected
           
