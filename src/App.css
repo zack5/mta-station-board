@@ -118,19 +118,16 @@ h1.arrival-panel-compact {
 }
 
 /* Arrival Panel List */
-.arrival-panel-list-bounds {
-  width: fit-content;
-  max-width: 85vh;
-  height: auto;
+.arrival-panel-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .arrival-panel-list-container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 186px; /* (panel.height + 2*panel.padding) * 3 + 2*gap */
-  gap: 3px;
-  width: max-content;
 }
 
 .arrivals-panel-list {
@@ -185,7 +182,7 @@ h1.arrival-panel-compact {
 /* Mobile */
 @media (max-width: 800px) {
   #root {
-    padding: 15px;
+    padding: 20px;
   }
 
   h1 {
@@ -200,8 +197,12 @@ h1.arrival-panel-compact {
     gap: 10px;
   }
 
+  .arrival-panel-list-wrapper {
+    gap: 4px;
+  }
+
   .arrivals-panel-list {
-    gap: 10px;
+    gap: 15px;
   }
 
   .arrival-panel-outer {

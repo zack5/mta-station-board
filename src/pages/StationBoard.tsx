@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 
+import { useStationBoardContext } from '../context/StationBoardContext';
+
 import Clock from "../components/Clock";
 import ArrivalPanelList from "../components/ArrivalPanelList";
 import ArrivalPanelStack from "../components/ArrivalPanelStack";
@@ -25,8 +27,8 @@ const getBaseStopId = (stopId: string): string => {
  * Generates a list of Component-ready TrainInfo from raw MTA feed data
  */
 function processMtaData(
-  mtaData: any[], 
-  targetStopIds: string[], 
+  mtaData: any[],
+  targetStopIds: string[],
   stops: StopInfoData
 ) {
   const trains: Record<string, TrainInfo[]> = {};
@@ -59,8 +61,8 @@ function processMtaData(
           if (!arrivalTime || arrivalTime < now) return;
 
           const minutesArrival = Math.round((arrivalTime - now) / 60);
-          
-          const currentIndex = stopUpdates.findIndex((u: { stopId?: string | null }) => 
+
+          const currentIndex = stopUpdates.findIndex((u: { stopId?: string | null }) =>
             u.stopId ? getBaseStopId(u.stopId) === baseStopId : false
           );
           // Find the next update in the array, if it exists
@@ -93,7 +95,7 @@ function processMtaData(
       trains[key].sort((a, b) => a.arrivalTime - b.arrivalTime);
     }
   });
-  
+
   return trains;
 }
 
@@ -103,6 +105,7 @@ interface StationBoardProps {
 
 export default function StationBoard({ stationId: propStationId }: StationBoardProps) {
   const { stationId: paramStationId } = useParams<{ stationId: string }>();
+  const { isMobile } = useStationBoardContext();
   const activeStationId = propStationId ?? paramStationId ?? '';
 
   const stations = stationsData as StationInfoData;
@@ -111,20 +114,20 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
   const feedSuffixes = station?.feeds || [];
   const stopIDs = station?.stopIds || [];
 
-  const [ waitingForData, setWaitingForData ] = useState(true);
-  const [ mtaData, setMtaData ] = useState<any[]>([]);
+  const [waitingForData, setWaitingForData] = useState(true);
+  const [mtaData, setMtaData] = useState<any[]>([]);
   const requestIdRef = useRef(0);
-  
+
   useEffect(() => {
     if (!activeStationId || feedSuffixes.length === 0) return;
-  
+
     const controller = new AbortController();
     let isMounted = true;
-  
+
     async function loadAllFeeds() {
       const requestId = ++requestIdRef.current;
       setWaitingForData(true);
-  
+
       try {
         const data = await Promise.all(
           feedSuffixes.map(async (id) => {
@@ -132,41 +135,41 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
               `https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs${id}`,
               { signal: controller.signal }
             );
-  
+
             if (!res.ok) {
               throw new Error(`MTA API returned ${res.status}`);
             }
-      
+
             const contentType = res.headers.get("content-type");
             if (contentType?.includes("application/xml") || contentType?.includes("text/html")) {
               const errorText = await res.text();
               throw new Error(`MTA Error (ID: ${id}): ${errorText}`);
             }
-  
+
             const buffer = await res.arrayBuffer();
             return decodeGtfs(buffer);
           })
         );
-  
+
         if (isMounted && requestId === requestIdRef.current) {
           setMtaData(data);
           setWaitingForData(false);
         }
-  
+
       } catch (err: any) {
         if (err.name === "AbortError") return;
-  
+
         console.error(err);
-  
+
         if (isMounted && requestId === requestIdRef.current) {
           setWaitingForData(false);
         }
       }
     }
-  
+
     loadAllFeeds();
     const intervalId = setInterval(loadAllFeeds, 30000);
-  
+
     return () => {
       isMounted = false;
       controller.abort();
@@ -182,21 +185,25 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
   const noAvailableTrains = !showLoading && activeStationId && sortedStopKeys.length === 0
 
   return (
-    <div className="station-board"> 
+    <div className="station-board">
       <header className="station-board-header">
-        <StationSelector stationId={activeStationId}/>
+        <StationSelector stationId={activeStationId} />
         <Clock />
       </header>
       <main>
         <div className="arrivals-panel-list">
-          {sortedStopKeys.map((stopId) => (
-            <ArrivalPanelStack
-              key={stopId}
-              stopId={stopId}
-              station={station}
-              trains={trains[stopId]} 
-            />
-          ))}
+          {sortedStopKeys.map((stopId) => {
+            const Panel = isMobile ? ArrivalPanelList : ArrivalPanelStack;
+
+            return (
+              <Panel
+                key={stopId}
+                stopId={stopId}
+                station={station}
+                trains={trains[stopId]}
+              />
+            );
+          })}
           {showLoading && <p>
             Loading...
           </p>}
