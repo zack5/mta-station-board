@@ -124,6 +124,17 @@ h1.arrival-panel-compact {
   gap: 6px;
 }
 
+.arrival-panel-list-header {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+}
+
+.arrival-panel-list-header img {
+  height: 1.1em;
+  margin-top: -0.05em;
+}
+
 .arrival-panel-list-container {
   display: flex;
   flex-direction: column;

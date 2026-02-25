@@ -29,12 +29,24 @@ export default function ArrivalPanelList({
   const containerHeight = (HEIGHT * rows) + (GAP * (rows - 1));
   const gridSize = WIDTH + GAP;
 
+  const uniqueLines = [...new Set(trains.map(t => t.line.toLowerCase()))].sort();
+
   const transition = {}
 
   return (
     <div className="arrival-panel-list-wrapper">
-      <div>
-        <h2>{trains[0]?.destination.borough}</h2>
+      <div className="arrival-panel-list-header">
+        {uniqueLines.map((line) => (
+          <img
+            key={line}
+            src={`/lines/${line}.svg`}
+            alt={`${line}`}
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = 'none';
+            }}
+          />
+        ))}
+        <h2 className="truncate">{trains[0]?.destination.borough}</h2>
       </div>
       <motion.div
         className="arrival-panel-list-container"
