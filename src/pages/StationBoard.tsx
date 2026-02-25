@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 
 import Clock from "../components/Clock";
+import ArrivalPanelList from "../components/ArrivalPanelList";
 import ArrivalPanelStack from "../components/ArrivalPanelStack";
 
 import stationsData from '../generated/stations.json';

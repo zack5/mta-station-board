@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import Select, { type StylesConfig } from 'react-select';
 import { matchSorter } from 'match-sorter';
 
+import { useStationBoardContext } from '../context/StationBoardContext';
+
 import stationsData from '../generated/stations.json';
 
 import type { StationInfoData } from '../types/types';
@@ -54,30 +56,10 @@ export function StationSelector({ stationId }: StationSelectorProps) {
     })).sort((a, b) => a.optionLabel.localeCompare(b.optionLabel));
   }, []);
 
-  const [clientWidth, setClientWidth] = useState<number>(0);
-  const [surfaceWidth, setSurfaceWidth] = useState<number>(0);
-  const isDesktop = clientWidth > 800; // Keep in sync with css media query
+  const { contentWidth, isMobile } = useStationBoardContext();
+  const isDesktop = !isMobile;
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const root = document.documentElement;
-    const header = document.querySelector('header');
-    
-    const handleResize = () => {
-      if (root) {
-        setClientWidth(root.offsetWidth);
-      }
-      if (header) {
-        setSurfaceWidth(header.offsetWidth);
-      }
-    };
-
-    handleResize();
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   const currentOption = options.find((opt) => opt.value === stationId);
 
@@ -114,7 +96,7 @@ export function StationSelector({ stationId }: StationSelectorProps) {
       fontWeight: "normal",
       backgroundColor: "var(--color-background, #1a1a1a)", 
       width: "max-content",
-      maxWidth: surfaceWidth
+      maxWidth: contentWidth
     }),
     option: (base, { isFocused, isSelected }) => ({
       ...base,
@@ -145,7 +127,7 @@ export function StationSelector({ stationId }: StationSelectorProps) {
   };
 
   return (
-    <h1 style={{maxWidth: surfaceWidth - (isDesktop ? 150 : 0)}}>
+    <h1 style={{maxWidth: contentWidth - (isDesktop ? 150 : 0)}}>
       <Select<StationOption, false>
         placeholder="Select a station"
         value={currentOption}

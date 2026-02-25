@@ -7,8 +7,8 @@ interface ArrivalPanelProps {
   station: StationInfo;
   stopId: string;
   train: TrainInfo;
-  style: CSSProperties;
-  isCompact: boolean;
+  style?: CSSProperties;
+  isCompact?: boolean;
 }
 
 export default function ArrivalPanel({ 

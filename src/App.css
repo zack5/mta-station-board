@@ -37,12 +37,6 @@ header {
   justify-content: space-between;
 }
 
-.arrivals-panel-list {
-  display: flex;
-  flex-direction: column;
-  gap: 26px;
-}
-
 /* Arrival Panel */
 
 .arrival-panel-outer {
@@ -50,6 +44,7 @@ header {
 
   background-color: #424242;
   border-radius: 8px;
+  padding: 8px;
 
   display: flex;
   flex-direction: row;
@@ -60,7 +55,9 @@ header {
 
 .train-logo-container {
   position: relative;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: fit-content;
 }
 
@@ -120,6 +117,28 @@ h1.arrival-panel-compact {
   font-size: 2.8em;
 }
 
+/* Arrival Panel List */
+.arrival-panel-list-bounds {
+  width: fit-content;
+  max-width: 85vh;
+  height: auto;
+}
+
+.arrival-panel-list-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 186px; /* (panel.height + 2*panel.padding) * 3 + 2*gap */
+  gap: 3px;
+  width: max-content;
+}
+
+.arrivals-panel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
 /* Warning */
 .warning-overlay {
   position: absolute;
@@ -174,7 +193,7 @@ h1.arrival-panel-compact {
   }
 
   h2 {
-    font-size: 1.0em;
+    font-size: 1.25em;
   }
 
   .station-board {
@@ -187,6 +206,7 @@ h1.arrival-panel-compact {
 
   .arrival-panel-outer {
     gap: 8px;
+    height: 44px;
   }
 
   .arrival-panel-destination p {
