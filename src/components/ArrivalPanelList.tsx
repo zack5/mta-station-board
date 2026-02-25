@@ -6,6 +6,8 @@ import { useStationBoardContext } from '../context/StationBoardContext';
 
 import type { StationInfo, TrainInfo } from '../types/types';
 
+import { getPlatformHeader, getTrainLineImage } from '../utils/utils';
+
 interface ArrivalPanelListProps {
   stopId: string;
   station: StationInfo;
@@ -29,24 +31,24 @@ export default function ArrivalPanelList({
   const containerHeight = (HEIGHT * rows) + (GAP * (rows - 1));
   const gridSize = WIDTH + GAP;
 
-  const uniqueLines = [...new Set(trains.map(t => t.line.toLowerCase()))].sort();
+  const uniqueLineImages = [...new Set(trains.map(t => getTrainLineImage(t.line)))].sort();
 
   const transition = {}
 
   return (
     <div className="arrival-panel-list-wrapper">
       <div className="arrival-panel-list-header">
-        {uniqueLines.map((line) => (
+        {uniqueLineImages.map((line) => (
           <img
             key={line}
-            src={`/lines/${line}.svg`}
-            alt={`${line}`}
+            src={line}
+            alt={line}
             onError={(e) => {
               (e.target as HTMLImageElement).style.display = 'none';
             }}
           />
         ))}
-        <h2 className="truncate">{trains[0]?.destination.borough}</h2>
+        <h2 className="truncate">{getPlatformHeader(stopId, station, trains)}</h2>
       </div>
       <motion.div
         className="arrival-panel-list-container"

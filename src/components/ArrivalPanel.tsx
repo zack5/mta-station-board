@@ -3,6 +3,8 @@ import type { StationInfo, TrainInfo } from '../types/types';
 
 import Warning from './Warning'
 
+import { getTrainLineImage, getTrainDisplayDetails } from '../utils/utils';
+
 interface ArrivalPanelProps {
   station: StationInfo;
   stopId: string;
@@ -18,45 +20,9 @@ export default function ArrivalPanel({
   style,
   isCompact
 }: ArrivalPanelProps) {
-
-  const getTrainLineImage = (trainLine: string): string => {
-    let filename = trainLine.toLowerCase();
-  
-    const specialCases: Record<string, string> = {
-      'gs': 's',   // Grand Central Shuttle
-      'fs': 's',   // Franklin Ave Shuttle
-      'h':  's',   // Rockaway Shuttle
-      'si': 'sir', // Staten Island Railway
-    };
-  
-    if (specialCases[filename]) {
-      filename = specialCases[filename];
-    }
-
-    return `/lines/${filename}.svg`
-  }
-
   const extraClassname = isCompact ? " arrival-panel-compact" : ""
 
-  const destination = train.destination;
-  const isCrosstown = ["7", "7x", "L"].includes(train.line.toLowerCase());
-  const showUptownDowntown = (!isCrosstown
-    && station.borough === "Manhattan" 
-    && train.nextStop && train.nextStop.borough === "Manhattan"
-    && (stopId.endsWith("N") || stopId.endsWith("S")));
-  const destinationInOtherBorough = station.borough != destination.borough;
-
-  const titleShowsDirection = showUptownDowntown || destinationInOtherBorough;
-
-  const title = titleShowsDirection
-    ? [showUptownDowntown ? (stopId.endsWith("N") ? "Uptown" : "Downtown") : null, destinationInOtherBorough ? destination.borough : null]
-        .filter(Boolean)
-        .join(" & ")
-    : destination.name;
-  
-  const subtitle = titleShowsDirection 
-    ? destination.name 
-    : destination.borough;
+  const { title, subtitle } = getTrainDisplayDetails(stopId, station, train);
 
   return (
     <div className="arrival-panel-outer" style={style}>
@@ -64,7 +30,7 @@ export default function ArrivalPanel({
         <img 
           src={getTrainLineImage(train.line)} 
           className={"arrival-panel-train-logo" + extraClassname}
-          alt={`${getTrainLineImage(train.line)}`}
+          alt={train.line}
         />
         {false && <div className={isCompact ? "warning-overlay-compact" : "warning-overlay"}>
           <Warning />

@@ -213,7 +213,8 @@ h1.arrival-panel-compact {
   }
 
   .arrivals-panel-list {
-    gap: 15px;
+    margin-top: 10px;
+    gap: 25px;
   }
 
   .arrival-panel-outer {

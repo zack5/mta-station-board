@@ -1,9 +1,114 @@
-export function formatArrivalTime(unixTimestamp: number | Long): string {
-  const date = new Date(Number(unixTimestamp) * 1000);
-  return date.toLocaleTimeString([], { 
-    hour: 'numeric', 
-    minute: '2-digit',
-    hour12: true 
-  });
+import type { StationInfo, TrainInfo } from '../types/types';
+
+export function isCrosstown(line: string): boolean {
+  return ["7", "7x", "l"].includes(line.toLowerCase());
 }
+
+export function isShuttle(line: string): boolean {
+  return ["s", "fs", "h", "gs"].includes(line.toLowerCase());
+}
+
+export function getTrainLineImage(trainLine: string) {
+  let filename = trainLine.toLowerCase();
+
+  const specialCases: Record<string, string> = {
+    'gs': 's',   // Grand Central Shuttle
+    'fs': 's',   // Franklin Ave Shuttle
+    'h':  's',   // Rockaway Shuttle
+    'si': 'sir', // Staten Island Railway
+    'ss': 'sir', // Staten Island Railway
+  };
+
+  if (specialCases[filename]) {
+    filename = specialCases[filename];
+  }
+
+  return `/lines/${filename}.svg`
+}
+
+export function getTrainDisplayDetails(stopId: string, station: StationInfo, train: TrainInfo) {
+  const destination = train.destination;
+
+  // Special case: use destinations for shuttles
+  const isShuttleLine = isShuttle(train.line);
+  if (isShuttleLine) {
+    const title = destination.name;
+    const subtitle = destination.borough;
+    return { title, subtitle };
+  }
+
+  const isCrosstownTrain = isCrosstown(train.line);
+  const isNorthbound = stopId.endsWith("N");
+  const isSouthbound = stopId.endsWith("S");
+
+  const showUptownDowntown = (!isCrosstownTrain
+    && station.borough === "Manhattan" 
+    && train.nextStop && train.nextStop.borough === "Manhattan"
+    && (isNorthbound || isSouthbound));
+  const destinationInOtherBorough = station.borough != destination.borough;
+
+  const titleShowsDirection = showUptownDowntown || destinationInOtherBorough;
+
+  const title = titleShowsDirection
+    ? [showUptownDowntown ? (isNorthbound ? "Uptown" : "Downtown") : null, destinationInOtherBorough ? destination.borough : null]
+        .filter(Boolean)
+        .join(" & ")
+    : destination.name;
   
+  const subtitle = titleShowsDirection 
+    ? destination.name 
+    : destination.borough;
+
+  return { title, subtitle };
+}
+
+export function getPlatformHeader(stopId: string, station: StationInfo, trains: TrainInfo[]) {
+  if (trains.length === 0) return "No Trains";
+
+  const firstTrain = trains[0];
+  const isShuttleLine = isShuttle(firstTrain.line);
+
+  // Special case: use destinations for shuttles
+  if (isShuttleLine) {
+    const uniqueDests = Array.from(new Set(trains.map(t => t.destination.name))).sort();
+    return uniqueDests.join(" & ");
+  }
+
+  const isNorthbound = stopId.endsWith("N");
+  const isSouthbound = stopId.endsWith("S");
+
+  // 1. Manhattan Uptown/Downtown Logic
+  const isManhattanVertical = !trains.every(t => isCrosstown(t.line))
+    && station.borough === "Manhattan"
+    && (isNorthbound || isSouthbound);
+
+  // 2. Identify Unique Destination Boroughs
+  const destBoroughs = Array.from(new Set(
+    trains.map(t => t.destination.borough)
+  ));
+
+  const components: string[] = [];
+
+  // 3. Title Construction
+  if (isManhattanVertical) {
+    if (isNorthbound || isSouthbound)
+    components.push(isNorthbound ? "Uptown" : "Downtown");
+    
+    // In Manhattan, if going to another borough, add it (e.g. "Uptown & The Bronx")
+    const otherBoroughs = destBoroughs.filter(b => b !== "Manhattan");
+    components.push(...otherBoroughs);
+  } else {
+    // Show all destination boroughs for Crosstown or Outer Borough lines
+    components.push(...destBoroughs.sort());
+  }
+
+  let title = components.join(" & ");
+
+  // Fallback for edge cases
+  if (!title) {
+    title = isNorthbound ? "Northbound" : isSouthbound ? "Southbound" : "Upcoming";
+  }
+
+  return title;
+}
+
