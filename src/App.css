@@ -178,6 +178,7 @@ h1.arrival-panel-compact {
 /* Station Selector */
 .station-selector-label-container {
   display: flex;
+  flex-wrap: wrap;
   gap: 5px;
 }
 
