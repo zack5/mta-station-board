@@ -178,7 +178,7 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
 
   const sortedStopKeys = Object.keys(trains).sort();
 
-  const showLoading = waitingForData && sortedStopKeys.length === 0;
+  const showLoading = activeStationId && waitingForData && sortedStopKeys.length === 0;
   const noAvailableTrains = !showLoading && activeStationId && sortedStopKeys.length === 0
 
   return (
