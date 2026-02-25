@@ -80,6 +80,7 @@ export function getPlatformHeader(stopId: string, station: StationInfo, trains: 
   // 1. Manhattan Uptown/Downtown Logic
   const isManhattanVertical = !trains.every(t => isCrosstown(t.line))
     && station.borough === "Manhattan"
+    && trains.some(t => t.nextStop?.borough === "Manhattan")
     && (isNorthbound || isSouthbound);
 
   // 2. Identify Unique Destination Boroughs
