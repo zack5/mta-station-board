@@ -39,7 +39,7 @@ export default function ArrivalPanel({
   const extraClassname = isCompact ? " arrival-panel-compact" : ""
 
   const destination = train.destination;
-  const isCrosstown = ["7", "7x", "L"].includes(train.line);
+  const isCrosstown = ["7", "7x", "L"].includes(train.line.toLowerCase());
   const showUptownDowntown = (!isCrosstown
     && station.borough === "Manhattan" 
     && train.nextStop && train.nextStop.borough === "Manhattan"
