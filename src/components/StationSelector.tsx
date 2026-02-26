@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import Select, { type StylesConfig } from 'react-select';
 import { matchSorter } from 'match-sorter';
 
@@ -8,6 +8,8 @@ import { useStationBoardContext } from '../context/StationBoardContext';
 import stationsData from '../generated/stations.json';
 
 import type { StationInfoData } from '../types/types';
+
+import { getTrainLineImage } from '../utils/utils';
 
 interface StationOption {
   value: string;
@@ -60,6 +62,9 @@ export function StationSelector({ stationId }: StationSelectorProps) {
   const isDesktop = !isMobile;
 
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const segments = pathname.split('/');
+  const pathnamePrefix = segments.length > 1? segments[1] : 'station'
 
   const currentOption = options.find((opt) => opt.value === stationId);
 
@@ -134,7 +139,7 @@ export function StationSelector({ stationId }: StationSelectorProps) {
         styles={customStyles}
         maxMenuHeight={800}
         options={options} 
-        onChange={(opt) => navigate(opt ? `/station/${opt.value}` : '/')}
+        onChange={(opt) => navigate(opt ? `/${pathnamePrefix}/${opt.value}` : '/')}
         components={{ 
           IndicatorSeparator: null
         }}
@@ -152,7 +157,7 @@ export function StationSelector({ stationId }: StationSelectorProps) {
                 {lines.map((line) => (
                   <img 
                     key={line}
-                    src={`/lines/${line.toLowerCase()}.svg`} 
+                    src={getTrainLineImage(line)} 
                     alt={line}
                   />
                 ))}

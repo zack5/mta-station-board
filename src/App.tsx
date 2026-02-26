@@ -12,6 +12,7 @@ function App() {
       <BrowserRouter>
         <Routes>
         <Route path="/station/:stationId" element={<StationBoard/>} />
+        <Route path="/stationdisplay/:stationId" element={<StationBoard/>} />
         <Route path="*" element={<StationBoard />} />
         </Routes>
       </BrowserRouter>

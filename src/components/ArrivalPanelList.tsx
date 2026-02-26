@@ -22,8 +22,8 @@ export default function ArrivalPanelList({
   const { contentWidth, isMobile } = useStationBoardContext();
 
   const GAP = isMobile ? 3 : 5;
-  const WIDTH = contentWidth;
-  const HEIGHT = isMobile ? 60 : 90;
+  const WIDTH = contentWidth - 8;
+  const HEIGHT = isMobile ? 60 : 106;
   const MAX_ROWS = 3;
 
   const rows = Math.min(MAX_ROWS, trains.length);
@@ -73,7 +73,7 @@ export default function ArrivalPanelList({
               key={`${train.tripId}`}
               layout
               style={{
-                width: contentWidth
+                width: WIDTH
               }}
               initial={{
                 opacity: 0,

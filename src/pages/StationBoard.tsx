@@ -1,7 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
-
-import { useStationBoardContext } from '../context/StationBoardContext';
+import { useLocation, useParams } from "react-router-dom";
 
 import Clock from "../components/Clock";
 import ArrivalPanelList from "../components/ArrivalPanelList";
@@ -105,7 +103,8 @@ interface StationBoardProps {
 
 export default function StationBoard({ stationId: propStationId }: StationBoardProps) {
   const { stationId: paramStationId } = useParams<{ stationId: string }>();
-  const { isMobile } = useStationBoardContext();
+  const { pathname } = useLocation();
+  const isDisplayVersion = pathname.toLowerCase().includes("stationdisplay")
   const activeStationId = propStationId ?? paramStationId ?? '';
 
   const stations = stationsData as StationInfoData;
@@ -191,9 +190,9 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
         <Clock />
       </header>
       <main>
-        <div className="arrivals-panel-list">
+        <div className={`station-board-arrival-panels-${isDisplayVersion ? "stack" : "list"}`}>
           {sortedStopKeys.map((stopId) => {
-            const Panel = isMobile ? ArrivalPanelList : ArrivalPanelStack;
+            const Panel = isDisplayVersion ? ArrivalPanelStack : ArrivalPanelList;
 
             return (
               <Panel
