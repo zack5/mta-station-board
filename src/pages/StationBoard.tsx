@@ -118,7 +118,7 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
   const requestIdRef = useRef(0);
 
   useEffect(() => {
-    if (!activeStationId || feedSuffixes.length === 0) return;
+    if (!activeStationId || !(activeStationId in stations) || feedSuffixes.length === 0) return;
 
     const controller = new AbortController();
     let isMounted = true;
@@ -180,7 +180,7 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
 
   const sortedStopKeys = Object.keys(trains).sort();
 
-  const showLoading = activeStationId && waitingForData && sortedStopKeys.length === 0;
+  const showLoading = activeStationId && activeStationId in stations && waitingForData && sortedStopKeys.length === 0;
   const noAvailableTrains = !showLoading && activeStationId && sortedStopKeys.length === 0
 
   return (
@@ -207,7 +207,7 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
             Loading...
           </p>}
           {noAvailableTrains && <p>
-            {`No available trains.${waitingForData}`}
+            {`No available trains.`}
           </p>}
         </div>
       </main>
