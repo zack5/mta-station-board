@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { useLocation, useParams } from "react-router-dom";
 
 import Clock from "../components/Clock";
@@ -176,8 +176,11 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
     };
   }, [activeStationId, feedSuffixes]);
 
-  const trains = processMtaData(mtaData, stopIDs, stops);
-
+  const trains = useMemo(() => {
+    if (mtaData.length === 0) return {};
+    return processMtaData(mtaData, stopIDs, stops);
+  }, [mtaData, stopIDs, stops]);
+  
   const sortedStopKeys = Object.keys(trains).sort();
 
   const showLoading = activeStationId && activeStationId in stations && waitingForData && sortedStopKeys.length === 0;
