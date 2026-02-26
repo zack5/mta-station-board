@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useNavigate, useLocation, useParams } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Select, { type StylesConfig } from 'react-select';
 import { matchSorter } from 'match-sorter';
 
