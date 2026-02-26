@@ -64,7 +64,7 @@ export function StationSelector({ stationId }: StationSelectorProps) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const segments = pathname.split('/');
-  const pathnamePrefix = segments.length > 1? segments[1] : 'station'
+  const pathnamePrefix = segments.length > 1 && ["station", "stationdisplay"].includes(segments[1]) ? segments[1] : "station";
 
   const currentOption = options.find((opt) => opt.value === stationId);
 
