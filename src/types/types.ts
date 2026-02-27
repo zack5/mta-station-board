@@ -1,3 +1,5 @@
+/*** STATIONS ***/
+
 // Format of complexes.json
 export interface StationInfo {
   stopName: string;
@@ -8,6 +10,9 @@ export interface StationInfo {
 }
 export type StationInfoData = Record<string, StationInfo>;
 
+
+/*** STOPS ***/
+
 // Format of stations.json
 export interface StopInfo {
   name: string;
@@ -15,11 +20,37 @@ export interface StopInfo {
 }
 export type StopInfoData = Record<string, StopInfo>;
 
-// Format of parsed MTA data
+
+/*** TRAINS ***/
+
+// Format of parsed MTA train data
 export interface TrainInfo {
   tripId: string;
   line: string;
   nextStop: StopInfo | null;
   destination: StopInfo;
   arrivalTime: number;
+}
+
+/*** ALERTS ***/
+
+export enum AlertSeverity {
+  SEVERE = "SEVERE",
+  WARNING = "WARNING",
+  MAINTENANCE = "MAINTENANCE",
+}
+
+export interface AlertActivePeriod {
+  start: number;
+  end?: number;
+  isCurrent: boolean;
+}
+
+export interface AlertInfo {
+  id: string;
+  header: string;
+  description: string;
+  severity: AlertSeverity;
+  activePeriods: AlertActivePeriod[];
+  affectedLines: string[];
 }
