@@ -50,12 +50,14 @@ export function processMtaTrains(
           // Find the next update in the array, if it exists
           const nextUpdate = stopUpdates[index + 1];
           const nextStopId = nextUpdate ? getBaseStopId(nextUpdate.stopId) : null;
+          if (!nextStopId) return;
           const nextStop = nextStopId ? (stops[nextStopId] || { name: "Unknown", borough: "Unknown" }) : null;
 
           // The destination is the LAST stopTimeUpdate in the array
           const lastUpdate = stopUpdates[stopUpdates.length - 1];
           const destStopId = getBaseStopId(lastUpdate.stopId);
           const destination = stops[destStopId] || { name: "Unknown", borough: "Unknown" };
+
 
           trains[stopId].push({
             tripId,
