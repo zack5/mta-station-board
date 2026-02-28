@@ -30,9 +30,9 @@ export function getTrainLineImage(trainLine: string) {
 export function getAlertImage(alert: AlertInfo): string {
   switch (alert.category) {
     case AlertCategory.SUSPENDED:
-    case AlertCategory.PART_SUSPENDED:
       return '/alerts/severe.svg';
 
+    case AlertCategory.PART_SUSPENDED:
     case AlertCategory.DELAYS:
     case AlertCategory.REROUTE:
     case AlertCategory.REDUCED_SERVICE:
@@ -40,8 +40,10 @@ export function getAlertImage(alert: AlertInfo): string {
 
     case AlertCategory.ACCESSIBILITY:
     case AlertCategory.PLANNED_WORK:
-    case AlertCategory.NOTICE:
       return '/alerts/maintenance.svg';
+
+    case AlertCategory.NOTICE:
+      return '/alerts/info.svg';
 
     default:
       return '/alerts/warning.svg';

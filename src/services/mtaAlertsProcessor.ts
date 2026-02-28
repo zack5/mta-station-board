@@ -10,74 +10,65 @@ const normalize = (text: string) => {
 }
 
 const classifyAlert = (header: string, description: string): AlertCategory => {
-  const text = normalize(header + " " + description);
+  const text = normalize(`${header} ${description}`);
 
-  // 1️⃣ FULL SUSPENSION
   if (
-    text.includes("no ") &&
-    (text.includes("between") || text.includes("trains"))
-  ) {
-    return AlertCategory.SUSPENDED;
-  }
-
-  if (text.includes("not running")) {
-    return AlertCategory.SUSPENDED;
-  }
-
-  // 2️⃣ PARTIAL SUSPENSION
-  if (
-    text.includes("no trains between") ||
-    text.includes("partially suspended")
+    /no trains? between/.test(text) ||
+    /suspended between/.test(text) ||
+    /skips/.test(text) ||
+    /partially suspended/.test(text)
   ) {
     return AlertCategory.PART_SUSPENDED;
   }
 
-  // 3️⃣ DELAYS
   if (
-    text.includes("expect delays") ||
-    text.includes("significant delays") ||
-    text.includes("delayed")
+    /service (is )?suspended/.test(text) ||
+    /trains? (are )?not running/.test(text) ||
+    /no trains? (are )?running/.test(text)
   ) {
-    return AlertCategory.DELAYS;
+    return AlertCategory.SUSPENDED;
   }
 
-  // 4️⃣ REROUTE
   if (
-    text.includes("running via") ||
-    text.includes("rerouted") ||
-    text.includes("via the")
+    /running via/.test(text) ||
+    /rerouted/.test(text) ||
+    /via the/.test(text)
   ) {
     return AlertCategory.REROUTE;
   }
 
-  // 5️⃣ REDUCED / SHORT TURNS
   if (
-    text.includes("last stop will be") ||
-    text.includes("terminating at")
+    /terminating at/.test(text) ||
+    /last stop (will be|is)/.test(text) ||
+    /no express service/.test(text)
   ) {
     return AlertCategory.REDUCED_SERVICE;
   }
 
-  // 6️⃣ ACCESSIBILITY
   if (
-    text.includes("elevator") ||
-    text.includes("escalator") ||
-    text.includes("accessibility")
+    /delay?/.test(text)
+  ) {
+    return AlertCategory.DELAYS;
+  }
+
+  if (
+    /elevator/.test(text) ||
+    /escalator/.test(text) ||
+    /accessibility/.test(text)
   ) {
     return AlertCategory.ACCESSIBILITY;
   }
 
-  // 7️⃣ PLANNED WORK
   if (
-    text.includes("planned") ||
-    text.includes("service change") ||
-    text.includes("construction")
+    /planned/.test(text) ||
+    /service change/.test(text) ||
+    /construction/.test(text)
   ) {
     return AlertCategory.PLANNED_WORK;
   }
 
   return AlertCategory.NOTICE;
-}
+};
 
 const AlertPriority: Record<AlertCategory, number> = {
   [AlertCategory.SUSPENDED]: 100,
