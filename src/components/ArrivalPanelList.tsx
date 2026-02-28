@@ -4,7 +4,7 @@ import ArrivalPanel from './ArrivalPanel';
 
 import { useStationBoardContext } from '../context/StationBoardContext';
 
-import type { StationInfo, TrainInfo } from '../types/types';
+import type { AlertInfo, StationInfo, TrainInfo } from '../types/types';
 
 import { getPlatformHeader, getTrainLineImage } from '../utils/utils';
 
@@ -12,12 +12,14 @@ interface ArrivalPanelListProps {
   stopId: string;
   station: StationInfo;
   trains: TrainInfo[];
+  alerts: AlertInfo[];
 }
 
 export default function ArrivalPanelList({
   stopId,
   station,
-  trains
+  trains,
+  alerts
 }: ArrivalPanelListProps) {
   const { contentWidth, isMobile } = useStationBoardContext();
 
@@ -49,6 +51,24 @@ export default function ArrivalPanelList({
           />
         ))}
         <h2 className="truncate">{getPlatformHeader(stopId, station, trains)}</h2>
+      </div>
+      <div>
+        {alerts.map((alert) => (
+          <div
+            key={(alert.id)}
+            className=""
+          >
+            <img
+              src={"/alerts/warning.svg"}
+            />
+            <p className="truncate">
+              {alert.header}
+            </p>
+            <p className="truncate">
+              {alert.description}
+            </p>
+          </div>
+        ))}
       </div>
       <motion.div
         className="arrival-panel-list-container"

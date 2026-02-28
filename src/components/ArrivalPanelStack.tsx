@@ -4,20 +4,24 @@ import ArrivalPanel from './ArrivalPanel';
 
 import { useStationBoardContext } from '../context/StationBoardContext';
 
-import type { StationInfo, TrainInfo } from '../types/types';
+import type { AlertInfo, StationInfo, TrainInfo } from '../types/types';
 
 interface ArrivalPanelStackProps {
   stopId: string;
   station: StationInfo;
   trains: TrainInfo[];
+  alerts: AlertInfo[];
 }
 
 export default function ArrivalPanelStack({
   stopId,
   station,
-  trains
+  trains,
+  alerts,
 }: ArrivalPanelStackProps) {
   const { clientWidth, contentWidth, isMobile } = useStationBoardContext();
+
+  if (alerts) {} // TODO: process alerts
 
   let transition = {};
   /* --- DEBUG ANIMATION SECTION START --- */

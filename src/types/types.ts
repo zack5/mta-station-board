@@ -34,10 +34,15 @@ export interface TrainInfo {
 
 /*** ALERTS ***/
 
-export enum AlertSeverity {
-  SEVERE = "SEVERE",
-  WARNING = "WARNING",
-  MAINTENANCE = "MAINTENANCE",
+export enum AlertCategory {
+  SUSPENDED,
+  PART_SUSPENDED,
+  DELAYS,
+  REROUTE,
+  REDUCED_SERVICE,
+  ACCESSIBILITY,
+  PLANNED_WORK,
+  NOTICE,
 }
 
 export interface AlertActivePeriod {
@@ -48,9 +53,9 @@ export interface AlertActivePeriod {
 
 export interface AlertInfo {
   id: string;
+  category: AlertCategory;
   header: string;
   description: string;
-  severity: AlertSeverity;
   activePeriods: AlertActivePeriod[];
   affectedLines: string[];
 }

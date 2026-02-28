@@ -18,6 +18,7 @@
     "match-sorter": "^8.2.0",
     "motion": "^12.34.3",
     "node-fetch": "^3.3.2",
+    "radix-ui": "^1.4.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.13.0",

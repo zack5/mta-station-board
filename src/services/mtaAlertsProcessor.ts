@@ -1,5 +1,94 @@
 import type { AlertActivePeriod, AlertInfo, TrainInfo } from '../types/types';
-import { AlertSeverity } from '../types/types';
+import { AlertCategory } from '../types/types';
+
+const normalize = (text: string) => {
+  return text
+    .toLowerCase()
+    .replace(/\[[a-z0-9]+\]/g, "") // remove [N], [R], etc
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+const classifyAlert = (header: string, description: string): AlertCategory => {
+  const text = normalize(header + " " + description);
+
+  // 1️⃣ FULL SUSPENSION
+  if (
+    text.includes("no ") &&
+    (text.includes("between") || text.includes("trains"))
+  ) {
+    return AlertCategory.SUSPENDED;
+  }
+
+  if (text.includes("not running")) {
+    return AlertCategory.SUSPENDED;
+  }
+
+  // 2️⃣ PARTIAL SUSPENSION
+  if (
+    text.includes("no trains between") ||
+    text.includes("partially suspended")
+  ) {
+    return AlertCategory.PART_SUSPENDED;
+  }
+
+  // 3️⃣ DELAYS
+  if (
+    text.includes("expect delays") ||
+    text.includes("significant delays") ||
+    text.includes("delayed")
+  ) {
+    return AlertCategory.DELAYS;
+  }
+
+  // 4️⃣ REROUTE
+  if (
+    text.includes("running via") ||
+    text.includes("rerouted") ||
+    text.includes("via the")
+  ) {
+    return AlertCategory.REROUTE;
+  }
+
+  // 5️⃣ REDUCED / SHORT TURNS
+  if (
+    text.includes("last stop will be") ||
+    text.includes("terminating at")
+  ) {
+    return AlertCategory.REDUCED_SERVICE;
+  }
+
+  // 6️⃣ ACCESSIBILITY
+  if (
+    text.includes("elevator") ||
+    text.includes("escalator") ||
+    text.includes("accessibility")
+  ) {
+    return AlertCategory.ACCESSIBILITY;
+  }
+
+  // 7️⃣ PLANNED WORK
+  if (
+    text.includes("planned") ||
+    text.includes("service change") ||
+    text.includes("construction")
+  ) {
+    return AlertCategory.PLANNED_WORK;
+  }
+
+  return AlertCategory.NOTICE;
+}
+
+const AlertPriority: Record<AlertCategory, number> = {
+  [AlertCategory.SUSPENDED]: 100,
+  [AlertCategory.PART_SUSPENDED]: 90,
+  [AlertCategory.DELAYS]: 80,
+  [AlertCategory.REROUTE]: 70,
+  [AlertCategory.REDUCED_SERVICE]: 60,
+  [AlertCategory.ACCESSIBILITY]: 50,
+  [AlertCategory.PLANNED_WORK]: 40,
+  [AlertCategory.NOTICE]: 10,
+};
 
 /**
  * Extracts the English string from a GTFS TranslatedString object
@@ -25,23 +114,16 @@ export function processMtaAlerts(
     const alert = entity.alert;
     if (!alert) return;
 
-    // Determine affected lines
     const affectedLines = Array.from(new Set<string>(
       alert.informedEntity
         ?.map((ie: any) => ie.routeId)
         .filter((id: string | undefined): id is string => !!id)
     ));
 
-    // Determine Severity using Mercury Extensions
-    const mercury = (alert as any)[".mercury_alert"] || alert.mercuryAlert;
-    const sortOrder = parseInt(mercury?.sort_order) || 0;
-    
-    let severity = AlertSeverity.WARNING;
-    if (mercury?.is_planned || mercury?.alert_type?.includes("Planned")) {
-      severity = AlertSeverity.MAINTENANCE;
-    } else if (sortOrder >= 30 || mercury?.alert_type?.includes("Suspended")) {
-      severity = AlertSeverity.SEVERE;
-    }
+    // Determine Category
+    const header = getTranslation(alert.headerText);
+    const description = getTranslation(alert.descriptionText);
+    const category = classifyAlert(header, description)
 
     // Parse Active Periods
     const activePeriods: AlertActivePeriod[] = (alert.activePeriod || []).map((p: any) => ({
@@ -51,14 +133,14 @@ export function processMtaAlerts(
     }));
 
     // Filter out alerts that haven't started yet and aren't in the 'advance notice' window
-    const isVisible = activePeriods.some(p => p.isCurrent || (p.start - now < 3600)); 
+    const isVisible = activePeriods.some(p => p.isCurrent)// || (p.start - now < 3600)); 
     if (!isVisible) return;
 
     const alertInfo: AlertInfo = {
       id: entity.id,
-      header: getTranslation(alert.headerText),
-      description: getTranslation(alert.descriptionText),
-      severity,
+      header,
+      description,
+      category,
       activePeriods,
       affectedLines
     };
@@ -81,6 +163,12 @@ export function processMtaAlerts(
         stopAlertsMap[targetStopId].push(alertInfo);
       }
     });
+  });
+
+  Object.values(stopAlertsMap).forEach(alerts => {
+    alerts.sort((a, b) => 
+      AlertPriority[b.category] - AlertPriority[a.category]
+    );
   });
 
   return stopAlertsMap;

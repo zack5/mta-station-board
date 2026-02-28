@@ -12,7 +12,7 @@ import { useMtaFeed } from "../hooks/useMtaFeed";
 import stationsData from '../generated/stations.json';
 import stopsData from '../generated/stops.json';
 
-// import { processMtaAlerts } from '../services/mtaAlertsProcessor';
+import { processMtaAlerts } from '../services/mtaAlertsProcessor';
 import { processMtaTrains } from '../services/mtaTrainsProcessor';
 
 import type { StationInfoData, StopInfoData } from '../types/types';
@@ -40,10 +40,10 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
     return processMtaTrains(mtaData, stopIDs, stops);
   }, [mtaData, stopIDs, stops]);
 
-  // const alerts = useMemo(() => {
-  //   if (mtaData.length === 0) return {};
-  //   return processMtaAlerts(trains, rawAlerts);
-  // }, [trains, rawAlerts]);
+  const alerts = useMemo(() => {
+    if (mtaData.length === 0) return {};
+    return processMtaAlerts(trains, rawAlerts);
+  }, [trains, rawAlerts]);
 
   const sortedStopKeys = Object.keys(trains).sort();
 
@@ -67,6 +67,7 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
                 stopId={stopId}
                 station={station}
                 trains={trains[stopId]}
+                alerts={alerts[stopId]}
               />
             );
           })}

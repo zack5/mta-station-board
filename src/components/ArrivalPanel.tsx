@@ -1,8 +1,6 @@
 import type { CSSProperties } from 'react';
 import type { StationInfo, TrainInfo } from '../types/types';
 
-import Warning from './Warning'
-
 import { getTrainLineImage, getTrainDisplayDetails } from '../utils/utils';
 
 interface ArrivalPanelProps {
@@ -33,7 +31,7 @@ export default function ArrivalPanel({
           alt={train.line}
         />
         {false && <div className={isCompact ? "warning-overlay-compact" : "warning-overlay"}>
-          <Warning />
+          {/* <Warning /> */}
         </div>}
       </div>
       {!isCompact && <div className="arrival-panel-destination truncate">

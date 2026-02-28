@@ -154,7 +154,7 @@ h1.arrival-panel-compact {
   flex-wrap: wrap;
 }
 
-/* Warning */
+/* Alerts */
 .warning-overlay {
   position: absolute;
   bottom: -2px;
