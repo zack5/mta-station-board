@@ -1,4 +1,10 @@
 [[redirects]]
+  from = "/mta-alerts"
+  to = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/camsys%2Fsubway-alerts"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/"
   status = 200
