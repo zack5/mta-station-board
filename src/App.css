@@ -13,6 +13,12 @@
   text-overflow: ellipsis;
 }
 
+.inline-route {
+  height: 1em;
+  vertical-align: middle;
+  margin-top: -0.2em;
+}
+
 /* Station Board */
 .station-board {
   display: flex;
