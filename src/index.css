@@ -4,7 +4,9 @@
   font-weight: 400;
 
   --color-text: #fff; 
+  --color-highlight: #c9c9c9; 
   --color-accent: #5a5a5a; 
+  --color-panel: #424242;
   --color-background: #242424; 
 
   color-scheme: dark;
@@ -40,4 +42,50 @@ h1 {
 h2 {
   font-size: 2.8em;
   font-weight: 700;
+}
+
+button {
+  /* Colors & Background */
+  background-color: var(--color-panel);
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle definition */
+  color: inherit;
+  
+  /* Shape & Layout */
+  border-radius: 9999px; /* Ensures fully rounded ends */
+  padding: 0.2rem 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  /* Typography */
+  font: inherit;
+  font-family: Helvetica, system-ui, Avenir, Arial, sans-serif;
+  line-height: inherit;
+  text-align: center;
+  text-decoration: none;
+
+  /* Smooth Transitions */
+  transition: filter 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease, outline 0.15s ease;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+/* Hover: Slightly brighten or deepen the panel color */
+button:hover {
+  filter: brightness(1.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  outline-color: var(--color-highlight);
+}
+
+/* Active: Physical "press" effect */
+button:active {
+  transform: scale(0.96);
+  filter: brightness(0.95);
+}
+
+/* Focus: Accessibility outline */
+button:focus-visible {
+  outline: 2px solid var(--color-highlight);
+  outline-offset: 2px;
 }

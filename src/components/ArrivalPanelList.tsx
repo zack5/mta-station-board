@@ -6,7 +6,7 @@ import { useStationBoardContext } from '../context/StationBoardContext';
 
 import type { AlertInfo, StationInfo, TrainInfo } from '../types/types';
 
-import { getPlatformHeader, getTrainLineImage } from '../utils/utils';
+import { getAlertImage, getPlatformHeader, getTrainLineImage } from '../utils/utils';
 
 interface ArrivalPanelListProps {
   stopId: string;
@@ -39,36 +39,31 @@ export default function ArrivalPanelList({
 
   return (
     <div className="arrival-panel-list-wrapper">
-      <div className="arrival-panel-list-header">
-        {uniqueLineImages.map((line) => (
-          <img
-            key={line}
-            src={line}
-            alt={line}
-            onError={(e) => {
-              (e.target as HTMLImageElement).style.display = 'none';
-            }}
-          />
-        ))}
-        <h2 className="truncate">{getPlatformHeader(stopId, station, trains)}</h2>
-      </div>
-      <div>
-        {alerts.map((alert) => (
-          <div
-            key={(alert.id)}
-            className=""
-          >
+      <div
+        className="arrival-panel-list-top-row"
+        >
+        <div
+          className="arrival-panel-list-header truncate"
+        >
+          {uniqueLineImages.map((line) => (
             <img
-              src={"/alerts/warning.svg"}
+              key={line}
+              src={line}
+              alt={line}
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = 'none';
+              }}
             />
-            <p className="truncate">
-              {alert.header}
-            </p>
-            <p className="truncate">
-              {alert.description}
-            </p>
-          </div>
-        ))}
+          ))}
+          <h2 className="truncate">{getPlatformHeader(stopId, station, trains)}</h2>
+        </div>
+        {!!alerts && !!alerts[0] && <button className="alerts-button">
+          <img
+            src={getAlertImage(alerts[0])}
+            alt={getAlertImage(alerts[0])}
+          />
+          <span>Alerts ›</span>
+        </button>}
       </div>
       <motion.div
         className="arrival-panel-list-container"

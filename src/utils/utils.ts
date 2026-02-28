@@ -1,4 +1,5 @@
-import type { StationInfo, TrainInfo } from '../types/types';
+import { AlertCategory } from '../types/types';
+import type { AlertInfo, StationInfo, TrainInfo } from '../types/types';
 
 export function isCrosstown(line: string): boolean {
   return ["7", "7x", "l"].includes(line.toLowerCase());
@@ -24,6 +25,27 @@ export function getTrainLineImage(trainLine: string) {
   }
 
   return `/lines/${filename}.svg`
+}
+
+export function getAlertImage(alert: AlertInfo): string {
+  switch (alert.category) {
+    case AlertCategory.SUSPENDED:
+    case AlertCategory.PART_SUSPENDED:
+      return '/alerts/severe.svg';
+
+    case AlertCategory.DELAYS:
+    case AlertCategory.REROUTE:
+    case AlertCategory.REDUCED_SERVICE:
+      return '/alerts/warning.svg';
+
+    case AlertCategory.ACCESSIBILITY:
+    case AlertCategory.PLANNED_WORK:
+    case AlertCategory.NOTICE:
+      return '/alerts/maintenance.svg';
+
+    default:
+      return '/alerts/warning.svg';
+  }
 }
 
 export function getTrainDisplayDetails(stopId: string, station: StationInfo, train: TrainInfo) {

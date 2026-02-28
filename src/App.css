@@ -56,7 +56,7 @@ header {
 .arrival-panel-outer {
   position: relative;
 
-  background-color: #424242;
+  background-color: var(--color-panel);
   border-radius: 8px;
   padding: 8px;
 
@@ -138,9 +138,16 @@ h1.arrival-panel-compact {
   gap: 6px;
 }
 
+.arrival-panel-list-top-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .arrival-panel-list-header {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 7px;
 }
 
@@ -155,6 +162,22 @@ h1.arrival-panel-compact {
 }
 
 /* Alerts */
+.alerts-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.5em;
+  flex-shrink: 0;
+}
+
+.alerts-button img {
+  height: 1.1em;
+}
+
+.alerts-button span {
+  margin-bottom: -0.2em;
+}
+
 .warning-overlay {
   position: absolute;
   bottom: -2px;
@@ -201,7 +224,7 @@ h1.arrival-panel-compact {
 /* Mobile */
 @media (max-width: 800px) {
   #root {
-    padding: 20px;
+    padding: 18px;
   }
 
   h1 {
@@ -210,6 +233,10 @@ h1.arrival-panel-compact {
 
   h2 {
     font-size: 1.25em;
+  }
+  
+  button {
+    padding: 0.1rem 0.3rem;
   }
 
   .station-board {
@@ -268,6 +295,19 @@ h1.arrival-panel-compact {
   
   h1.arrival-panel-compact {
     font-size: 1em;
+  }
+
+  .alerts-button {
+    gap: 3px;
+    font-size: 0.8em;
+  }
+  
+  .alerts-button img {
+    height: 1.1em;
+  }
+  
+  .alerts-button span {
+    margin-bottom: -0.0em;
   }
 
   .clock {
