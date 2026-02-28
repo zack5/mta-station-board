@@ -48,6 +48,30 @@ export function getAlertImage(alert: AlertInfo): string {
   }
 }
 
+export function getAlertTitle(alert: AlertInfo): string {
+  switch (alert.category) {
+    case AlertCategory.SUSPENDED:
+      return 'Suspended';
+    case AlertCategory.PART_SUSPENDED:
+      return 'Part Suspended';
+    case AlertCategory.DELAYS:
+      return 'Delays';
+    case AlertCategory.REROUTE:
+      return 'Reroute';
+    case AlertCategory.REDUCED_SERVICE:
+      return 'Reduced Service';
+    case AlertCategory.ACCESSIBILITY:
+      return 'Accessibility';
+    case AlertCategory.PLANNED_WORK:
+      return 'Planned Work';
+    case AlertCategory.NOTICE:
+      return 'Notice';
+
+    default:
+      return 'Alert';
+  }
+}
+
 export function getTrainDisplayDetails(stopId: string, station: StationInfo, train: TrainInfo) {
   const destination = train.destination;
 

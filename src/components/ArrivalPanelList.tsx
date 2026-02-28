@@ -1,12 +1,13 @@
 import { motion, AnimatePresence } from 'framer-motion';
 
+import AlertsDialog from './AlertsDialog';
 import ArrivalPanel from './ArrivalPanel';
 
 import { useStationBoardContext } from '../context/StationBoardContext';
 
 import type { AlertInfo, StationInfo, TrainInfo } from '../types/types';
 
-import { getAlertImage, getPlatformHeader, getTrainLineImage } from '../utils/utils';
+import { getPlatformHeader, getTrainLineImage } from '../utils/utils';
 
 interface ArrivalPanelListProps {
   stopId: string;
@@ -57,13 +58,7 @@ export default function ArrivalPanelList({
           ))}
           <h2 className="truncate">{getPlatformHeader(stopId, station, trains)}</h2>
         </div>
-        {!!alerts && !!alerts[0] && <button className="alerts-button">
-          <img
-            src={getAlertImage(alerts[0])}
-            alt={getAlertImage(alerts[0])}
-          />
-          <span>Alerts ›</span>
-        </button>}
+        <AlertsDialog alerts={alerts}/>
       </div>
       <motion.div
         className="arrival-panel-list-container"
