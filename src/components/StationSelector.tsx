@@ -30,7 +30,19 @@ const customFilterOption = (
   option: { data: StationOption & { searchLabel: string } }, 
   rawInput: string
 ) => {
-  const cleanedInput = rawInput.replace(/\s+/g, '').toLowerCase();
+  const cleanedInput = rawInput
+    .toLowerCase()
+    .replace(/(1)(s|st)\b/g, '$1')
+    .replace(/(2)(n|nd)\b/g, '$1')
+    .replace(/(3)(r|rd)\b/g, '$1')
+    .replace(/(\d+)(t|th)\b/g, '$1')
+    .replace(/(ave)\b/g, 'av')
+    .replace(/(str)\b/g, 'st')
+    .replace(/(stre)\b/g, 'st')
+    .replace(/(stree)\b/g, 'st')
+    .replace(/(street)\b/g, 'st')
+    .replace(/\s+/g, '');
+  
   if (!cleanedInput) return true;
 
   // matchSorter now just looks at the pre-baked string
