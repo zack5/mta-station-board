@@ -22,7 +22,7 @@ export default function AlertsDialog({
             src={getAlertImage(alerts[0])}
             alt={getAlertImage(alerts[0])}
           />
-          <span>Alerts ›</span>
+          <span>{`${getAlertTitle(alerts[0])} ›`}</span>
         </button>
       </Dialog.Trigger>
 
