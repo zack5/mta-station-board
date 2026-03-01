@@ -51,34 +51,41 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
   const noAvailableTrains = !showLoading && activeStationId && sortedStopKeys.length === 0
 
   return (
-    <div className="station-board">
-      <header className="station-board-header">
-        <StationSelector stationId={activeStationId} />
-        <Clock />
-      </header>
-      <main>
-        <div className={`station-board-arrival-panels-${isDisplayVersion ? "stack" : "list"}`}>
-          {sortedStopKeys.map((stopId) => {
-            const Panel = isDisplayVersion ? ArrivalPanelStack : ArrivalPanelList;
+    <>
+      <div className="station-board">
+        <header className="station-board-header">
+          <StationSelector stationId={activeStationId} />
+          <Clock />
+        </header>
+        <main>
+          <div className={`station-board-arrival-panels-${isDisplayVersion ? "stack" : "list"}`}>
+            {sortedStopKeys.map((stopId) => {
+              const Panel = isDisplayVersion ? ArrivalPanelStack : ArrivalPanelList;
 
-            return (
-              <Panel
-                key={stopId}
-                stopId={stopId}
-                station={station}
-                trains={trains[stopId]}
-                alerts={alerts[stopId]}
-              />
-            );
-          })}
-          {showLoading && <p>
-            Loading...
-          </p>}
-          {noAvailableTrains && <p>
-            No available trains.
-          </p>}
-        </div>
-      </main>
-    </div>
+              return (
+                <Panel
+                  key={stopId}
+                  stopId={stopId}
+                  station={station}
+                  trains={trains[stopId]}
+                  alerts={alerts[stopId]}
+                />
+              );
+            })}
+            {showLoading && <p>
+              Loading...
+            </p>}
+            {noAvailableTrains && <p>
+              No available trains.
+            </p>}
+          </div>
+        </main>
+      </div>
+      {!isDisplayVersion && <footer>
+        <a href="https://zack5.github.io/">
+          <img src="/person.png" className="portfolio-link"/>
+        </a>
+      </footer>}
+    </>
   );
 }
