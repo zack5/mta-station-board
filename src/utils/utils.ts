@@ -170,3 +170,11 @@ export const isRoutePart = (part: string): boolean => {
 export const parseRouteText = (text: string) => {
   return text.split(ROUTE_REGEX).filter(Boolean);
 };
+
+export const normalize = (text: string) => {
+  return text
+    .toLowerCase()
+    .replace(/\[[a-z0-9]+\]/g, "") // remove [N], [R], etc
+    .replace(/\s+/g, " ")
+    .trim();
+}
