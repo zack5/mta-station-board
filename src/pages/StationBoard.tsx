@@ -82,9 +82,8 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
         </main>
       </div>
       {!isDisplayVersion && <footer>
-        <a href="https://zack5.github.io/">
-          <img src="/person.png" className="portfolio-link"/>
-        </a>
+        <p>Made in Brooklyn</p>
+        <p><a href="https://zack5.github.io/">See more of my work</a></p>
       </footer>}
     </>
   );
