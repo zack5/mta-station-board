@@ -2,16 +2,10 @@ import { Dialog } from "radix-ui";
 
 import type { AlertInfo } from '../types/types';
 
-import { getAlertImage, getAlertTitle } from '../utils/utils';
-const RouteText = ({ text }: { text: string }) => {
-  // 1. (?:\[([A-Z0-9])\]) -> Matches [A], captures A, removes brackets.
-  // 2. |                  -> OR
-  // 3. (?<=^|[\s/])       -> Lookbehind: Must be preceded by start, space, or slash.
-  //    ([A-Z0-9])         -> Capture the route.
-  //    (?=$|[\s/])        -> Lookahead: Must be followed by end, space, or slash.
-  const routeRegex = /(?:\[([A-Z0-9])\])|(?<=^|[\s/])([A-Z0-9])(?=$|[\s/])/g;
+import { getAlertImage, getAlertTitle, parseRouteText } from '../utils/utils';
 
-  const parts = text.split(routeRegex);
+const RouteText = ({ text }: { text: string }) => {
+  const parts = parseRouteText(text);
 
   return (
     <span>

@@ -161,3 +161,12 @@ export function getPlatformHeader(stopId: string, station: StationInfo, trains: 
   return title;
 }
 
+export const ROUTE_REGEX = /(?:\[([A-Z0-9])\])|(?<=^|[\s/])(?:([A-Z])|([0-9])(?!\s*min))(?=$|[\s/])\/?/g;
+
+export const isRoutePart = (part: string): boolean => {
+  return /^[A-Z0-9]$/.test(part);
+};
+
+export const parseRouteText = (text: string) => {
+  return text.split(ROUTE_REGEX).filter(Boolean);
+};
