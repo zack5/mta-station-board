@@ -5,6 +5,7 @@ import Clock from "../components/Clock";
 import ArrivalPanelList from "../components/ArrivalPanelList";
 import ArrivalPanelStack from "../components/ArrivalPanelStack";
 import { StationSelector } from "../components/StationSelector";
+import LastUpdateTime from "../components/LastUpdateTime";
 
 import { useAlertsFeed } from "../hooks/useAlertsFeed";
 import { useMtaFeed } from "../hooks/useMtaFeed";
@@ -32,7 +33,7 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
   const station = stations[activeStationId];
   const stopIDs = station?.stopIds || [];
 
-  const { mtaData, waitingForData } = useMtaFeed(station?.feeds || []);
+  const { mtaData, waitingForData, lastReceivedAt } = useMtaFeed(station?.feeds || []);
   const { rawAlerts } = useAlertsFeed();
 
   const trains = useMemo(() => {
@@ -55,7 +56,10 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
       <div className="station-board">
         <header className="station-board-header">
           <StationSelector stationId={activeStationId} />
-          <Clock />
+          <div className="station-board-header-right">
+            <Clock />
+            <LastUpdateTime lastReceivedAt={lastReceivedAt} />
+          </div>
         </header>
         <main>
           <div className={`station-board-arrival-panels-${isDisplayVersion ? "stack" : "list"}`}>

@@ -79,6 +79,15 @@ header {
   justify-content: space-between;
 }
 
+.station-board-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  line-height: 1;
+}
+
 /* Arrival Panel */
 
 .arrival-panel-outer {
@@ -249,7 +258,13 @@ h1.arrival-panel-compact {
 
 /* Clock */
 .clock {
-  font-size: 2.2em;
+  margin-top: -0.2em;
+  font-size: 2.25em;
+}
+
+/* Last Update Time */
+.last-update-time {
+  font-size: 1.25em;
 }
 
 /* Station Selector */
@@ -365,7 +380,7 @@ h1.arrival-panel-compact {
     margin-bottom: -0.0em;
   }
 
-  .clock {
+  .station-board-header-right {
     display: none;
   }
 

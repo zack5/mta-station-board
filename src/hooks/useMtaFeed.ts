@@ -4,6 +4,7 @@ import { decodeGtfs } from "../services/gtfs";
 
 export function useMtaFeed(feedSuffixes: string[]) {
     const [waitingForData, setWaitingForData] = useState(true);
+    const [lastReceivedAt, setLastReceivedAt] = useState<Date | null>(null);
     const [mtaData, setMtaData] = useState<any[]>([]);
     const requestIdRef = useRef(0);
   
@@ -43,6 +44,7 @@ export function useMtaFeed(feedSuffixes: string[]) {
           if (isMounted && requestId === requestIdRef.current) {
             setMtaData(data);
             setWaitingForData(false);
+            setLastReceivedAt(new Date());
           }
   
         } catch (err: any) {
@@ -66,5 +68,5 @@ export function useMtaFeed(feedSuffixes: string[]) {
       };
     }, [feedSuffixes]);
   
-    return { mtaData, waitingForData };
+    return { mtaData, waitingForData, lastReceivedAt };
   }
