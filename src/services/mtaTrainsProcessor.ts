@@ -45,7 +45,7 @@ export function processMtaTrains(
           const arrivalTime = update.arrival?.time || update.departure?.time;
           if (!arrivalTime || arrivalTime < now) return;
 
-          const minutesArrival = Math.round((arrivalTime - now) / 60);
+          const timeToArrival = arrivalTime - now;
 
           // Find the next update in the array, if it exists
           const nextUpdate = stopUpdates[index + 1];
@@ -64,7 +64,7 @@ export function processMtaTrains(
             line,
             nextStop,
             destination,
-            arrivalTime: minutesArrival
+            timeToArrival
           });
         }
       });
@@ -76,7 +76,7 @@ export function processMtaTrains(
     if (trains[key].length === 0) {
       delete trains[key];
     } else {
-      trains[key].sort((a, b) => a.arrivalTime - b.arrivalTime);
+      trains[key].sort((a, b) => a.timeToArrival - b.timeToArrival);
     }
   });
 

@@ -29,7 +29,7 @@ export interface TrainInfo {
   line: string;
   nextStop: StopInfo | null;
   destination: StopInfo;
-  arrivalTime: number;
+  timeToArrival: number;
 }
 
 /*** ALERTS ***/
