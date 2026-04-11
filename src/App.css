@@ -127,6 +127,13 @@ header {
   font-size: 1.6em;
 }
 
+.arrival-panel-subtitle-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6em;
+}
+
 .arrival-panel-arrival-time {
   display: flex;
   flex-direction: column;
@@ -203,12 +210,12 @@ h1.arrival-panel-compact {
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 1.5em;
+  font-size: 1.25em;
   flex-shrink: 0;
 }
 
 .alerts-button img {
-  height: 1.1em;
+  height: 1.0em;
 }
 
 .alerts-button span {

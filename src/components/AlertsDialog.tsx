@@ -4,6 +4,9 @@ import type { AlertInfo } from '../types/types';
 
 import { getAlertImage, getAlertTitle, parseRouteText } from '../utils/utils';
 
+/** Above arrival stack / motion layers and other in-app overlays (e.g. station selector). */
+const DIALOG_Z_BASE = 10_000;
+
 const RouteText = ({ text }: { text: string }) => {
   const parts = parseRouteText(text);
 
@@ -56,8 +59,11 @@ export default function AlertsDialog({
       </Dialog.Trigger>
 
       <Dialog.Portal>
-        <Dialog.Overlay className="DialogOverlay" />
-        <Dialog.Content className="DialogContent">
+        <Dialog.Overlay className="DialogOverlay" style={{ zIndex: DIALOG_Z_BASE }} />
+        <Dialog.Content
+          className="DialogContent"
+          style={{ zIndex: DIALOG_Z_BASE + 1 }}
+        >
           <Dialog.Title className="DialogTitle">
             Happening now
           </Dialog.Title>

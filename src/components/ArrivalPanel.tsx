@@ -1,5 +1,7 @@
 import { useLayoutEffect, useState, type CSSProperties } from 'react';
-import type { StationInfo, TrainInfo } from '../types/types';
+import type { AlertInfo, StationInfo, TrainInfo } from '../types/types';
+
+import AlertsDialog from './AlertsDialog';
 
 import { getTrainLineImage, getTrainDisplayDetails } from '../utils/utils';
 
@@ -43,6 +45,7 @@ interface ArrivalPanelProps {
   train: TrainInfo;
   style?: CSSProperties;
   isCompact?: boolean;
+  alerts?: AlertInfo[];
 }
 
 export default function ArrivalPanel({ 
@@ -50,7 +53,8 @@ export default function ArrivalPanel({
   stopId,
   train,
   style,
-  isCompact
+  isCompact,
+  alerts
 }: ArrivalPanelProps) {
   const extraClassname = isCompact ? " arrival-panel-compact" : ""
 
@@ -130,7 +134,10 @@ export default function ArrivalPanel({
       </div>
       {!isCompact && <div className="arrival-panel-destination truncate">
         <h2 className="truncate">{title}</h2>
-        <p className="truncate">{subtitle}</p>
+        <span className="arrival-panel-subtitle-container">
+          <p className="truncate">{subtitle}</p>
+          {alerts && <AlertsDialog alerts={alerts}/>}
+        </span>
       </div>}
       <div className="arrival-panel-arrival-time">
         <h1 className={extraClassname}>{minutesPart}</h1>

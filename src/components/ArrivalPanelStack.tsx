@@ -128,6 +128,7 @@ export default function ArrivalPanelStack({
               stopId={stopId}
               train={train}
               isCompact={index > 0}
+              alerts={index === 0 ? alerts : undefined}
             />
           </motion.div>
         ))}
