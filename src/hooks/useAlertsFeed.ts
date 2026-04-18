@@ -12,13 +12,22 @@ export function useAlertsFeed() {
 
       try {
         const res = await fetch(
-          "/mta-alerts",
-          { 
+          "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/camsys%2Fsubway-alerts",
+          {
             signal: controller.signal,
           }
         );
 
         if (!res.ok) throw new Error(`Alerts API returned ${res.status}`);
+
+        const contentType = res.headers.get("content-type");
+        if (
+          contentType?.includes("application/xml") ||
+          contentType?.includes("text/html")
+        ) {
+          const errorText = await res.text();
+          throw new Error(`Alerts API error response: ${errorText}`);
+        }
 
         const buffer = await res.arrayBuffer();
         const decoded = await decodeGtfs(buffer);
