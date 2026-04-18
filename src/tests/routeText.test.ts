@@ -47,4 +47,10 @@ describe('Route Regex Logic', () => {
     expect(parts).toContain('7');
     expect(parts).not.toContain('8');
   });
+
+  it('does not parse station-number prefixes as routes', () => {
+    const parts = parseRouteText('In Manhattan, uptown [R] skips Prince St, 8 St-NYU, 23 St and 28 St');
+    expect(parts).toContain('R');
+    expect(parts).not.toContain('8');
+  });
 });

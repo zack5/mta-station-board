@@ -67,6 +67,9 @@ export default function AlertsDialog({
           <Dialog.Title className="DialogTitle">
             Happening now
           </Dialog.Title>
+          <Dialog.Description>
+            Current service alerts affecting this station.
+          </Dialog.Description>
           <hr />
           <div className="alerts-container">
             {alerts.map((alert, index) => (
