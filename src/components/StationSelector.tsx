@@ -95,8 +95,6 @@ export function StationSelector({ stationId, supportsUserLocation }: StationSele
     }
   }, [userLocationState.location, userLocationState.error, stations, navigate, pathnamePrefix]);
 
-  console.log(hasNavigated.current, userLocationState);
-
   const currentOption = options.find((opt) => opt.value === stationId);
 
   const customStyles: StylesConfig<StationOption, false> = {
