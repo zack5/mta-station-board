@@ -55,7 +55,7 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
     <>
       <div className="station-board">
         <header className="station-board-header">
-          <StationSelector stationId={activeStationId} />
+          <StationSelector stationId={activeStationId} supportsUserLocation={!isDisplayVersion}/>
           <div className="station-board-header-right">
             <Clock />
             <LastUpdateTime lastReceivedAt={lastReceivedAt} />

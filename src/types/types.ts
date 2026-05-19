@@ -1,3 +1,16 @@
+/*** Location ***/
+export interface Location {
+  latitude: number;
+  longitude: number;
+}
+
+export interface UserLocationState {
+  location: Location | null;
+  error: string | null;
+  loading: boolean;
+}
+
+
 /*** STATIONS ***/
 
 // Format of complexes.json
@@ -7,6 +20,7 @@ export interface StationInfo {
   borough: string;
   stopIds: string[];
   feeds: string[];
+  location: Location;
 }
 export type StationInfoData = Record<string, StationInfo>;
 

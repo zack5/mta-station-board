@@ -1,5 +1,5 @@
 import { AlertCategory } from '../types/types';
-import type { AlertInfo, StationInfo, TrainInfo } from '../types/types';
+import type { AlertInfo, Location, StationInfo, StationInfoData, TrainInfo } from '../types/types';
 
 export function isCrosstown(line: string): boolean {
   return ["7", "7x", "l"].includes(line.toLowerCase());
@@ -178,3 +178,42 @@ export const normalize = (text: string) => {
     .replace(/\s+/g, " ")
     .trim();
 }
+
+
+// Function to calculate the distance between two latitude/longitude points using the Haversine formula
+const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
+  const toRadians = (degrees: number) => degrees * (Math.PI / 180);
+  const R = 6371; // Radius of the Earth in kilometers
+  const dLat = toRadians(lat2 - lat1);
+  const dLon = toRadians(lon2 - lon1);
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRadians(lat1)) *
+      Math.cos(toRadians(lat2)) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+};
+
+// Function to find the closest station to a given location
+export const findClosestStation = (location: Location, stationsData: StationInfoData): string => {
+  let closestStationId = '';
+  let shortestDistance = Infinity;
+
+  Object.entries(stationsData).forEach(([id, station]) => {
+    const distance = calculateDistance(
+      location.latitude,
+      location.longitude,
+      station.location.latitude,
+      station.location.longitude
+    );
+
+    if (distance < shortestDistance) {
+      shortestDistance = distance;
+      closestStationId = id;
+    }
+  });
+
+  return closestStationId;
+};

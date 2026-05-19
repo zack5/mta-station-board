@@ -137,6 +137,9 @@ function main() {
     const stopIdsRaw = row["GTFS Stop IDs"];
     const borough = fullBoroughNames[row["Borough"]] || "";
     const routes = row["Daytime Routes"];
+    const latitude = parseFloat(row["Latitude"]);
+    const longitude = parseFloat(row["Longitude"]);
+    const location = { latitude, longitude };
 
     if (!stationId || !stopIdsRaw) continue;
 
@@ -151,6 +154,7 @@ function main() {
       borough,
       stopIds,
       feeds: routesToFeeds(routes),
+      location,
     };
 
     for (const stopId of stopIds) {

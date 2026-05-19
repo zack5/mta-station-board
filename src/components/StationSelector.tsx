@@ -1,15 +1,19 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Select, { type StylesConfig } from 'react-select';
+import { motion } from 'framer-motion';
 import { matchSorter } from 'match-sorter';
+import { MdLocationSearching, MdMyLocation } from 'react-icons/md';
 
 import { useStationBoardContext } from '../context/StationBoardContext';
 
 import stationsData from '../generated/stations.json';
 
+import { useUserLocation } from '../hooks/useUserLocation';
+
 import type { StationInfoData } from '../types/types';
 
-import { getTrainLineImage } from '../utils/utils';
+import { findClosestStation, getTrainLineImage } from '../utils/utils';
 
 interface StationOption {
   value: string;
@@ -22,12 +26,12 @@ const getLineIcons = (label: string) => {
   // Regex looks for content inside (...) 
   // e.g., "145 St (A,B,C,D)" -> "A,B,C,D"
   const match = label.match(/\(([^)]+)\)$/);
-  if (!match) return [];    
+  if (!match) return [];
   return match[1].split(',').map(line => line.trim());
 };
 
 const customFilterOption = (
-  option: { data: StationOption & { searchLabel: string } }, 
+  option: { data: StationOption & { searchLabel: string } },
   rawInput: string
 ) => {
   const cleanedInput = rawInput
@@ -42,7 +46,7 @@ const customFilterOption = (
     .replace(/(stree)\b/g, 'st')
     .replace(/(street)\b/g, 'st')
     .replace(/\s+/g, '');
-  
+
   if (!cleanedInput) return true;
 
   // matchSorter now just looks at the pre-baked string
@@ -56,9 +60,10 @@ const customFilterOption = (
 
 interface StationSelectorProps {
   stationId: string;
+  supportsUserLocation?: boolean;
 }
 
-export function StationSelector({ stationId }: StationSelectorProps) {
+export function StationSelector({ stationId, supportsUserLocation }: StationSelectorProps) {
   const stations = stationsData as StationInfoData;
 
   const options = useMemo(() => {
@@ -78,6 +83,20 @@ export function StationSelector({ stationId }: StationSelectorProps) {
   const segments = pathname.split('/');
   const pathnamePrefix = segments.length > 1 && ["station", "stationdisplay"].includes(segments[1]) ? segments[1] : "station";
 
+  const { getUserLocation, userLocationState } = useUserLocation();
+
+  const hasNavigated = useRef(false);
+
+  useEffect(() => {
+    if (!hasNavigated.current && userLocationState.location && !userLocationState.error) {
+      const closestStationId = findClosestStation(userLocationState.location, stations);
+      navigate(`/${pathnamePrefix}/${closestStationId}`);
+      hasNavigated.current = true;
+    }
+  }, [userLocationState.location, userLocationState.error, stations, navigate, pathnamePrefix]);
+
+  console.log(hasNavigated.current, userLocationState);
+
   const currentOption = options.find((opt) => opt.value === stationId);
 
   const customStyles: StylesConfig<StationOption, false> = {
@@ -87,7 +106,7 @@ export function StationSelector({ stationId }: StationSelectorProps) {
       background: "none",
       border: "none",
       boxShadow: "none",
-      minHeight: "0", 
+      minHeight: "0",
       cursor: "pointer",
       marginBlock: "-0.15em",
       width: "100%"
@@ -109,34 +128,34 @@ export function StationSelector({ stationId }: StationSelectorProps) {
     menu: (base) => ({
       ...base,
       zIndex: 9999,
-      fontSize: "1rem", 
+      fontSize: "1rem",
       fontWeight: "normal",
-      backgroundColor: "var(--color-background, #1a1a1a)", 
+      backgroundColor: "var(--color-background, #1a1a1a)",
       width: "max-content",
       maxWidth: contentWidth
     }),
     option: (base, { isFocused, isSelected }) => ({
       ...base,
-      backgroundColor: isSelected 
-        ? "var(--color-accent,rgb(76, 76, 76))" 
-        : isFocused 
-        ? "#333" 
-        : "transparent",
-    
+      backgroundColor: isSelected
+        ? "var(--color-accent,rgb(76, 76, 76))"
+        : isFocused
+          ? "#333"
+          : "transparent",
+
       color: isSelected ? "#fff" : "var(--color-text, #fff)",
-    
+
       cursor: "pointer",
       fontSize: isDesktop ? "1.5rem" : "1rem",
-    
+
       ":active": {
         backgroundColor: "var(--color-accent, #27ae60)",
       },
     }),
     input: (base) => ({
-        ...base,
-        // Use your text variable so it matches the H1
-        color: "var(--color-text, #fff)",
-      }),
+      ...base,
+      // Use your text variable so it matches the H1
+      color: "var(--color-text, #fff)",
+    }),
     menuPortal: (base) => ({
       ...base,
       zIndex: 9999,
@@ -144,39 +163,77 @@ export function StationSelector({ stationId }: StationSelectorProps) {
   };
 
   return (
-    <h1 style={{maxWidth: contentWidth - (isDesktop ? 150 : 0)}}>
-      <Select<StationOption, false>
-        placeholder="Select a station"
-        value={currentOption}
-        styles={customStyles}
-        maxMenuHeight={800}
-        options={options} 
-        onChange={(opt) => navigate(opt ? `/${pathnamePrefix}/${opt.value}` : '/')}
-        components={{ 
-          IndicatorSeparator: null
-        }}
-        filterOption={customFilterOption}
-        formatOptionLabel={(option, { context }) => {
+    <div className='station-selector-container'>
+      {supportsUserLocation && (
+        <div
+          className='station-selector-user-location'
+          onClick={() => {
+            hasNavigated.current = false;
+            getUserLocation();
+          }}
+        >
+          <motion.div
+            style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', transformOrigin: 'center' }}
+            animate={{
+              scale: userLocationState.loading ? 0.9 : 1,
+              // Wiggle between -15 and 15 degrees when loading, snap to 0 when done
+              rotate: userLocationState.loading ? [-15, 15, -15] : 0,
+            }}
+            transition={{
+              scale: { type: "spring", stiffness: 300, damping: 25 },
+              rotate: userLocationState.loading
+                ? {
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                  ease: "easeInOut",
+                  duration: 2.0, // Speed of one full wiggle cycle
+                }
+                : {
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 15,
+                },
+            }}
+          >
+            {userLocationState.loading ? <MdLocationSearching /> : <MdMyLocation />}
+          </motion.div>
+        </div>
+      )}
+      <h1 style={{ maxWidth: contentWidth - (isDesktop ? 220 : 0) - (supportsUserLocation && isDesktop ? 40 : 0) }}>
+
+        <Select<StationOption, false>
+          placeholder="Select a station"
+          value={currentOption}
+          styles={customStyles}
+          maxMenuHeight={800}
+          options={options}
+          onChange={(opt) => navigate(opt ? `/${pathnamePrefix}/${opt.value}` : '/')}
+          components={{
+            IndicatorSeparator: null
+          }}
+          filterOption={customFilterOption}
+          formatOptionLabel={(option, { context }) => {
             if (context === 'value') return option.label; // Shown when selected
-          
+
             const lines = getLineIcons(option.optionLabel);
             // Remove the (A,B,C) part from the text so it's not redundant
             const cleanLabel = option.optionLabel.split('(')[0].trim();
-          
+
             return (
               <div className='station-selector-label-container'>
                 <span>{cleanLabel}</span>
                 {lines.map((line) => (
-                  <img 
+                  <img
                     key={line}
-                    src={getTrainLineImage(line)} 
+                    src={getTrainLineImage(line)}
                     alt={line}
                   />
                 ))}
               </div>
             );
           }}
-      />
-    </h1>
+        />
+      </h1>
+    </div>
   );
 }
