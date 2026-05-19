@@ -161,7 +161,42 @@ export function StationSelector({ stationId, supportsUserLocation }: StationSele
   };
 
   return (
-    <div className='station-selector-container'>
+    <>
+      {/* <h1 style={{ maxWidth: contentWidth - (isDesktop ? 220 : 0) - (supportsUserLocation && isDesktop ? 40 : 0) }}> */}
+      <h1 className='station-selector-flex-item'>
+        <Select<StationOption, false>
+          placeholder="Select a station"
+          value={currentOption}
+          styles={customStyles}
+          maxMenuHeight={800}
+          options={options}
+          onChange={(opt) => navigate(opt ? `/${pathnamePrefix}/${opt.value}` : '/')}
+          components={{
+            IndicatorSeparator: null
+          }}
+          filterOption={customFilterOption}
+          formatOptionLabel={(option, { context }) => {
+            if (context === 'value') return option.label; // Shown when selected
+
+            const lines = getLineIcons(option.optionLabel);
+            // Remove the (A,B,C) part from the text so it's not redundant
+            const cleanLabel = option.optionLabel.split('(')[0].trim();
+
+            return (
+              <div className='station-selector-label-container'>
+                <span>{cleanLabel}</span>
+                {lines.map((line) => (
+                  <img
+                    key={line}
+                    src={getTrainLineImage(line)}
+                    alt={line}
+                  />
+                ))}
+              </div>
+            );
+          }}
+        />
+      </h1>
       {supportsUserLocation && (
         <div
           className='station-selector-user-location'
@@ -197,41 +232,6 @@ export function StationSelector({ stationId, supportsUserLocation }: StationSele
           </motion.div>
         </div>
       )}
-      <h1 style={{ maxWidth: contentWidth - (isDesktop ? 220 : 0) - (supportsUserLocation && isDesktop ? 40 : 0) }}>
-
-        <Select<StationOption, false>
-          placeholder="Select a station"
-          value={currentOption}
-          styles={customStyles}
-          maxMenuHeight={800}
-          options={options}
-          onChange={(opt) => navigate(opt ? `/${pathnamePrefix}/${opt.value}` : '/')}
-          components={{
-            IndicatorSeparator: null
-          }}
-          filterOption={customFilterOption}
-          formatOptionLabel={(option, { context }) => {
-            if (context === 'value') return option.label; // Shown when selected
-
-            const lines = getLineIcons(option.optionLabel);
-            // Remove the (A,B,C) part from the text so it's not redundant
-            const cleanLabel = option.optionLabel.split('(')[0].trim();
-
-            return (
-              <div className='station-selector-label-container'>
-                <span>{cleanLabel}</span>
-                {lines.map((line) => (
-                  <img
-                    key={line}
-                    src={getTrainLineImage(line)}
-                    alt={line}
-                  />
-                ))}
-              </div>
-            );
-          }}
-        />
-      </h1>
-    </div>
+    </>
   );
 }

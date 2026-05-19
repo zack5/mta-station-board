@@ -7,6 +7,8 @@ import ArrivalPanelStack from "../components/ArrivalPanelStack";
 import { StationSelector } from "../components/StationSelector";
 import LastUpdateTime from "../components/LastUpdateTime";
 
+import { useStationBoardContext } from "../context/StationBoardContext";
+
 import { useAlertsFeed } from "../hooks/useAlertsFeed";
 import { useMtaFeed } from "../hooks/useMtaFeed";
 
@@ -33,6 +35,7 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
   const station = stations[activeStationId];
   const stopIDs = station?.stopIds || [];
 
+  const { isMobile } = useStationBoardContext();
   const { mtaData, waitingForData, lastReceivedAt } = useMtaFeed(station?.feeds || []);
   const { rawAlerts } = useAlertsFeed();
 
@@ -55,7 +58,7 @@ export default function StationBoard({ stationId: propStationId }: StationBoardP
     <>
       <div className="station-board">
         <header className="station-board-header">
-          <StationSelector stationId={activeStationId} supportsUserLocation={!isDisplayVersion}/>
+          <StationSelector stationId={activeStationId} supportsUserLocation={!isDisplayVersion && isMobile}/>
           <div className="station-board-header-right">
             <Clock />
             <LastUpdateTime lastReceivedAt={lastReceivedAt} />
